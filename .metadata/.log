@@ -1,0 +1,25 @@
+!SESSION 2020-12-17 00:04:43.501 -----------------------------------------------
+eclipse.buildId=Version 1.4.0
+java.version=1.8.0_252
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_GB
+Framework arguments:  -keyring /Users/adityasehgal/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/adityasehgal/.eclipse_keyring
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-12-17 00:07:35.346
+!MESSAGE Log4j initialized with config file /Users/adityasehgal/Documents/GitHub/Learn_STM32/.metadata/.log4j.xml
+
+!ENTRY org.eclipse.core.net 1 0 2020-12-17 00:07:36.050
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-12-17 00:07:37.752
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-12-17 00:07:38.179
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-12-17 00:09:33.312
+!MESSAGE Indexed 'DMA_Byte_Replication' (0 sources, 0 headers) in 0.003 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-12-17 00:09:39.102
+!MESSAGE Indexed 'DMA_Byte_Replication' (22 sources, 72 headers) in 2.55 sec: 3,122 declarations; 9,830 references; 0 unresolved inclusions; 82 syntax errors; 1,923 unresolved names (13%)
