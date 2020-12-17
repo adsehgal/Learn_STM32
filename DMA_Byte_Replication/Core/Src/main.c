@@ -24,11 +24,8 @@
 #include "stdint.h"
 #include "stdarg.h"
 
-const int DATA_SIZE = 256;	//can not use #define to declare array size?
+const int DATA_SIZE = 4096;	//can not use #define to declare array size?
 
-
-
-uint8_t DMA_ISR_Flag = 0;
 
 UART_HandleTypeDef huart2;
 DMA_HandleTypeDef myDMA;
@@ -43,11 +40,7 @@ static void MX_DMA_Init(void);
 static void MX_USART2_UART_Init(void);
 
 //Custom Functions
-void DMA_ISR(DMA_HandleTypeDef *hdma);
 void printmsg(char *format,...);
-
-
-
 
 
 int main(void)
@@ -63,36 +56,38 @@ int main(void)
 	MX_USART2_UART_Init();
 
 	for(int i = 0; i < DATA_SIZE; i++){
-		srcData[i] = i%256;
+		srcData[i] = i%DATA_SIZE;
 		dstData[i] = 0;
 	}
 
 	//&myDMA = DMA handle
 	//HAL_DMA_XFER_CPLT_CB_ID = Interrupt on full transfer
 	//	Found in stm32fxx_hal_dma.h -> HAL_DMA_CallbackIDTypeDef enum
-	HAL_DMA_RegisterCallback(&myDMA, HAL_DMA_XFER_CPLT_CB_ID, &DMA_ISR);
+//	HAL_DMA_RegisterCallback(&myDMA, HAL_DMA_XFER_CPLT_CB_ID, &DMA_ISR);
 
-	HAL_DMA_Start_IT(&myDMA, (uint8_t)srcData, (uint8_t)dstData, sizeof(srcData));
+	HAL_DMA_Start(&myDMA, (uint32_t)srcData, (uint32_t)dstData, sizeof(srcData));
+
+	printmsg("\n\nStarting DMA transfer\n\n");
 
 	while (1)
 	{
-		printmsg("waiting for ISR...\n");
-		//if(DMA_ISR_Flag)
+		printmsg("waiting for ISR...\n\n");
+		HAL_StatusTypeDef DMA_Status = HAL_DMA_PollForTransfer(&myDMA, HAL_DMA_FULL_TRANSFER, HAL_MAX_DELAY);
+		if(DMA_Status == HAL_OK)
 		{
+			printmsg("| ");
 			for(int i = 0; i < DATA_SIZE; i++){
+				if(i%16 == 0 && i){
+					printmsg("\n| ");
+				}
 				printmsg("0x%02X | ", dstData[i]);
 			}
-//			while(1);
+			while(1);
 			printmsg("\n\n");
 		}
-		HAL_Delay(1000);
 
 	}
   /* USER CODE END 3 */
-}
-
-void DMA_ISR(DMA_HandleTypeDef *hdma){
-	DMA_ISR_Flag = 1;
 }
 
 void printmsg(char *format,...) {
@@ -213,7 +208,6 @@ static void MX_DMA_Init(void)
   {
     Error_Handler( );
   }
-
 }
 
 /**

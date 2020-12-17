@@ -602,3 +602,5 @@
 2020-12-17 00:36:49,416 [INFO] ProjectBuilder:3155 - Time for Generating toolchain IDE Files: 2050mS.
 2020-12-17 00:36:49,417 [INFO] ProjectBuilder:2044 - Time for Copy CMSIS : 0mS.
 2020-12-17 00:36:49,418 [INFO] ProjectBuilder:2044 - Time for Copy CMSIS : 0mS.
+2020-12-17 01:59:38,530 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] ***WARNING: Display must be created on main thread due to Cocoa restrictions. Use vmarg -XstartOnFirstThread
+2020-12-17 01:59:38,531 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] ***WARNING: Display must be created on main thread due to Cocoa restrictions. Use vmarg -XstartOnFirstThread
