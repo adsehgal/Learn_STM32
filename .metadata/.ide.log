@@ -523,3 +523,82 @@
 2020-12-17 00:09:37,131 [INFO] ProjectBuilder:2044 - Time for Copy CMSIS : 0mS.
 2020-12-17 00:09:37,368 [INFO] ApiDb:226 - Save user favorites file /Users/adityasehgal/.stm32cubeide/favorites.mcus.txt: 0 item(s)
 2020-12-17 00:09:37,369 [INFO] ApiDb:230 - User favorites MCUs=[]
+2020-12-17 00:19:17,225 [INFO] NvicIntPanel:90 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,513x321,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-12-17 00:25:06,069 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 590980208 Bytes (1073741824)
+2020-12-17 00:25:07,584 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 601115360 Bytes (1073741824)
+2020-12-17 00:25:12,033 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 769936096 Bytes (1073741824)
+2020-12-17 00:25:12,217 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: NVIC
+2020-12-17 00:25:12,218 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: USART
+2020-12-17 00:25:12,218 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: SYS
+2020-12-17 00:25:12,218 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: GPIO
+2020-12-17 00:25:12,218 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: RCC
+2020-12-17 00:25:12,219 [INFO] CodeGenerator:622 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.0.0.202007160824//db/
+2020-12-17 00:25:12,479 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/license.tmp_save
+2020-12-17 00:25:12,547 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/license.tmp
+2020-12-17 00:25:12,582 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/gpio.tmp_save
+2020-12-17 00:25:12,647 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/gpio.tmp
+2020-12-17 00:25:12,685 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-17 00:25:12,692 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_it.c_save
+2020-12-17 00:25:12,805 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_it.c
+2020-12-17 00:25:12,810 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_it.h_save
+2020-12-17 00:25:12,906 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_it.h
+2020-12-17 00:25:12,916 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_hal_msp.c_save
+2020-12-17 00:25:13,031 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_hal_msp.c
+2020-12-17 00:25:13,036 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/system.tmp_save
+2020-12-17 00:25:13,095 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/system.tmp
+2020-12-17 00:25:13,101 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-12-17 00:25:13,181 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_hal_conf.h
+2020-12-17 00:25:13,200 [WARN] IPConfigManager:2884 - IP not found : gpio
+2020-12-17 00:25:13,200 [WARN] CodeGenerator:2866 - IP not found : gpio
+2020-12-17 00:25:13,206 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/main.h_save
+2020-12-17 00:25:13,272 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/main.h
+2020-12-17 00:25:13,278 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/main.c_save
+2020-12-17 00:25:13,390 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/main.c
+2020-12-17 00:25:14,234 [INFO] ProjectBuilder:2168 - Time for Copy HAL[1] : 207mS.
+2020-12-17 00:25:14,238 [INFO] ProjectBuilder:2988 - Project Generator version: 3.10.0-B14
+2020-12-17 00:25:14,981 [INFO] ConfigFileManager:1183 - The Die is : DIE433
+2020-12-17 00:25:16,481 [INFO] ProjectBuilder:3155 - Time for Generating toolchain IDE Files: 2243mS.
+2020-12-17 00:25:16,482 [INFO] ProjectBuilder:2044 - Time for Copy CMSIS : 1mS.
+2020-12-17 00:25:16,483 [INFO] ProjectBuilder:2044 - Time for Copy CMSIS : 0mS.
+2020-12-17 00:36:40,528 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 784622448 Bytes (1073741824)
+2020-12-17 00:36:41,825 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 795108208 Bytes (1073741824)
+2020-12-17 00:36:45,461 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 824468336 Bytes (1073741824)
+2020-12-17 00:36:45,694 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: NVIC
+2020-12-17 00:36:45,694 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: USART
+2020-12-17 00:36:45,695 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: DMA
+2020-12-17 00:36:45,695 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: SYS
+2020-12-17 00:36:45,695 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: GPIO
+2020-12-17 00:36:45,695 [INFO] BlockDiagram:2729 - set Specific Code input for plugin: RCC
+2020-12-17 00:36:45,696 [INFO] CodeGenerator:622 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.0.0.202007160824//db/
+2020-12-17 00:36:45,887 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/license.tmp_save
+2020-12-17 00:36:45,949 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/license.tmp
+2020-12-17 00:36:45,966 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/gpio.tmp_save
+2020-12-17 00:36:46,025 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/gpio.tmp
+2020-12-17 00:36:46,058 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-17 00:36:46,066 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma.tmp_save
+2020-12-17 00:36:46,126 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma.tmp
+2020-12-17 00:36:46,131 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma_GV.tmp_save
+2020-12-17 00:36:46,188 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma_GV.tmp
+2020-12-17 00:36:46,189 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-17 00:36:46,198 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_it.c_save
+2020-12-17 00:36:46,281 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_it.c
+2020-12-17 00:36:46,286 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_it.h_save
+2020-12-17 00:36:46,343 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_it.h
+2020-12-17 00:36:46,352 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_hal_msp.c_save
+2020-12-17 00:36:46,452 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_hal_msp.c
+2020-12-17 00:36:46,457 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/system.tmp_save
+2020-12-17 00:36:46,517 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/system.tmp
+2020-12-17 00:36:46,523 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-12-17 00:36:46,606 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_hal_conf.h
+2020-12-17 00:36:46,622 [WARN] IPConfigManager:2884 - IP not found : gpio
+2020-12-17 00:36:46,623 [WARN] CodeGenerator:2866 - IP not found : gpio
+2020-12-17 00:36:46,630 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/main.h_save
+2020-12-17 00:36:46,693 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/main.h
+2020-12-17 00:36:46,699 [INFO] CodeEngine:188 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/main.c_save
+2020-12-17 00:36:46,803 [INFO] CodeEngine:206 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/main.c
+2020-12-17 00:36:47,362 [INFO] ProjectBuilder:2168 - Time for Copy HAL[1] : 191mS.
+2020-12-17 00:36:47,366 [INFO] ProjectBuilder:2988 - Project Generator version: 3.10.0-B14
+2020-12-17 00:36:48,051 [INFO] ConfigFileManager:1183 - The Die is : DIE433
+2020-12-17 00:36:49,416 [INFO] ProjectBuilder:3155 - Time for Generating toolchain IDE Files: 2050mS.
+2020-12-17 00:36:49,417 [INFO] ProjectBuilder:2044 - Time for Copy CMSIS : 0mS.
+2020-12-17 00:36:49,418 [INFO] ProjectBuilder:2044 - Time for Copy CMSIS : 0mS.

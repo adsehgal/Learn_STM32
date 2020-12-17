@@ -19,84 +19,98 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "string.h"
+#include "stdio.h"
+#include "stdint.h"
+#include "stdarg.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
+const int DATA_SIZE = 256;	//can not use #define to declare array size?
 
-/* USER CODE END Includes */
 
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
 
-/* USER CODE END PTD */
+uint8_t DMA_ISR_Flag = 0;
 
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
+UART_HandleTypeDef huart2;
+DMA_HandleTypeDef myDMA;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-/* USER CODE BEGIN PFP */
+static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
+static void MX_USART2_UART_Init(void);
 
-/* USER CODE END PFP */
+//Custom Functions
+void DMA_ISR(DMA_HandleTypeDef *hdma);
+void printmsg(char *format,...);
 
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
 
-/* USER CODE END 0 */
 
-/**
-  * @brief  The application entry point.
-  * @retval int
-  */
+
+
 int main(void)
 {
-  /* USER CODE BEGIN 1 */
+	uint8_t srcData[DATA_SIZE];
+	uint8_t dstData[DATA_SIZE];
+	HAL_Init();
 
-  /* USER CODE END 1 */
+	SystemClock_Config();
 
-  /* MCU Configuration--------------------------------------------------------*/
+	MX_GPIO_Init();
+	MX_DMA_Init();
+	MX_USART2_UART_Init();
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+	for(int i = 0; i < DATA_SIZE; i++){
+		srcData[i] = i%256;
+		dstData[i] = 0;
+	}
 
-  /* USER CODE BEGIN Init */
+	//&myDMA = DMA handle
+	//HAL_DMA_XFER_CPLT_CB_ID = Interrupt on full transfer
+	//	Found in stm32fxx_hal_dma.h -> HAL_DMA_CallbackIDTypeDef enum
+	HAL_DMA_RegisterCallback(&myDMA, HAL_DMA_XFER_CPLT_CB_ID, &DMA_ISR);
 
-  /* USER CODE END Init */
+	HAL_DMA_Start_IT(&myDMA, (uint8_t)srcData, (uint8_t)dstData, sizeof(srcData));
 
-  /* Configure the system clock */
-  SystemClock_Config();
+	while (1)
+	{
+		printmsg("waiting for ISR...\n");
+		//if(DMA_ISR_Flag)
+		{
+			for(int i = 0; i < DATA_SIZE; i++){
+				printmsg("0x%02X | ", dstData[i]);
+			}
+//			while(1);
+			printmsg("\n\n");
+		}
+		HAL_Delay(1000);
 
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
-  /* USER CODE BEGIN 2 */
-
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-  }
+	}
   /* USER CODE END 3 */
 }
+
+void DMA_ISR(DMA_HandleTypeDef *hdma){
+	DMA_ISR_Flag = 1;
+}
+
+void printmsg(char *format,...) {
+    char str[80];
+
+    /*Extract the the argument list using VA apis */
+    va_list args;
+    va_start(args, format);
+    vsprintf(str, format,args);
+    HAL_UART_Transmit(&huart2,(uint8_t *)str, strlen(str),HAL_MAX_DELAY);
+    va_end(args);
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * -----------------------------SYS FUNCS----------------------------------
+ * ------------------------------------------------------------------------
+ */
 
 /**
   * @brief System Clock Configuration
@@ -135,6 +149,84 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  * Configure DMA for memory to memory transfers
+  *   myDMA
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA2_CLK_ENABLE();
+
+  /* Configure DMA request myDMA on DMA2_Stream0 */
+  myDMA.Instance = DMA2_Stream0;
+  myDMA.Init.Channel = DMA_CHANNEL_0;
+  myDMA.Init.Direction = DMA_MEMORY_TO_MEMORY;
+  myDMA.Init.PeriphInc = DMA_PINC_ENABLE;
+  myDMA.Init.MemInc = DMA_MINC_ENABLE;
+  myDMA.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+  myDMA.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+  myDMA.Init.Mode = DMA_NORMAL;
+  myDMA.Init.Priority = DMA_PRIORITY_LOW;
+  myDMA.Init.FIFOMode = DMA_FIFOMODE_ENABLE;
+  myDMA.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
+  myDMA.Init.MemBurst = DMA_MBURST_SINGLE;
+  myDMA.Init.PeriphBurst = DMA_PBURST_SINGLE;
+  if (HAL_DMA_Init(&myDMA) != HAL_OK)
+  {
+    Error_Handler( );
+  }
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
 }
 
 /* USER CODE BEGIN 4 */
