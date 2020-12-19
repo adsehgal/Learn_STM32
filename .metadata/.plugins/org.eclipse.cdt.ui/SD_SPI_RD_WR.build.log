@@ -1,0 +1,10 @@
+20:40:40 **** Incremental Build of configuration Debug for project SD_SPI_RD_WR ****
+make -j7 all 
+arm-none-eabi-size   SD_SPI_RD_WR.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8864	     40	  10048	  18952	   4a08	SD_SPI_RD_WR.elf
+Finished building: default.size.stdout
+ 
+
+20:40:40 Build Finished. 0 errors, 0 warnings. (took 296ms)
+
