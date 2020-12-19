@@ -3,6 +3,7 @@ FATFS.IPParameters=_USE_LFN,_MAX_SS
 FATFS._MAX_SS=4096
 FATFS._USE_LFN=1
 File.Version=6
+GPIO.groupedBy=Group By Peripherals
 KeepUserPlacement=false
 Mcu.Family=STM32F4
 Mcu.IP0=FATFS

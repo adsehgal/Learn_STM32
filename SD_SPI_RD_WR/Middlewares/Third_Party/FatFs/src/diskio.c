@@ -13,7 +13,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "diskio.h"
 #include "ff_gen_drv.h"
-//#include "fatfs_sd.h"
 
 #if defined ( __GNUC__ )
 #ifndef __weak
@@ -38,11 +37,10 @@ DSTATUS disk_status (
 	BYTE pdrv		/* Physical drive number to identify the drive */
 )
 {
-//  DSTATUS stat;
-//
-//  stat = disk.drv[pdrv]->disk_status(disk.lun[pdrv]);
-//  return stat;
-	return SD_disk_status (pdrv);
+  DSTATUS stat;
+
+  stat = disk.drv[pdrv]->disk_status(disk.lun[pdrv]);
+  return stat;
 }
 
 /**
@@ -54,15 +52,14 @@ DSTATUS disk_initialize (
 	BYTE pdrv				/* Physical drive nmuber to identify the drive */
 )
 {
-//  DSTATUS stat = RES_OK;
-//
-//  if(disk.is_initialized[pdrv] == 0)
-//  {
-//    disk.is_initialized[pdrv] = 1;
-//    stat = disk.drv[pdrv]->disk_initialize(disk.lun[pdrv]);
-//  }
-//  return stat;
-	return SD_disk_initialize (pdrv);
+  DSTATUS stat = RES_OK;
+
+  if(disk.is_initialized[pdrv] == 0)
+  {
+    disk.is_initialized[pdrv] = 1;
+    stat = disk.drv[pdrv]->disk_initialize(disk.lun[pdrv]);
+  }
+  return stat;
 }
 
 /**
@@ -80,11 +77,10 @@ DRESULT disk_read (
 	UINT count		/* Number of sectors to read */
 )
 {
-//  DRESULT res;
-//
-//  res = disk.drv[pdrv]->disk_read(disk.lun[pdrv], buff, sector, count);
-//  return res;
-	return SD_disk_read (pdrv, buff, sector, count);
+  DRESULT res;
+
+  res = disk.drv[pdrv]->disk_read(disk.lun[pdrv], buff, sector, count);
+  return res;
 }
 
 /**
@@ -103,11 +99,10 @@ DRESULT disk_write (
 	UINT count        	/* Number of sectors to write */
 )
 {
-//  DRESULT res;
-//
-//  res = disk.drv[pdrv]->disk_write(disk.lun[pdrv], buff, sector, count);
-//  return res;
-	return SD_disk_write (pdrv, buff, sector, count);
+  DRESULT res;
+
+  res = disk.drv[pdrv]->disk_write(disk.lun[pdrv], buff, sector, count);
+  return res;
 }
 #endif /* _USE_WRITE == 1 */
 
@@ -125,11 +120,10 @@ DRESULT disk_ioctl (
 	void *buff		/* Buffer to send/receive control data */
 )
 {
-//  DRESULT res;
-//
-//  res = disk.drv[pdrv]->disk_ioctl(disk.lun[pdrv], cmd, buff);
-//  return res;
-	return SD_disk_ioctl (pdrv, cmd, buff);
+  DRESULT res;
+
+  res = disk.drv[pdrv]->disk_ioctl(disk.lun[pdrv], cmd, buff);
+  return res;
 }
 #endif /* _USE_IOCTL == 1 */
 

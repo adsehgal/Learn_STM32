@@ -1829,3 +1829,62 @@
 2020-12-18 20:16:11,139 [INFO] ProjectBuilder:3425 - Time for Generating toolchain IDE Files: 1845mS.
 2020-12-18 20:16:11,139 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
 2020-12-18 20:16:11,141 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2020-12-18 21:06:59,529 [INFO] Gpio:248 - dependency for GPIO [RCC, SPI1, USART2]
+2020-12-18 21:06:59,575 [INFO] NvicIntPanel:90 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-12-18 21:08:39,562 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 497931040 Bytes (1073741824)
+2020-12-18 21:08:41,303 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 516411304 Bytes (1073741824)
+2020-12-18 21:08:41,889 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 566346784 Bytes (1073741824)
+2020-12-18 21:08:42,041 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2020-12-18 21:08:42,041 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2020-12-18 21:08:42,041 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2020-12-18 21:08:42,041 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2020-12-18 21:08:42,041 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2020-12-18 21:08:42,042 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2020-12-18 21:08:42,042 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FATFS
+2020-12-18 21:08:42,042 [INFO] CodeGenerator:639 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db/
+2020-12-18 21:08:42,216 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/license.tmp_save
+2020-12-18 21:08:42,253 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/license.tmp
+2020-12-18 21:08:42,262 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/gpio.tmp_save
+2020-12-18 21:08:42,300 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/gpio.tmp
+2020-12-18 21:08:42,357 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-18 21:08:42,363 [INFO] Middleware:1252 - No code input for Bsp Dependency
+2020-12-18 21:08:42,367 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_HalInit.tmp_save
+2020-12-18 21:08:42,408 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_HalInit.tmp
+2020-12-18 21:08:42,410 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_vars.tmp_save
+2020-12-18 21:08:42,453 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_vars.tmp
+2020-12-18 21:08:42,455 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_ext_vars.tmp_save
+2020-12-18 21:08:42,498 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_ext_vars.tmp
+2020-12-18 21:08:42,500 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_inc.tmp_save
+2020-12-18 21:08:42,538 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_inc.tmp
+2020-12-18 21:08:42,540 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/ffconf.h_save
+2020-12-18 21:08:42,593 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/ffconf.h
+2020-12-18 21:08:42,596 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.c_save
+2020-12-18 21:08:42,639 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.c
+2020-12-18 21:08:42,642 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.h_save
+2020-12-18 21:08:42,684 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.h
+2020-12-18 21:08:42,687 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.c_save
+2020-12-18 21:08:42,730 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.c
+2020-12-18 21:08:42,733 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.h_save
+2020-12-18 21:08:42,773 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.h
+2020-12-18 21:08:42,774 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-18 21:08:42,775 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-18 21:08:42,782 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_it.c_save
+2020-12-18 21:08:42,833 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_it.c
+2020-12-18 21:08:42,836 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_it.h_save
+2020-12-18 21:08:42,890 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_it.h
+2020-12-18 21:08:42,896 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_hal_msp.c_save
+2020-12-18 21:08:42,961 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_hal_msp.c
+2020-12-18 21:08:42,964 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/system.tmp_save
+2020-12-18 21:08:43,000 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/system.tmp
+2020-12-18 21:08:43,007 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-12-18 21:08:43,056 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_hal_conf.h
+2020-12-18 21:08:43,074 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/main.h_save
+2020-12-18 21:08:43,118 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/main.h
+2020-12-18 21:08:43,121 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/main.c_save
+2020-12-18 21:08:43,243 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/main.c
+2020-12-18 21:08:43,731 [INFO] ProjectBuilder:2328 - Time for Copy HAL[1] : 160mS.
+2020-12-18 21:08:43,736 [INFO] ProjectBuilder:3259 - Project Generator version: 3.11.2
+2020-12-18 21:08:44,079 [INFO] ConfigFileManager:1238 - The Die is : DIE433
+2020-12-18 21:08:46,064 [INFO] ProjectBuilder:3425 - Time for Generating toolchain IDE Files: 2328mS.
+2020-12-18 21:08:46,064 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2020-12-18 21:08:46,067 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.

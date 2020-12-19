@@ -25,6 +25,8 @@
 /* USER CODE BEGIN Includes */
 #include "fatfs_sd.h"
 #include "string.h"
+#include "stdio.h"
+#include "stdlib.h"
 
 /* USER CODE END Includes */
 
@@ -62,6 +64,23 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+FATFS fs; // file system
+FIL fil; //file
+FRESULT fresult; //to store data from each operation
+char buffer[1024];
+
+UINT br, wr;	//hold count of rd and wr
+
+//variables for capacity
+FATFS *pfs;
+DWORD fre_clust;
+uint32_t total, free_space;
+
+void sendUART(char *buf){
+	uint8_t len = strlen(buf);
+	HAL_UART_Transmit(&huart2, (uint8_t*)buf, len, 2000);
+
+}
 
 /* USER CODE END 0 */
 
@@ -97,6 +116,43 @@ int main(void)
   MX_USART2_UART_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
+
+  char hi[2] = "hi";
+  HAL_UART_Transmit(&huart2, hi, sizeof(hi), 2000);
+
+  fresult = f_mount(&fs, "", 0);	//mount SD card
+  if(fresult != FR_OK)
+	  sendUART("Could not mount SD card!!\n");
+  else
+	  sendUART("Successfully mounted SD card!\n");
+
+
+  f_getfree("", &fre_clust, &pfs);
+  total = (uint32_t)((pfs->n_fatent - 2) * pfs->csize * 0.5);
+  sprintf(buffer, "SD Total Size: %lu\n", total);
+  sendUART(buffer);
+  free_space = (uint32_t)(fre_clust * pfs->csize * 0.5);
+  sprintf(buffer, "SD Free Space: %lu\n", free_space);
+  sendUART(buffer);
+
+  fresult = f_open(&fil, "file1.txt", FA_OPEN_ALWAYS | FA_READ | FA_WRITE);	//open file / create is non-existent
+
+  fresult = f_puts("this data is from the first file\n\n", &fil);
+
+  sendUART("file1.txt created/opened and written to\n");
+
+  fresult = f_close(&fil);
+
+  fresult = f_open(&fil, "file1.txt", FA_READ);	//open file / create is non-existent
+
+  f_gets(buffer, 1024, &fil);
+
+  sendUART("reading... output = \n		");
+
+  fresult = f_close(&fil);
+
+//  clrBuf(buffer);
+
 
   /* USER CODE END 2 */
 
