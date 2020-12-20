@@ -27,6 +27,7 @@
 #include "string.h"
 #include "stdio.h"
 #include "stdlib.h"
+#include "stdarg.h"
 
 /* USER CODE END Includes */
 
@@ -59,7 +60,7 @@ static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-
+void sendUART(char *format,...);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -76,11 +77,7 @@ FATFS *pfs;
 DWORD fre_clust;
 uint32_t total, free_space;
 
-void sendUART(char *buf){
-	uint8_t len = strlen(buf);
-	HAL_UART_Transmit(&huart2, (uint8_t*)buf, len, 2000);
 
-}
 
 /* USER CODE END 0 */
 
@@ -111,47 +108,43 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_SPI1_Init();
-  MX_USART2_UART_Init();
-  MX_FATFS_Init();
+	MX_GPIO_Init();
+	MX_SPI1_Init();
+	MX_USART2_UART_Init();
+	MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 
-  char hi[2] = "hi";
-  HAL_UART_Transmit(&huart2, hi, sizeof(hi), 2000);
-
-  fresult = f_mount(&fs, "", 0);	//mount SD card
-  if(fresult != FR_OK)
+	fresult = f_mount(&fs, "", 0);	//mount SD card
+	if(fresult != FR_OK)
 	  sendUART("Could not mount SD card!!\n");
-  else
+	else
 	  sendUART("Successfully mounted SD card!\n");
 
 
-  f_getfree("", &fre_clust, &pfs);
-  total = (uint32_t)((pfs->n_fatent - 2) * pfs->csize * 0.5);
-  sprintf(buffer, "SD Total Size: %lu\n", total);
-  sendUART(buffer);
-  free_space = (uint32_t)(fre_clust * pfs->csize * 0.5);
-  sprintf(buffer, "SD Free Space: %lu\n", free_space);
-  sendUART(buffer);
+	f_getfree("", &fre_clust, &pfs);
+	total = (uint32_t)((pfs->n_fatent - 2) * pfs->csize * 0.5);
+	sprintf(buffer, "SD Total Size: %lu\n", total);
+	sendUART(buffer);
+	free_space = (uint32_t)(fre_clust * pfs->csize * 0.5);
+	sprintf(buffer, "SD Free Space: %lu\n", free_space);
+	sendUART(buffer);
 
-  fresult = f_open(&fil, "file1.txt", FA_OPEN_ALWAYS | FA_READ | FA_WRITE);	//open file / create is non-existent
+	fresult = f_open(&fil, "file1.txt", FA_OPEN_ALWAYS | FA_READ | FA_WRITE);	//open file / create is non-existent
 
-  fresult = f_puts("this data is from the first file\n\n", &fil);
+	fresult = f_puts("this data is from the first file\n\n", &fil);
 
-  sendUART("file1.txt created/opened and written to\n");
+	sendUART("file1.txt created/opened and written to\n");
 
-  fresult = f_close(&fil);
+	fresult = f_close(&fil);
 
-  fresult = f_open(&fil, "file1.txt", FA_READ);	//open file / create is non-existent
+	fresult = f_open(&fil, "file1.txt", FA_READ);	//open file / create is non-existent
 
-  f_gets(buffer, 1024, &fil);
+	f_gets(buffer, 1024, &fil);
 
-  sendUART("reading... output = \n		");
+	sendUART("reading... output = \n		");
+	sendUART(buffer);
 
-  fresult = f_close(&fil);
-
-//  clrBuf(buffer);
+	fresult = f_close(&fil);
 
 
   /* USER CODE END 2 */
@@ -183,14 +176,10 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 25;
-  RCC_OscInitStruct.PLL.PLLN = 144;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = 4;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -199,12 +188,12 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {
     Error_Handler();
   }
@@ -291,7 +280,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
@@ -307,7 +295,16 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void sendUART(char *format,...) {
+    char str[80];
 
+    /*Extract the the argument list using VA apis */
+    va_list args;
+    va_start(args, format);
+    vsprintf(str, format,args);
+    HAL_UART_Transmit(&huart2,(uint8_t *)str, strlen(str),HAL_MAX_DELAY);
+    va_end(args);
+}
 /* USER CODE END 4 */
 
 /**

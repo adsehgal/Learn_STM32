@@ -19,18 +19,39 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 #include "string.h"
 #include "stdio.h"
 #include "stdint.h"
 #include "stdarg.h"
+/* USER CODE END Includes */
 
-const int DATA_SIZE = 4096;	//can not use #define to declare array size?
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
 
+/* USER CODE END PTD */
 
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define LED_BANK GPIOA
+#define LED_PIN GPIO_PIN_5
+#define LOW 0
+#define HIGH 1
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart2;
+
 DMA_HandleTypeDef myDMA;
 /* USER CODE BEGIN PV */
-
+const int DATA_SIZE = 4096;	//can not use #define to declare array size?
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -38,74 +59,82 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_USART2_UART_Init(void);
-
-//Custom Functions
+/* USER CODE BEGIN PFP */
 void printmsg(char *format,...);
+/* USER CODE END PFP */
 
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
 
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
 int main(void)
 {
+  /* USER CODE BEGIN 1 */
+	HAL_GPIO_WritePin(LED_BANK, LED_PIN, LOW);
 	uint8_t srcData[DATA_SIZE];
 	uint8_t dstData[DATA_SIZE];
-	HAL_Init();
 
-	SystemClock_Config();
-
-	MX_GPIO_Init();
-	MX_DMA_Init();
-	MX_USART2_UART_Init();
-
-	for(int i = 0; i < DATA_SIZE; i++){
+	for(int i = 0; i < DATA_SIZE; i++)
+	{
 		srcData[i] = i%DATA_SIZE;
 		dstData[i] = 0;
 	}
+  /* USER CODE END 1 */
 
-	//&myDMA = DMA handle
-	//HAL_DMA_XFER_CPLT_CB_ID = Interrupt on full transfer
-	//	Found in stm32fxx_hal_dma.h -> HAL_DMA_CallbackIDTypeDef enum
-//	HAL_DMA_RegisterCallback(&myDMA, HAL_DMA_XFER_CPLT_CB_ID, &DMA_ISR);
+  /* MCU Configuration--------------------------------------------------------*/
 
-	HAL_DMA_Start(&myDMA, (uint32_t)srcData, (uint32_t)dstData, sizeof(srcData));
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
 
-	printmsg("\n\nStarting DMA transfer\n\n");
+  /* USER CODE BEGIN Init */
 
-	while (1)
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_USART2_UART_Init();
+  /* USER CODE BEGIN 2 */
+  HAL_DMA_Start(&myDMA, (uint32_t)srcData, (uint32_t)dstData, sizeof(srcData));
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+	printmsg("waiting for ISR...\n\n");
+	HAL_StatusTypeDef DMA_Status = HAL_DMA_PollForTransfer(&myDMA, HAL_DMA_FULL_TRANSFER, HAL_MAX_DELAY);
+	if(DMA_Status == HAL_OK)
 	{
-		printmsg("waiting for ISR...\n\n");
-		HAL_StatusTypeDef DMA_Status = HAL_DMA_PollForTransfer(&myDMA, HAL_DMA_FULL_TRANSFER, HAL_MAX_DELAY);
-		if(DMA_Status == HAL_OK)
-		{
-			printmsg("| ");
-			for(int i = 0; i < DATA_SIZE; i++){
-				if(i%16 == 0 && i){
-					printmsg("\n| ");
-				}
-				printmsg("0x%02X | ", dstData[i]);
+		printmsg("| ");
+		for(int i = 0; i < DATA_SIZE; i++){
+			if(i%16 == 0 && i){
+				printmsg("\n| ");
 			}
-			while(1);
-			printmsg("\n\n");
+			printmsg("0x%02X | ", dstData[i]);
 		}
-
+		HAL_GPIO_WritePin(LED_BANK, LED_PIN, HIGH);
+		while(1);
+		printmsg("\n\n");
 	}
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
   /* USER CODE END 3 */
 }
-
-void printmsg(char *format,...) {
-    char str[80];
-
-    /*Extract the the argument list using VA apis */
-    va_list args;
-    va_start(args, format);
-    vsprintf(str, format,args);
-    HAL_UART_Transmit(&huart2,(uint8_t *)str, strlen(str),HAL_MAX_DELAY);
-    va_end(args);
-}
-
-/**
- * ------------------------------------------------------------------------
- * -----------------------------SYS FUNCS----------------------------------
- * ------------------------------------------------------------------------
- */
 
 /**
   * @brief System Clock Configuration
@@ -182,7 +211,7 @@ static void MX_USART2_UART_Init(void)
 /**
   * Enable DMA controller clock
   * Configure DMA for memory to memory transfers
-  *   myDMA
+  *   hdma_memtomem_dma2_stream0
   */
 static void MX_DMA_Init(void)
 {
@@ -190,7 +219,7 @@ static void MX_DMA_Init(void)
   /* DMA controller clock enable */
   __HAL_RCC_DMA2_CLK_ENABLE();
 
-  /* Configure DMA request myDMA on DMA2_Stream0 */
+  /* Configure DMA request hdma_memtomem_dma2_stream0 on DMA2_Stream0 */
   myDMA.Instance = DMA2_Stream0;
   myDMA.Init.Channel = DMA_CHANNEL_0;
   myDMA.Init.Direction = DMA_MEMORY_TO_MEMORY;
@@ -208,6 +237,7 @@ static void MX_DMA_Init(void)
   {
     Error_Handler( );
   }
+
 }
 
 /**
@@ -217,14 +247,34 @@ static void MX_DMA_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : LED_Pin */
+  GPIO_InitStruct.Pin = LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+
 }
 
 /* USER CODE BEGIN 4 */
+void printmsg(char *format,...) {
+    char str[80];
 
+    /*Extract the the argument list using VA apis */
+    va_list args;
+    va_start(args, format);
+    vsprintf(str, format,args);
+    HAL_UART_Transmit(&huart2,(uint8_t *)str, strlen(str),HAL_MAX_DELAY);
+    va_end(args);
+}
 /* USER CODE END 4 */
 
 /**

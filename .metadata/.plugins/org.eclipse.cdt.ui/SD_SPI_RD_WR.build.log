@@ -1,17 +1,6 @@
-21:15:40 **** Incremental Build of configuration Debug for project SD_SPI_RD_WR ****
+19:18:44 **** Incremental Build of configuration Debug for project SD_SPI_RD_WR ****
 make -j7 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:121:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
-   HAL_UART_Transmit(&huart2, hi, sizeof(hi), 2000);
-                              ^~
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:404:0,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
-                 from ../Core/Inc/main.h:31,
-                 from ../Core/Src/main.c:21:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:696:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
- HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
-                   ^~~~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "SD_SPI_RD_WR.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SD_SPI_RD_WR.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: SD_SPI_RD_WR.elf
  
@@ -19,7 +8,7 @@ arm-none-eabi-objdump -h -S  SD_SPI_RD_WR.elf  > "SD_SPI_RD_WR.list"
 arm-none-eabi-objcopy  -O binary  SD_SPI_RD_WR.elf  "SD_SPI_RD_WR.bin"
 arm-none-eabi-size   SD_SPI_RD_WR.elf 
    text	   data	    bss	    dec	    hex	filename
-  28796	    140	  19964	  48900	   bf04	SD_SPI_RD_WR.elf
+  28816	    140	  19964	  48920	   bf18	SD_SPI_RD_WR.elf
 Finished building: default.size.stdout
  
 Finished building: SD_SPI_RD_WR.bin
@@ -27,5 +16,5 @@ Finished building: SD_SPI_RD_WR.bin
 Finished building: SD_SPI_RD_WR.list
  
 
-21:15:41 Build Finished. 0 errors, 1 warnings. (took 979ms)
+19:18:44 Build Finished. 0 errors, 0 warnings. (took 631ms)
 

@@ -1888,3 +1888,1259 @@
 2020-12-18 21:08:46,064 [INFO] ProjectBuilder:3425 - Time for Generating toolchain IDE Files: 2328mS.
 2020-12-18 21:08:46,064 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
 2020-12-18 21:08:46,067 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2020-12-19 18:27:19,929 [INFO] Activator:170 - 
+
+
+2020-12-19 18:27:19,933 [INFO] Activator:171 - !SESSION log4j initialized
+2020-12-19 18:27:24,314 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2020-12-19 18:30:43,036 [INFO] McuFinderGlobals:40 - Set McuFinder mode to 2 (CubeIDE integrated)
+2020-12-19 18:30:43,176 [INFO] ApplicationProperties:181 - Using Application install path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304
+2020-12-19 18:30:43,195 [INFO] DbMcusXml:71 - Set database path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//mcu/
+2020-12-19 18:30:43,200 [INFO] DbBoardsPdsc:57 - Set plugin database path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/boardmanager/
+2020-12-19 18:30:43,201 [INFO] DbMcus:259 - Set plugin images path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/mcufinder/images/
+2020-12-19 18:30:43,201 [INFO] DbBoards:265 - Set plugin images path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/mcufinder/images/
+2020-12-19 18:30:43,204 [INFO] DbExamples:329 - Set plugin images path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/mcufinder/images/
+2020-12-19 18:30:43,216 [INFO] DbMcusDocs:112 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,218 [INFO] DbMcusJson:63 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,219 [INFO] DbBoardsDocs:112 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,221 [INFO] DbBoardsJson:56 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,225 [INFO] CrossReferenceDbSqlite:196 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/cs/
+2020-12-19 18:30:43,229 [INFO] DbExamplesSqlite:699 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,371 [INFO] RulesReader:52 - Compatibility file has been processed (228 Rules)
+2020-12-19 18:30:43,468 [INFO] MicroXplorer:565 - Detected Java Version = 1.8.0_252
+2020-12-19 18:30:43,469 [INFO] DbMcusXml:71 - Set database path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//mcu/
+2020-12-19 18:30:43,470 [INFO] DbBoardsPdsc:57 - Set plugin database path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/boardmanager/
+2020-12-19 18:30:43,471 [INFO] DbMcus:259 - Set plugin images path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/mcufinder/images/
+2020-12-19 18:30:43,471 [INFO] DbBoards:265 - Set plugin images path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/mcufinder/images/
+2020-12-19 18:30:43,471 [INFO] DbExamples:329 - Set plugin images path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/mcufinder/images/
+2020-12-19 18:30:43,471 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,471 [INFO] DbMcusDocs:112 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,472 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,472 [INFO] DbMcusJson:63 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,472 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,472 [INFO] DbBoardsDocs:112 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,472 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,473 [INFO] DbBoardsJson:56 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,473 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,473 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,473 [INFO] CrossReferenceDbSqlite:196 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/cs/
+2020-12-19 18:30:43,474 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,474 [INFO] DbExamplesSqlite:699 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,565 [INFO] MainPanel:190 - HeapMemory: 359661568
+2020-12-19 18:30:43,661 [INFO] DbMcusXml:71 - Set database path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//mcu/
+2020-12-19 18:30:43,661 [INFO] DbBoardsPdsc:57 - Set plugin database path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/boardmanager/
+2020-12-19 18:30:43,661 [INFO] DbMcus:259 - Set plugin images path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/mcufinder/images/
+2020-12-19 18:30:43,662 [INFO] DbBoards:265 - Set plugin images path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/mcufinder/images/
+2020-12-19 18:30:43,662 [INFO] DbExamples:329 - Set plugin images path to: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//plugins/mcufinder/images/
+2020-12-19 18:30:43,663 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,663 [INFO] DbMcusDocs:112 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,663 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,663 [INFO] DbMcusJson:63 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,664 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,664 [INFO] DbBoardsDocs:112 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,664 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,664 [INFO] DbBoardsJson:56 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,664 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,665 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,665 [INFO] CrossReferenceDbSqlite:196 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/cs/
+2020-12-19 18:30:43,665 [WARN] DbFile:36 - Overriding database path with different value: /Users/adityasehgal/.stmcufinder/plugins/mcufinder/ => /Users/adityasehgal/.stmcufinder/plugins/mcufinder
+2020-12-19 18:30:43,665 [INFO] DbExamplesSqlite:699 - Set database path to: /Users/adityasehgal/.stmcufinder/plugins/mcufinder//mcu/
+2020-12-19 18:30:43,685 [INFO] ApplicationProperties:181 - Using Application install path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304
+2020-12-19 18:30:43,687 [INFO] PluginManage:178 - Search for loadable plugins [exclusion list=, ]
+2020-12-19 18:30:43,689 [INFO] PluginManage:292 - Check plugin analytics
+2020-12-19 18:30:43,963 [INFO] AnalyticsPlugin:225 - Accepted Software Licenses: 
+2020-12-19 18:30:43,963 [INFO] AnalyticsPlugin:227 - Accepted CMSIS Pack Licenses: 
+2020-12-19 18:30:43,964 [INFO] AnalyticsPlugin:229 - Accepted Firmware Licenses: 
+2020-12-19 18:30:43,965 [INFO] PluginManage:342 - Loaded plugin analytics (category:tool,tabindex:-1)
+2020-12-19 18:30:43,966 [INFO] PluginManage:292 - Check plugin clock
+2020-12-19 18:30:43,987 [INFO] PluginManage:342 - Loaded plugin clock (category:base,tabindex:2)
+2020-12-19 18:30:43,988 [INFO] PluginManage:292 - Check plugin ddr
+2020-12-19 18:30:43,992 [INFO] PluginManage:342 - Loaded plugin ddr (category:tool,tabindex:6)
+2020-12-19 18:30:43,992 [INFO] PluginManage:292 - Check plugin filemanager
+2020-12-19 18:30:44,168 [INFO] PluginManage:342 - Loaded plugin filemanager (category:base,tabindex:10)
+2020-12-19 18:30:44,169 [INFO] PluginManage:292 - Check plugin ipmanager
+2020-12-19 18:30:44,180 [INFO] PluginManage:342 - Loaded plugin ipmanager (category:base,tabindex:5)
+2020-12-19 18:30:44,180 [INFO] PluginManage:292 - Check plugin pinoutandconfiguration
+2020-12-19 18:30:44,194 [INFO] PluginManage:342 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2020-12-19 18:30:44,194 [INFO] PluginManage:292 - Check plugin pinoutconfig
+2020-12-19 18:30:44,226 [INFO] PluginManage:342 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2020-12-19 18:30:44,227 [INFO] PluginManage:292 - Check plugin power
+2020-12-19 18:30:44,243 [INFO] PluginManage:342 - Loaded plugin power (category:power,tabindex:4)
+2020-12-19 18:30:44,243 [INFO] PluginManage:292 - Check plugin projectmanager
+2020-12-19 18:30:44,262 [INFO] PluginManage:342 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
+2020-12-19 18:30:44,262 [INFO] PluginManage:292 - Check plugin thirdparty
+2020-12-19 18:30:44,412 [INFO] PluginManage:342 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2020-12-19 18:30:44,413 [INFO] PluginManage:292 - Check plugin tools
+2020-12-19 18:30:44,413 [WARN] IntegrityCheckThread:59 - waiting for thirdparty lock release [integrity check]
+2020-12-19 18:30:44,414 [INFO] IntegrityCheckThread:61 - entering critical section [integrity check]
+2020-12-19 18:30:44,414 [INFO] ThirdPartyUpdaterWithRetryManager:56 - Updater plugin not ready yet. [1/15]
+2020-12-19 18:30:44,417 [INFO] PluginManage:342 - Loaded plugin tools (category:base,tabindex:7)
+2020-12-19 18:30:44,417 [INFO] PluginManage:292 - Check plugin tutovideos
+2020-12-19 18:30:44,680 [INFO] PluginManage:342 - Loaded plugin tutovideos (category:base,tabindex:-1)
+2020-12-19 18:30:44,681 [INFO] PluginManage:292 - Check plugin updater
+2020-12-19 18:30:44,699 [INFO] PluginManage:342 - Loaded plugin updater (category:base,tabindex:12)
+2020-12-19 18:30:44,700 [INFO] PluginManage:265 - PluginManage : Loaded plugins [13]
+2020-12-19 18:30:46,523 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 18:30:46,624 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,625 [INFO] PluginManager:203 - loadIPPluginJar : add mdma
+2020-12-19 18:30:46,638 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,638 [INFO] PluginManager:203 - loadIPPluginJar : add freertos
+2020-12-19 18:30:46,647 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,647 [INFO] PluginManager:203 - loadIPPluginJar : add gic
+2020-12-19 18:30:46,662 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,663 [INFO] PluginManager:203 - loadIPPluginJar : add adc
+2020-12-19 18:30:46,667 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,667 [INFO] PluginManager:203 - loadIPPluginJar : add gtzc
+2020-12-19 18:30:46,670 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,671 [INFO] PluginManager:203 - loadIPPluginJar : add quadspi
+2020-12-19 18:30:46,675 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,675 [INFO] PluginManager:203 - loadIPPluginJar : add aes
+2020-12-19 18:30:46,680 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,680 [INFO] PluginManager:203 - loadIPPluginJar : add pdm2pcm
+2020-12-19 18:30:46,684 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,685 [INFO] PluginManager:203 - loadIPPluginJar : add hash
+2020-12-19 18:30:46,688 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,689 [INFO] PluginManager:203 - loadIPPluginJar : add tim
+2020-12-19 18:30:46,691 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,691 [INFO] PluginManager:203 - loadIPPluginJar : add tsc
+2020-12-19 18:30:46,694 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,695 [INFO] PluginManager:203 - loadIPPluginJar : add ts
+2020-12-19 18:30:46,699 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,699 [INFO] PluginManager:203 - loadIPPluginJar : add can
+2020-12-19 18:30:46,703 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,703 [INFO] PluginManager:203 - loadIPPluginJar : add dfsdm
+2020-12-19 18:30:46,707 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,707 [INFO] PluginManager:203 - loadIPPluginJar : add spi
+2020-12-19 18:30:46,712 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,712 [INFO] PluginManager:203 - loadIPPluginJar : add gfxmmu
+2020-12-19 18:30:46,715 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,715 [INFO] PluginManager:203 - loadIPPluginJar : add genericplugin
+2020-12-19 18:30:46,718 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,719 [INFO] PluginManager:203 - loadIPPluginJar : add cryp
+2020-12-19 18:30:46,726 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,727 [INFO] PluginManager:203 - loadIPPluginJar : add gpio
+2020-12-19 18:30:46,729 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,729 [INFO] PluginManager:203 - loadIPPluginJar : add comp
+2020-12-19 18:30:46,732 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,732 [INFO] PluginManager:203 - loadIPPluginJar : add tracer_emb
+2020-12-19 18:30:46,736 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,737 [INFO] PluginManager:203 - loadIPPluginJar : add openamp
+2020-12-19 18:30:46,741 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,742 [INFO] PluginManager:203 - loadIPPluginJar : add stm32_wpan
+2020-12-19 18:30:46,749 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,753 [INFO] PluginManager:203 - loadIPPluginJar : add plateformsettings
+2020-12-19 18:30:46,757 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,758 [INFO] PluginManager:203 - loadIPPluginJar : add ipddr
+2020-12-19 18:30:46,761 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,761 [INFO] PluginManager:203 - loadIPPluginJar : add usart
+2020-12-19 18:30:46,763 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,764 [INFO] PluginManager:203 - loadIPPluginJar : add ltdc
+2020-12-19 18:30:46,769 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,770 [INFO] PluginManager:203 - loadIPPluginJar : add nvic
+2020-12-19 18:30:46,772 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,772 [INFO] PluginManager:203 - loadIPPluginJar : add fatfs
+2020-12-19 18:30:46,780 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,780 [INFO] PluginManager:203 - loadIPPluginJar : add dma
+2020-12-19 18:30:46,786 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,786 [INFO] PluginManager:203 - loadIPPluginJar : add fmc
+2020-12-19 18:30:46,790 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,790 [INFO] PluginManager:203 - loadIPPluginJar : add i2s
+2020-12-19 18:30:46,792 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,793 [INFO] PluginManager:203 - loadIPPluginJar : add ucpd
+2020-12-19 18:30:46,795 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,796 [INFO] PluginManager:203 - loadIPPluginJar : add lorawan
+2020-12-19 18:30:46,799 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,799 [INFO] PluginManager:203 - loadIPPluginJar : add opamp
+2020-12-19 18:30:46,803 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,803 [INFO] PluginManager:203 - loadIPPluginJar : add touchsensing
+2020-12-19 18:30:46,807 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,807 [INFO] PluginManager:203 - loadIPPluginJar : add i2c
+2020-12-19 18:30:46,813 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,813 [INFO] PluginManager:203 - loadIPPluginJar : add resmgrutility
+2020-12-19 18:30:46,816 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:46,817 [INFO] PluginManager:203 - loadIPPluginJar : add sai
+2020-12-19 18:30:47,124 [FATAL] Updater:284 - Updater called before beeing initialized
+2020-12-19 18:30:47,209 [FATAL] Updater:284 - Updater called before beeing initialized
+2020-12-19 18:30:47,340 [WARN] DetailPanel:347 - Failed to get advertising image, set to default
+2020-12-19 18:30:47,344 [FATAL] Updater:284 - Updater called before beeing initialized
+2020-12-19 18:30:47,344 [WARN] DetailPanel:347 - Failed to get advertising image, set to default
+2020-12-19 18:30:47,375 [FATAL] Updater:284 - Updater called before beeing initialized
+2020-12-19 18:30:47,376 [WARN] ThirdParty:783 - waiting for thirdparty lock release [close project]
+2020-12-19 18:30:47,417 [INFO] ThirdPartyUpdaterWithRetryManager:56 - Updater plugin not ready yet. [2/15]
+2020-12-19 18:30:50,420 [FATAL] Updater:284 - Updater called before beeing initialized
+2020-12-19 18:30:50,421 [ERROR] AbstractThirdPartyUpdaterManager:153 - java.lang.Integer cannot be cast to java.util.List
+2020-12-19 18:30:50,421 [INFO] ThirdParty:887 - Integrity check success = false
+2020-12-19 18:30:50,422 [INFO] IntegrityCheckThread:75 - exiting critical section [integrity check]
+2020-12-19 18:30:50,422 [INFO] IntegrityCheckThread:78 - End integrity checks thread
+2020-12-19 18:30:50,422 [INFO] ThirdParty:785 - entering critical section [close project]
+2020-12-19 18:30:50,425 [INFO] ThirdParty:796 - exiting critical section [close project]
+2020-12-19 18:30:50,430 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 18:30:50,432 [FATAL] Updater:284 - Updater called before beeing initialized
+2020-12-19 18:30:50,443 [ERROR] Updater:1065 - MainUpdater not yet initialized. External WinMGr cannot be set.
+2020-12-19 18:30:50,447 [INFO] Updater:1002 - Updater Version found : 6.1.1
+2020-12-19 18:30:50,483 [INFO] ApplicationProperties:181 - Using Application install path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304
+2020-12-19 18:30:50,846 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 18:30:50,848 [INFO] MainUpdater:249 - Updater Check For Update Now.
+2020-12-19 18:30:50,849 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 18:30:50,890 [INFO] CheckServerUpdateThread:102 - End of CheckServer Thread
+2020-12-19 18:30:50,959 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 18:30:50,961 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 18:30:51,711 [INFO] MicroXplorer:385 - Change Database Path : 
+2020-12-19 18:30:51,711 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 18:30:51,711 [WARN] ThirdParty:783 - waiting for thirdparty lock release [close project]
+2020-12-19 18:30:51,711 [INFO] ThirdParty:785 - entering critical section [close project]
+2020-12-19 18:30:51,711 [INFO] ThirdParty:796 - exiting critical section [close project]
+2020-12-19 18:30:51,713 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 18:30:51,714 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 297266184 Bytes (359661568)
+2020-12-19 18:30:51,715 [INFO] MicroXplorer:385 - Change Database Path : 
+2020-12-19 18:30:51,715 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 18:30:51,715 [INFO] OpenFileManager:274 - Change cursor
+2020-12-19 18:30:51,717 [WARN] ThirdParty:204 - Use empty third party IP manager
+2020-12-19 18:30:51,735 [WARN] IntegrityCheckThread:59 - waiting for thirdparty lock release [integrity check]
+2020-12-19 18:30:51,735 [INFO] IntegrityCheckThread:61 - entering critical section [integrity check]
+2020-12-19 18:30:51,772 [INFO] ThirdParty:887 - Integrity check success = true
+2020-12-19 18:30:51,773 [INFO] IntegrityCheckThread:75 - exiting critical section [integrity check]
+2020-12-19 18:30:51,773 [INFO] IntegrityCheckThread:78 - End integrity checks thread
+2020-12-19 18:30:53,508 [INFO] RtosManager:464 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2020-12-19 18:30:53,509 [INFO] RtosManager:464 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2020-12-19 18:30:53,510 [INFO] RtosManager:464 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2020-12-19 18:30:53,510 [INFO] RtosManager:464 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2020-12-19 18:30:53,510 [WARN] ModelIntegratedComponent:182 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2020-12-19 18:30:53,515 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,515 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,515 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,515 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,515 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,516 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,516 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,516 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,516 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,516 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,516 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,517 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,517 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,517 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,517 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,517 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,517 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,518 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,518 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,518 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,518 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,518 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,519 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,519 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,519 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,519 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,519 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,519 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,519 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,519 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,520 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,520 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,520 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,520 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,521 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,521 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,521 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,521 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:30:53,545 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (12500000)
+2020-12-19 18:30:53,657 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 523210504 Bytes (617611264)
+2020-12-19 18:30:53,658 [INFO] DbMcusXml:97 - Load MCU database from /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db//mcu/families.xml
+2020-12-19 18:30:54,134 [INFO] DbMcusJson:92 - JSON generation date=Wed Dec 09 09:22:40 PST 2020 (1607534560)
+2020-12-19 18:30:54,803 [INFO] DbMcus:176 - Found 1835 MCUs (1796 are supported by CubeMX, 1804 are visible in CubeMX)
+2020-12-19 18:30:54,805 [INFO] ApiDb:238 - Load user favorites file /Users/adityasehgal/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2020-12-19 18:30:54,805 [INFO] ApiDb:242 - User favorites MCUs=[]
+2020-12-19 18:30:54,806 [INFO] DbMcus:188 - Set 0 / 0 favorites MCUs
+2020-12-19 18:30:54,811 [WARN] ThirdParty:749 - waiting for thirdparty lock release [change project]
+2020-12-19 18:30:54,811 [INFO] ThirdParty:751 - entering critical section [change project]
+2020-12-19 18:30:54,811 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2020-12-19 18:30:54,812 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-12-19 18:30:54,812 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2020-12-19 18:30:54,812 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2020-12-19 18:30:54,812 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2020-12-19 18:30:54,812 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2020-12-19 18:30:54,812 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2020-12-19 18:30:54,812 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2020-12-19 18:30:54,812 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2020-12-19 18:30:54,812 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2020-12-19 18:30:54,812 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2020-12-19 18:30:54,813 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.16.0
+2020-12-19 18:30:54,813 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2020-12-19 18:30:54,813 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2020-12-19 18:30:54,813 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2020-12-19 18:30:54,813 [INFO] ThirdParty:757 - exiting critical section [change project]
+2020-12-19 18:30:55,097 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 18:30:55,098 [INFO] PinOutPanel:1434 - setPackage(STM32F401RETx,LQFP64)
+2020-12-19 18:30:55,537 [INFO] UtilMem:74 - Before build in PCC Used Memory: 412123888 Bytes (708837376)
+2020-12-19 18:30:55,996 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:30:56,038 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:30:56,095 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:30:56,101 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:30:56,308 [INFO] UtilMem:74 - After build in PCC Used Memory: 440957688 Bytes (708837376)
+2020-12-19 18:30:56,384 [INFO] ApiDbMcu:456 - Load IP Config File for FATFS
+2020-12-19 18:30:56,405 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,406 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,406 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,406 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,406 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,407 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,407 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,407 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,407 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,407 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,407 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,408 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,408 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,408 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,408 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,408 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,409 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,409 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,409 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,409 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,409 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,410 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,410 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,410 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,410 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,410 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,410 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,410 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,411 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,411 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,411 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,411 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,411 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,411 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,412 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,412 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,412 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,413 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:30:56,430 [INFO] ApiDbMcu:456 - Load IP Config File for PDM2PCM
+2020-12-19 18:30:56,471 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] toolchainItems.length=====1
+2020-12-19 18:30:56,583 [INFO] OpenFileManager:294 - Restore cursor
+2020-12-19 18:31:12,090 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 18:31:12,091 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 18:31:12,440 [INFO] MicroXplorer:385 - Change Database Path : 
+2020-12-19 18:31:12,440 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 18:31:12,441 [WARN] ThirdParty:783 - waiting for thirdparty lock release [close project]
+2020-12-19 18:31:12,441 [INFO] ThirdParty:785 - entering critical section [close project]
+2020-12-19 18:31:12,441 [INFO] ThirdParty:796 - exiting critical section [close project]
+2020-12-19 18:31:12,442 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 18:31:12,463 [WARN] IpParametersView:138 - Warning: This peripheral hasn't parameters
+2020-12-19 18:31:12,475 [WARN] MainPanel:236 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2020-12-19 18:31:12,477 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 422085352 Bytes (708837376)
+2020-12-19 18:31:12,481 [INFO] MicroXplorer:385 - Change Database Path : /Users/adityasehgal/.stm32cubemx/databases/DB.6.0.0/db/
+2020-12-19 18:31:12,481 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.0
+2020-12-19 18:31:12,481 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] *****Project Manager Settings
+2020-12-19 18:31:18,118 [INFO] MicroXplorer:385 - Change Database Path : 
+2020-12-19 18:31:18,119 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 18:31:18,119 [INFO] OpenFileManager:274 - Change cursor
+2020-12-19 18:31:18,120 [WARN] ThirdParty:204 - Use empty third party IP manager
+2020-12-19 18:31:19,161 [INFO] Rule:212 - rule GTZC_S instance for project manager is applicable
+2020-12-19 18:31:19,161 [INFO] Rule:212 - rule GTZC_S instance for context M0+ is applicable
+2020-12-19 18:31:19,161 [INFO] Rule:212 - rule GTZC_NS instance for context M4 is applicable
+2020-12-19 18:31:19,161 [INFO] Rule:212 - rule GTZC_S instance value for IP GTZC is applicable
+2020-12-19 18:31:19,161 [INFO] Rule:212 - rule GTZC_S instance for mcu is applicable
+2020-12-19 18:31:19,161 [INFO] Rule:212 - rule GTZC_S instance for VP is applicable
+2020-12-19 18:31:19,161 [INFO] Rule:212 - rule GTZC_S instance for signal is applicable
+2020-12-19 18:31:19,162 [INFO] Rule:212 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32H7 is applicable
+2020-12-19 18:31:19,163 [INFO] Rule:212 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32H7 is applicable
+2020-12-19 18:31:19,163 [INFO] Rule:212 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32WB is applicable
+2020-12-19 18:31:19,163 [INFO] Rule:212 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32WB is applicable
+2020-12-19 18:31:19,163 [INFO] Rule:212 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2020-12-19 18:31:19,163 [INFO] Rule:212 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2020-12-19 18:31:19,163 [INFO] Rule:212 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32L5 is applicable
+2020-12-19 18:31:19,163 [INFO] Rule:212 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2020-12-19 18:31:19,163 [INFO] Rule:212 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2020-12-19 18:31:19,164 [INFO] Rule:212 - rule USB device lib V2.5.3 for L0 rename USBD_SUPPORT_USER_STRING parameter to USBD_SUPPORT_USER_STRING_DESC4 is applicable
+2020-12-19 18:31:19,164 [INFO] Rule:212 - rule I2SCLockSelection clock entry align is applicable
+2020-12-19 18:31:19,164 [INFO] Rule:212 - rule Assign TIMx context if used as SYS timebase is applicable
+2020-12-19 18:31:19,164 [INFO] DbConfProperties:294 - Apply Compatibility (0/19 Rules)
+2020-12-19 18:31:19,190 [INFO] RtosManager:464 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2020-12-19 18:31:19,190 [INFO] RtosManager:464 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2020-12-19 18:31:19,191 [INFO] RtosManager:464 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2020-12-19 18:31:19,191 [INFO] RtosManager:464 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2020-12-19 18:31:19,191 [WARN] ModelIntegratedComponent:182 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2020-12-19 18:31:19,192 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,192 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,192 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,192 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,192 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,192 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,192 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,192 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,193 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,193 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,193 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,193 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,193 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,193 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,193 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,193 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,194 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,194 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,194 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,194 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,194 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,194 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,194 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,194 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,194 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,194 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,195 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,195 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,195 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,195 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,195 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,195 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,195 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,195 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,196 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,196 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,196 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,196 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:19,206 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,207 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,207 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,207 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,207 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,208 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,208 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,208 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,208 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,208 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOThreshold) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,208 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOThreshold) has invalid value (null)
+2020-12-19 18:31:19,208 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemBurst) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,208 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemBurst) has invalid value (null)
+2020-12-19 18:31:19,208 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphBurst) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:31:19,208 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphBurst) has invalid value (null)
+2020-12-19 18:31:19,319 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 305521968 Bytes (708837376)
+2020-12-19 18:31:19,320 [WARN] ThirdParty:749 - waiting for thirdparty lock release [change project]
+2020-12-19 18:31:19,320 [INFO] ThirdParty:751 - entering critical section [change project]
+2020-12-19 18:31:19,320 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2020-12-19 18:31:19,320 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-12-19 18:31:19,320 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.16.0
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2020-12-19 18:31:19,321 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2020-12-19 18:31:19,321 [INFO] ThirdParty:757 - exiting critical section [change project]
+2020-12-19 18:31:19,449 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 18:31:19,450 [INFO] PinOutPanel:1434 - setPackage(STM32F401RETx,LQFP64)
+2020-12-19 18:31:19,595 [INFO] UtilMem:74 - Before build in PCC Used Memory: 349335704 Bytes (708837376)
+2020-12-19 18:31:19,729 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:31:19,768 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:31:19,810 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:31:19,812 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:31:19,854 [INFO] UtilMem:74 - After build in PCC Used Memory: 393898144 Bytes (708837376)
+2020-12-19 18:31:19,868 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,868 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,868 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,869 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,869 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,869 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,869 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,869 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,869 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,870 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,870 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,870 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,871 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,871 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,871 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,871 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,871 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,872 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,872 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,872 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,872 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,873 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,873 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,873 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,873 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,874 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,874 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,874 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,874 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,875 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,875 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,875 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,875 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,876 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,876 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,876 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,877 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,877 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:19,880 [INFO] ApiDbMcu:456 - Load IP Config File for PDM2PCM
+2020-12-19 18:31:19,893 [INFO] OpenFileManager:294 - Restore cursor
+2020-12-19 18:31:34,114 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 604617144 Bytes (708837376)
+2020-12-19 18:31:37,083 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 18:31:37,084 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 18:31:37,331 [INFO] MicroXplorer:385 - Change Database Path : 
+2020-12-19 18:31:37,331 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 18:31:37,331 [WARN] ThirdParty:783 - waiting for thirdparty lock release [close project]
+2020-12-19 18:31:37,332 [INFO] ThirdParty:785 - entering critical section [close project]
+2020-12-19 18:31:37,332 [INFO] ThirdParty:796 - exiting critical section [close project]
+2020-12-19 18:31:37,333 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 18:31:37,338 [WARN] IpParametersView:138 - Warning: This peripheral hasn't parameters
+2020-12-19 18:31:37,341 [WARN] MainPanel:236 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2020-12-19 18:31:37,343 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 366990040 Bytes (708837376)
+2020-12-19 18:31:37,343 [INFO] MicroXplorer:385 - Change Database Path : 
+2020-12-19 18:31:37,344 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 18:31:37,344 [INFO] OpenFileManager:274 - Change cursor
+2020-12-19 18:31:37,344 [WARN] ThirdParty:204 - Use empty third party IP manager
+2020-12-19 18:31:37,352 [INFO] RulesReader:52 - Compatibility file has been processed (228 Rules)
+2020-12-19 18:31:38,096 [INFO] RtosManager:464 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2020-12-19 18:31:38,097 [INFO] RtosManager:464 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2020-12-19 18:31:38,097 [INFO] RtosManager:464 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2020-12-19 18:31:38,097 [INFO] RtosManager:464 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2020-12-19 18:31:38,097 [WARN] ModelIntegratedComponent:182 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2020-12-19 18:31:38,098 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,099 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,099 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,099 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,099 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,099 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,100 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,101 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,101 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,101 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,101 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,101 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,101 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,102 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,102 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,102 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,102 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,102 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,102 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,102 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,103 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,103 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,103 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,104 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,104 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,104 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,104 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:31:38,111 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (12500000)
+2020-12-19 18:31:38,188 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 525143640 Bytes (708837376)
+2020-12-19 18:31:38,189 [WARN] ThirdParty:749 - waiting for thirdparty lock release [change project]
+2020-12-19 18:31:38,189 [INFO] ThirdParty:751 - entering critical section [change project]
+2020-12-19 18:31:38,189 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2020-12-19 18:31:38,189 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.16.0
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2020-12-19 18:31:38,190 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2020-12-19 18:31:38,190 [INFO] ThirdParty:757 - exiting critical section [change project]
+2020-12-19 18:31:38,278 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 18:31:38,279 [INFO] PinOutPanel:1434 - setPackage(STM32F401RETx,LQFP64)
+2020-12-19 18:31:38,501 [INFO] UtilMem:74 - Before build in PCC Used Memory: 367630768 Bytes (708837376)
+2020-12-19 18:31:38,616 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:31:38,648 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:31:38,708 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:31:38,710 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:31:38,742 [INFO] UtilMem:74 - After build in PCC Used Memory: 410322512 Bytes (708837376)
+2020-12-19 18:31:38,746 [INFO] ApiDbMcu:456 - Load IP Config File for FATFS
+2020-12-19 18:31:38,755 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,755 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,755 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,756 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,756 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,756 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,756 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,756 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,756 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,756 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,756 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,757 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,757 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,757 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,757 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,757 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,758 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,758 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,758 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,758 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,758 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,758 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,759 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,759 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,759 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,759 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,759 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,759 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,760 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,760 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,760 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,760 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,760 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,761 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,761 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,761 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,762 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,762 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:31:38,764 [INFO] ApiDbMcu:456 - Load IP Config File for PDM2PCM
+2020-12-19 18:31:38,776 [INFO] OpenFileManager:294 - Restore cursor
+2020-12-19 18:34:28,727 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 396291144 Bytes (708837376)
+2020-12-19 18:34:30,598 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 407825480 Bytes (708837376)
+2020-12-19 18:34:31,188 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 431292096 Bytes (708837376)
+2020-12-19 18:34:31,691 [INFO] ProjectBuilder:1919 - IP not ready for code generation: Clock
+2020-12-19 18:34:38,017 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2020-12-19 18:34:38,017 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2020-12-19 18:34:38,017 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2020-12-19 18:34:38,017 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2020-12-19 18:34:38,017 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2020-12-19 18:34:38,018 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2020-12-19 18:34:38,018 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FATFS
+2020-12-19 18:34:38,018 [INFO] CodeGenerator:639 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db/
+2020-12-19 18:34:38,383 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/license.tmp_save
+2020-12-19 18:34:38,886 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/license.tmp
+2020-12-19 18:34:39,011 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/gpio.tmp_save
+2020-12-19 18:34:39,103 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/gpio.tmp
+2020-12-19 18:34:39,195 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 18:34:39,207 [INFO] Middleware:1252 - No code input for Bsp Dependency
+2020-12-19 18:34:39,211 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_HalInit.tmp_save
+2020-12-19 18:34:39,269 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_HalInit.tmp
+2020-12-19 18:34:39,272 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_vars.tmp_save
+2020-12-19 18:34:39,321 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_vars.tmp
+2020-12-19 18:34:39,323 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_ext_vars.tmp_save
+2020-12-19 18:34:39,371 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_ext_vars.tmp
+2020-12-19 18:34:39,373 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_inc.tmp_save
+2020-12-19 18:34:39,420 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_inc.tmp
+2020-12-19 18:34:39,424 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/ffconf.h_save
+2020-12-19 18:34:39,508 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/ffconf.h
+2020-12-19 18:34:39,512 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.c_save
+2020-12-19 18:34:39,570 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.c
+2020-12-19 18:34:39,573 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.h_save
+2020-12-19 18:34:39,625 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.h
+2020-12-19 18:34:39,629 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.c_save
+2020-12-19 18:34:39,682 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.c
+2020-12-19 18:34:39,685 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.h_save
+2020-12-19 18:34:39,736 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.h
+2020-12-19 18:34:39,737 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 18:34:39,738 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 18:34:39,745 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_it.c_save
+2020-12-19 18:34:39,836 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_it.c
+2020-12-19 18:34:39,840 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_it.h_save
+2020-12-19 18:34:39,890 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_it.h
+2020-12-19 18:34:39,903 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_hal_msp.c_save
+2020-12-19 18:34:40,015 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_hal_msp.c
+2020-12-19 18:34:40,018 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/system.tmp_save
+2020-12-19 18:34:40,067 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/system.tmp
+2020-12-19 18:34:40,073 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-12-19 18:34:40,133 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_hal_conf.h
+2020-12-19 18:34:40,167 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/main.h_save
+2020-12-19 18:34:40,228 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/main.h
+2020-12-19 18:34:40,255 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/main.c_save
+2020-12-19 18:34:40,351 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/main.c
+2020-12-19 18:34:40,980 [INFO] ProjectBuilder:2328 - Time for Copy HAL[1] : 184mS.
+2020-12-19 18:34:40,988 [INFO] ProjectBuilder:3259 - Project Generator version: 3.11.2
+2020-12-19 18:34:41,426 [INFO] ConfigFileManager:1238 - The Die is : DIE433
+2020-12-19 18:34:41,436 [INFO] ApiDbMcu:456 - Load IP Config File for FREERTOS
+2020-12-19 18:34:41,439 [INFO] ApiDbMcu:456 - Load IP Config File for LIBJPEG
+2020-12-19 18:34:41,448 [INFO] ApiDbMcu:456 - Load IP Config File for MBEDTLS
+2020-12-19 18:34:41,460 [INFO] ApiDbMcu:456 - Load IP Config File for USB_DEVICE
+2020-12-19 18:34:41,467 [INFO] ApiDbMcu:456 - Load IP Config File for USB_HOST
+2020-12-19 18:34:43,611 [INFO] ProjectBuilder:3425 - Time for Generating toolchain IDE Files: 2623mS.
+2020-12-19 18:34:43,612 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2020-12-19 18:34:43,615 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2020-12-19 18:36:37,912 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 505919200 Bytes (953155584)
+2020-12-19 18:36:39,675 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 517453536 Bytes (953155584)
+2020-12-19 18:36:39,890 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 531085024 Bytes (953155584)
+2020-12-19 18:36:40,055 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2020-12-19 18:36:40,056 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2020-12-19 18:36:40,056 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2020-12-19 18:36:40,056 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2020-12-19 18:36:40,056 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2020-12-19 18:36:40,056 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2020-12-19 18:36:40,056 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FATFS
+2020-12-19 18:36:40,056 [INFO] CodeGenerator:639 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db/
+2020-12-19 18:36:40,279 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/license.tmp_save
+2020-12-19 18:36:40,329 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/license.tmp
+2020-12-19 18:36:40,342 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/gpio.tmp_save
+2020-12-19 18:36:40,397 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/gpio.tmp
+2020-12-19 18:36:40,454 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 18:36:40,462 [INFO] Middleware:1252 - No code input for Bsp Dependency
+2020-12-19 18:36:40,466 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_HalInit.tmp_save
+2020-12-19 18:36:40,515 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_HalInit.tmp
+2020-12-19 18:36:40,516 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_vars.tmp_save
+2020-12-19 18:36:40,564 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_vars.tmp
+2020-12-19 18:36:40,565 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_ext_vars.tmp_save
+2020-12-19 18:36:40,615 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_ext_vars.tmp
+2020-12-19 18:36:40,616 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_inc.tmp_save
+2020-12-19 18:36:40,659 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_inc.tmp
+2020-12-19 18:36:40,661 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/ffconf.h_save
+2020-12-19 18:36:40,716 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/ffconf.h
+2020-12-19 18:36:40,719 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.c_save
+2020-12-19 18:36:40,765 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.c
+2020-12-19 18:36:40,767 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.h_save
+2020-12-19 18:36:40,810 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.h
+2020-12-19 18:36:40,812 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.c_save
+2020-12-19 18:36:40,855 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.c
+2020-12-19 18:36:40,858 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.h_save
+2020-12-19 18:36:40,949 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.h
+2020-12-19 18:36:40,950 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 18:36:40,951 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 18:36:40,956 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_it.c_save
+2020-12-19 18:36:41,010 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_it.c
+2020-12-19 18:36:41,013 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_it.h_save
+2020-12-19 18:36:41,056 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_it.h
+2020-12-19 18:36:41,063 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_hal_msp.c_save
+2020-12-19 18:36:41,135 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_hal_msp.c
+2020-12-19 18:36:41,137 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/system.tmp_save
+2020-12-19 18:36:41,174 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/system.tmp
+2020-12-19 18:36:41,178 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-12-19 18:36:41,231 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_hal_conf.h
+2020-12-19 18:36:41,256 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/main.h_save
+2020-12-19 18:36:41,307 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/main.h
+2020-12-19 18:36:41,310 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/main.c_save
+2020-12-19 18:36:41,391 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/main.c
+2020-12-19 18:36:41,813 [INFO] ProjectBuilder:2328 - Time for Copy HAL[1] : 77mS.
+2020-12-19 18:36:41,819 [INFO] ProjectBuilder:3259 - Project Generator version: 3.11.2
+2020-12-19 18:36:42,349 [INFO] ConfigFileManager:1238 - The Die is : DIE433
+2020-12-19 18:36:43,813 [INFO] ProjectBuilder:3425 - Time for Generating toolchain IDE Files: 1995mS.
+2020-12-19 18:36:43,813 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2020-12-19 18:36:43,816 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2020-12-19 18:41:39,252 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 18:41:39,254 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 18:41:39,806 [INFO] MicroXplorer:385 - Change Database Path : 
+2020-12-19 18:41:39,806 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 18:41:39,807 [WARN] ThirdParty:783 - waiting for thirdparty lock release [close project]
+2020-12-19 18:41:39,807 [INFO] ThirdParty:785 - entering critical section [close project]
+2020-12-19 18:41:39,807 [INFO] ThirdParty:796 - exiting critical section [close project]
+2020-12-19 18:41:39,808 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 18:41:39,812 [WARN] IpParametersView:138 - Warning: This peripheral hasn't parameters
+2020-12-19 18:41:39,814 [WARN] MainPanel:236 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2020-12-19 18:41:39,815 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 535175848 Bytes (973078528)
+2020-12-19 18:41:39,816 [INFO] MicroXplorer:385 - Change Database Path : 
+2020-12-19 18:41:39,816 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 18:41:39,816 [INFO] OpenFileManager:274 - Change cursor
+2020-12-19 18:41:39,816 [WARN] ThirdParty:204 - Use empty third party IP manager
+2020-12-19 18:41:39,824 [INFO] RulesReader:52 - Compatibility file has been processed (228 Rules)
+2020-12-19 18:41:40,458 [INFO] RtosManager:464 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2020-12-19 18:41:40,458 [INFO] RtosManager:464 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2020-12-19 18:41:40,458 [INFO] RtosManager:464 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2020-12-19 18:41:40,458 [INFO] RtosManager:464 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2020-12-19 18:41:40,458 [WARN] ModelIntegratedComponent:182 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2020-12-19 18:41:40,459 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,459 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,459 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,459 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,460 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,460 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,460 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,460 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,460 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,460 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,460 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,460 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,460 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,460 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,461 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,462 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,463 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 18:41:40,468 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,468 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,468 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,468 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,468 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,469 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,469 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,469 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,469 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,469 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOThreshold) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,469 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOThreshold) has invalid value (null)
+2020-12-19 18:41:40,469 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemBurst) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,469 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemBurst) has invalid value (null)
+2020-12-19 18:41:40,469 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphBurst) has Id (MEMTOMEM1) currently not set
+2020-12-19 18:41:40,469 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphBurst) has invalid value (null)
+2020-12-19 18:41:40,530 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 619558000 Bytes (973078528)
+2020-12-19 18:41:40,531 [WARN] ThirdParty:749 - waiting for thirdparty lock release [change project]
+2020-12-19 18:41:40,531 [INFO] ThirdParty:751 - entering critical section [change project]
+2020-12-19 18:41:40,531 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2020-12-19 18:41:40,531 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-12-19 18:41:40,531 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2020-12-19 18:41:40,531 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2020-12-19 18:41:40,531 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2020-12-19 18:41:40,532 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2020-12-19 18:41:40,532 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2020-12-19 18:41:40,532 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2020-12-19 18:41:40,532 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2020-12-19 18:41:40,532 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2020-12-19 18:41:40,532 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2020-12-19 18:41:40,532 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.16.0
+2020-12-19 18:41:40,532 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2020-12-19 18:41:40,532 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2020-12-19 18:41:40,532 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2020-12-19 18:41:40,532 [INFO] ThirdParty:757 - exiting critical section [change project]
+2020-12-19 18:41:40,615 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 18:41:40,616 [INFO] PinOutPanel:1434 - setPackage(STM32F401RETx,LQFP64)
+2020-12-19 18:41:40,755 [INFO] UtilMem:74 - Before build in PCC Used Memory: 663371736 Bytes (973078528)
+2020-12-19 18:41:40,836 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:41:40,854 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:41:40,876 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:41:40,878 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 18:41:40,910 [INFO] UtilMem:74 - After build in PCC Used Memory: 706885600 Bytes (973078528)
+2020-12-19 18:41:40,919 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,920 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,920 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,920 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,920 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,920 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,921 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,921 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,921 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,921 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,921 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,921 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,922 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,922 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,922 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,923 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,923 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,923 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,924 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,924 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,924 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,924 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,925 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,925 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,925 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,925 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,925 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,925 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,926 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,926 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,926 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,926 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,926 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,927 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,927 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,928 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,928 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,929 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 18:41:40,931 [INFO] ApiDbMcu:456 - Load IP Config File for PDM2PCM
+2020-12-19 18:41:40,943 [INFO] OpenFileManager:294 - Restore cursor
+2020-12-19 18:41:41,636 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 764557280 Bytes (973078528)
+2020-12-19 18:41:41,808 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2020-12-19 18:41:41,808 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2020-12-19 18:41:41,808 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DMA
+2020-12-19 18:41:41,808 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2020-12-19 18:41:41,809 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2020-12-19 18:41:41,809 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2020-12-19 18:41:41,809 [INFO] CodeGenerator:639 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db/
+2020-12-19 18:41:41,945 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/license.tmp_save
+2020-12-19 18:41:41,985 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/license.tmp
+2020-12-19 18:41:42,025 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/gpio.tmp_save
+2020-12-19 18:41:42,066 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/gpio.tmp
+2020-12-19 18:41:42,090 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 18:41:42,096 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma.tmp_save
+2020-12-19 18:41:42,144 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma.tmp
+2020-12-19 18:41:42,146 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma_GV.tmp_save
+2020-12-19 18:41:42,192 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma_GV.tmp
+2020-12-19 18:41:42,193 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 18:41:42,198 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_it.c_save
+2020-12-19 18:41:42,260 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_it.c
+2020-12-19 18:41:42,262 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_it.h_save
+2020-12-19 18:41:42,308 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_it.h
+2020-12-19 18:41:42,313 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_hal_msp.c_save
+2020-12-19 18:41:42,382 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_hal_msp.c
+2020-12-19 18:41:42,384 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/system.tmp_save
+2020-12-19 18:41:42,432 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/system.tmp
+2020-12-19 18:41:42,436 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-12-19 18:41:42,506 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_hal_conf.h
+2020-12-19 18:41:42,524 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/main.h_save
+2020-12-19 18:41:42,575 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/main.h
+2020-12-19 18:41:42,577 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/main.c_save
+2020-12-19 18:41:42,651 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/main.c
+2020-12-19 18:41:43,226 [INFO] ProjectBuilder:2328 - Time for Copy HAL[1] : 104mS.
+2020-12-19 18:41:43,233 [INFO] ProjectBuilder:3259 - Project Generator version: 3.11.2
+2020-12-19 18:41:43,729 [INFO] ConfigFileManager:1238 - The Die is : DIE433
+2020-12-19 18:41:43,732 [INFO] ApiDbMcu:456 - Load IP Config File for FATFS
+2020-12-19 18:41:43,784 [INFO] ApiDbMcu:456 - Load IP Config File for FREERTOS
+2020-12-19 18:41:43,787 [INFO] ApiDbMcu:456 - Load IP Config File for LIBJPEG
+2020-12-19 18:41:43,796 [INFO] ApiDbMcu:456 - Load IP Config File for MBEDTLS
+2020-12-19 18:41:43,807 [INFO] ApiDbMcu:456 - Load IP Config File for USB_DEVICE
+2020-12-19 18:41:43,812 [INFO] ApiDbMcu:456 - Load IP Config File for USB_HOST
+2020-12-19 18:41:45,291 [INFO] ProjectBuilder:3425 - Time for Generating toolchain IDE Files: 2058mS.
+2020-12-19 18:41:45,292 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 1mS.
+2020-12-19 18:41:45,294 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2020-12-19 18:51:52,823 [INFO] Gpio:248 - dependency for GPIO [USART2]
+2020-12-19 18:52:18,425 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 827830904 Bytes (985661440)
+2020-12-19 18:52:28,251 [INFO] Gpio:248 - dependency for GPIO [USART2]
+2020-12-19 18:52:29,778 [INFO] Gpio:248 - dependency for GPIO [USART2]
+2020-12-19 18:52:38,751 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 765951528 Bytes (985661440)
+2020-12-19 18:52:39,842 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 776983680 Bytes (985661440)
+2020-12-19 18:52:40,400 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 807892496 Bytes (985661440)
+2020-12-19 18:52:40,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2020-12-19 18:52:40,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2020-12-19 18:52:40,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: DMA
+2020-12-19 18:52:40,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2020-12-19 18:52:40,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2020-12-19 18:52:40,538 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2020-12-19 18:52:40,539 [INFO] CodeGenerator:639 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db/
+2020-12-19 18:52:40,571 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-12-19 18:52:40,571 [INFO] Argument:280 - 	 sub Args: 
+2020-12-19 18:52:40,571 [INFO] Argument:278 - Argument : Instancevalue: DMA2_Stream0
+2020-12-19 18:52:40,571 [INFO] Argument:288 - Argument : Instancevalue: DMA2_Stream0
+2020-12-19 18:52:40,571 [INFO] Argument:278 - Argument : Initvalue: null
+2020-12-19 18:52:40,571 [INFO] Argument:280 - 	 sub Args: 
+2020-12-19 18:52:40,571 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_0
+2020-12-19 18:52:40,572 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_0
+2020-12-19 18:52:40,572 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_MEMORY
+2020-12-19 18:52:40,572 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_MEMORY
+2020-12-19 18:52:40,572 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_ENABLE
+2020-12-19 18:52:40,572 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_ENABLE
+2020-12-19 18:52:40,572 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-12-19 18:52:40,572 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-12-19 18:52:40,572 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-12-19 18:52:40,572 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-12-19 18:52:40,572 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-12-19 18:52:40,572 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-12-19 18:52:40,572 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-12-19 18:52:40,572 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-12-19 18:52:40,572 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-12-19 18:52:40,572 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-12-19 18:52:40,572 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2020-12-19 18:52:40,572 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2020-12-19 18:52:40,572 [INFO] Argument:278 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2020-12-19 18:52:40,573 [INFO] Argument:288 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2020-12-19 18:52:40,573 [INFO] Argument:278 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2020-12-19 18:52:40,573 [INFO] Argument:288 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2020-12-19 18:52:40,573 [INFO] Argument:278 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2020-12-19 18:52:40,573 [INFO] Argument:288 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2020-12-19 18:52:40,573 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-12-19 18:52:40,573 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-12-19 18:52:40,573 [INFO] Argument:278 - Argument : Statevalue: null
+2020-12-19 18:52:40,573 [INFO] Argument:288 - Argument : Statevalue: null
+2020-12-19 18:52:40,573 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-12-19 18:52:40,573 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-12-19 18:52:40,573 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-12-19 18:52:40,573 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-12-19 18:52:40,573 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-12-19 18:52:40,574 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-12-19 18:52:40,574 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-12-19 18:52:40,574 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-12-19 18:52:40,574 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-12-19 18:52:40,574 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-12-19 18:52:40,574 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-12-19 18:52:40,574 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-12-19 18:52:40,574 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-12-19 18:52:40,574 [INFO] Argument:280 - 	 sub Args: 
+2020-12-19 18:52:40,574 [INFO] Argument:278 - Argument : Instancevalue: DMA2_Stream0
+2020-12-19 18:52:40,574 [INFO] Argument:288 - Argument : Instancevalue: DMA2_Stream0
+2020-12-19 18:52:40,574 [INFO] Argument:278 - Argument : Initvalue: null
+2020-12-19 18:52:40,574 [INFO] Argument:280 - 	 sub Args: 
+2020-12-19 18:52:40,574 [INFO] Argument:278 - Argument : Channelvalue: DMA_CHANNEL_0
+2020-12-19 18:52:40,574 [INFO] Argument:288 - Argument : Channelvalue: DMA_CHANNEL_0
+2020-12-19 18:52:40,575 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_MEMORY
+2020-12-19 18:52:40,575 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_MEMORY
+2020-12-19 18:52:40,575 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_ENABLE
+2020-12-19 18:52:40,575 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_ENABLE
+2020-12-19 18:52:40,575 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-12-19 18:52:40,575 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-12-19 18:52:40,575 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-12-19 18:52:40,575 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-12-19 18:52:40,575 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-12-19 18:52:40,575 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-12-19 18:52:40,575 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-12-19 18:52:40,575 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-12-19 18:52:40,575 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-12-19 18:52:40,575 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-12-19 18:52:40,575 [INFO] Argument:278 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2020-12-19 18:52:40,575 [INFO] Argument:288 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2020-12-19 18:52:40,575 [INFO] Argument:278 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2020-12-19 18:52:40,575 [INFO] Argument:288 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2020-12-19 18:52:40,575 [INFO] Argument:278 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2020-12-19 18:52:40,576 [INFO] Argument:288 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2020-12-19 18:52:40,576 [INFO] Argument:278 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2020-12-19 18:52:40,576 [INFO] Argument:288 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2020-12-19 18:52:40,576 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:278 - Argument : Statevalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:288 - Argument : Statevalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:278 - Argument : XferM1CpltCallbackvalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:288 - Argument : XferM1CpltCallbackvalue: null
+2020-12-19 18:52:40,576 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-12-19 18:52:40,577 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-12-19 18:52:40,577 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-12-19 18:52:40,577 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-12-19 18:52:40,720 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/license.tmp_save
+2020-12-19 18:52:40,770 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/license.tmp
+2020-12-19 18:52:40,782 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/gpio.tmp_save
+2020-12-19 18:52:40,829 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/gpio.tmp
+2020-12-19 18:52:40,855 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 18:52:40,861 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma.tmp_save
+2020-12-19 18:52:40,902 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma.tmp
+2020-12-19 18:52:40,904 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma_GV.tmp_save
+2020-12-19 18:52:40,940 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/dma_GV.tmp
+2020-12-19 18:52:40,940 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 18:52:40,946 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_it.c_save
+2020-12-19 18:52:41,004 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_it.c
+2020-12-19 18:52:41,007 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_it.h_save
+2020-12-19 18:52:41,052 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_it.h
+2020-12-19 18:52:41,058 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_hal_msp.c_save
+2020-12-19 18:52:41,127 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/stm32f4xx_hal_msp.c
+2020-12-19 18:52:41,130 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/system.tmp_save
+2020-12-19 18:52:41,168 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/MXTmpFiles/system.tmp
+2020-12-19 18:52:41,173 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-12-19 18:52:41,223 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/stm32f4xx_hal_conf.h
+2020-12-19 18:52:41,238 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/main.h_save
+2020-12-19 18:52:41,284 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Inc/main.h
+2020-12-19 18:52:41,286 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/main.c_save
+2020-12-19 18:52:41,354 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/DMA_Byte_Replication/Core/Src/main.c
+2020-12-19 18:52:41,819 [INFO] ProjectBuilder:2328 - Time for Copy HAL[1] : 153mS.
+2020-12-19 18:52:41,822 [INFO] ProjectBuilder:3259 - Project Generator version: 3.11.2
+2020-12-19 18:52:42,402 [INFO] ConfigFileManager:1238 - The Die is : DIE433
+2020-12-19 18:52:43,796 [INFO] ProjectBuilder:3425 - Time for Generating toolchain IDE Files: 1974mS.
+2020-12-19 18:52:43,797 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2020-12-19 18:52:43,799 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 1mS.
+2020-12-19 19:09:22,276 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 19:09:22,277 [INFO] MainUpdater:2644 - connection check result : 10
+2020-12-19 19:09:22,569 [INFO] Gpio:248 - dependency for GPIO [USART2]
+2020-12-19 19:09:22,582 [INFO] MicroXplorer:385 - Change Database Path : 
+2020-12-19 19:09:22,582 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 19:09:22,582 [WARN] ThirdParty:783 - waiting for thirdparty lock release [close project]
+2020-12-19 19:09:22,582 [INFO] ThirdParty:785 - entering critical section [close project]
+2020-12-19 19:09:22,582 [INFO] ThirdParty:796 - exiting critical section [close project]
+2020-12-19 19:09:22,583 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 19:09:22,588 [WARN] IpParametersView:138 - Warning: This peripheral hasn't parameters
+2020-12-19 19:09:22,591 [WARN] MainPanel:236 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2020-12-19 19:09:22,592 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 802375752 Bytes (1020264448)
+2020-12-19 19:09:22,593 [INFO] MicroXplorer:385 - Change Database Path : 
+2020-12-19 19:09:22,593 [INFO] MicroXplorer:415 - Change Database Version : DB.6.0.10
+2020-12-19 19:09:22,593 [INFO] OpenFileManager:274 - Change cursor
+2020-12-19 19:09:22,594 [WARN] ThirdParty:204 - Use empty third party IP manager
+2020-12-19 19:09:22,610 [INFO] RulesReader:52 - Compatibility file has been processed (228 Rules)
+2020-12-19 19:09:23,322 [INFO] RtosManager:464 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2020-12-19 19:09:23,322 [INFO] RtosManager:464 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2020-12-19 19:09:23,323 [INFO] RtosManager:464 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2020-12-19 19:09:23,323 [INFO] RtosManager:464 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2020-12-19 19:09:23,323 [WARN] ModelIntegratedComponent:182 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2020-12-19 19:09:23,324 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,324 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,324 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,324 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,325 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,325 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,325 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,325 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,325 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,325 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,325 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,326 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,326 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,326 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,326 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,326 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,326 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,326 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,327 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,327 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,327 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,327 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,327 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,327 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,327 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,327 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,328 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,329 [WARN] ModelIntegratedComponent:51 - No mode defined for component null
+2020-12-19 19:09:23,335 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (12500000)
+2020-12-19 19:09:23,420 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 758232728 Bytes (1020264448)
+2020-12-19 19:09:23,421 [WARN] ThirdParty:749 - waiting for thirdparty lock release [change project]
+2020-12-19 19:09:23,421 [INFO] ThirdParty:751 - entering critical section [change project]
+2020-12-19 19:09:23,421 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2020-12-19 19:09:23,421 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-12-19 19:09:23,421 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2020-12-19 19:09:23,421 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.16.0
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2020-12-19 19:09:23,422 [INFO] ThirdParty:939 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2020-12-19 19:09:23,422 [INFO] ThirdParty:757 - exiting critical section [change project]
+2020-12-19 19:09:23,493 [INFO] PinOutPanel:1434 - setPackage(No Configuration,No Configuration)
+2020-12-19 19:09:23,493 [INFO] PinOutPanel:1434 - setPackage(STM32F401RETx,LQFP64)
+2020-12-19 19:09:23,652 [INFO] UtilMem:74 - Before build in PCC Used Memory: 821447160 Bytes (1020264448)
+2020-12-19 19:09:23,745 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 19:09:23,763 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 19:09:23,787 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 19:09:23,789 [INFO] SharedServices:72 - Folder for power plug-in: /Users/adityasehgal/.stm32cubemx/plugins/power
+2020-12-19 19:09:23,819 [INFO] UtilMem:74 - After build in PCC Used Memory: 864961024 Bytes (1020264448)
+2020-12-19 19:09:23,822 [INFO] ApiDbMcu:456 - Load IP Config File for FATFS
+2020-12-19 19:09:23,833 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,833 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,833 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,834 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,834 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,834 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,834 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,834 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,835 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,835 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,835 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,835 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,835 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,836 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,836 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,836 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,836 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,836 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,837 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,837 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,837 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,838 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,838 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,838 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,839 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,839 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,839 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,839 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,839 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,839 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,839 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,840 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,840 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,840 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,841 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,841 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,842 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,842 [INFO] IPUIPlugin:64 - create IPUIPlugin
+2020-12-19 19:09:23,844 [INFO] ApiDbMcu:456 - Load IP Config File for PDM2PCM
+2020-12-19 19:09:23,862 [INFO] OpenFileManager:294 - Restore cursor
+2020-12-19 19:09:49,785 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 820510552 Bytes (1020264448)
+2020-12-19 19:09:51,231 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 832044888 Bytes (1020264448)
+2020-12-19 19:09:52,000 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 869267296 Bytes (1020264448)
+2020-12-19 19:09:52,209 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SPI
+2020-12-19 19:09:52,209 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: NVIC
+2020-12-19 19:09:52,209 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: USART
+2020-12-19 19:09:52,209 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: SYS
+2020-12-19 19:09:52,210 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: GPIO
+2020-12-19 19:09:52,210 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: RCC
+2020-12-19 19:09:52,210 [INFO] BlockDiagram:2735 - set Specific Code input for plugin: FATFS
+2020-12-19 19:09:52,210 [INFO] CodeGenerator:639 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.1.1.202012091304//db/
+2020-12-19 19:09:52,414 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/license.tmp_save
+2020-12-19 19:09:52,453 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/license.tmp
+2020-12-19 19:09:52,475 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/gpio.tmp_save
+2020-12-19 19:09:52,521 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/gpio.tmp
+2020-12-19 19:09:52,567 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 19:09:52,572 [INFO] Middleware:1252 - No code input for Bsp Dependency
+2020-12-19 19:09:52,576 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_HalInit.tmp_save
+2020-12-19 19:09:52,615 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_HalInit.tmp
+2020-12-19 19:09:52,618 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_vars.tmp_save
+2020-12-19 19:09:52,659 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_vars.tmp
+2020-12-19 19:09:52,661 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_ext_vars.tmp_save
+2020-12-19 19:09:52,699 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_ext_vars.tmp
+2020-12-19 19:09:52,701 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_inc.tmp_save
+2020-12-19 19:09:52,741 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/fatfs_inc.tmp
+2020-12-19 19:09:52,743 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/ffconf.h_save
+2020-12-19 19:09:52,794 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/ffconf.h
+2020-12-19 19:09:52,796 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.c_save
+2020-12-19 19:09:52,844 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.c
+2020-12-19 19:09:52,846 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.h_save
+2020-12-19 19:09:52,890 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/Target/user_diskio.h
+2020-12-19 19:09:52,893 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.c_save
+2020-12-19 19:09:52,943 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.c
+2020-12-19 19:09:52,945 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.h_save
+2020-12-19 19:09:52,991 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/FATFS/App/fatfs.h
+2020-12-19 19:09:52,991 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 19:09:52,993 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-12-19 19:09:52,999 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_it.c_save
+2020-12-19 19:09:53,056 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_it.c
+2020-12-19 19:09:53,060 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_it.h_save
+2020-12-19 19:09:53,105 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_it.h
+2020-12-19 19:09:53,111 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_hal_msp.c_save
+2020-12-19 19:09:53,176 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/stm32f4xx_hal_msp.c
+2020-12-19 19:09:53,179 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/system.tmp_save
+2020-12-19 19:09:53,217 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/MXTmpFiles/system.tmp
+2020-12-19 19:09:53,222 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_hal_conf.h_save
+2020-12-19 19:09:53,274 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/stm32f4xx_hal_conf.h
+2020-12-19 19:09:53,293 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/main.h_save
+2020-12-19 19:09:53,340 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Inc/main.h
+2020-12-19 19:09:53,343 [INFO] CodeEngine:229 - oldGeneratedFile, /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/main.c_save
+2020-12-19 19:09:53,414 [INFO] CodeEngine:247 - Generated code: /Users/adityasehgal/Documents/GitHub/Learn_STM32/SD_SPI_RD_WR/Core/Src/main.c
+2020-12-19 19:09:53,951 [INFO] ProjectBuilder:2328 - Time for Copy HAL[1] : 133mS.
+2020-12-19 19:09:53,955 [INFO] ProjectBuilder:3259 - Project Generator version: 3.11.2
+2020-12-19 19:09:54,159 [INFO] ConfigFileManager:1238 - The Die is : DIE433
+2020-12-19 19:09:54,164 [INFO] ApiDbMcu:456 - Load IP Config File for FREERTOS
+2020-12-19 19:09:54,167 [INFO] ApiDbMcu:456 - Load IP Config File for LIBJPEG
+2020-12-19 19:09:54,171 [INFO] ApiDbMcu:456 - Load IP Config File for MBEDTLS
+2020-12-19 19:09:54,176 [INFO] ApiDbMcu:456 - Load IP Config File for USB_DEVICE
+2020-12-19 19:09:54,179 [INFO] ApiDbMcu:456 - Load IP Config File for USB_HOST
+2020-12-19 19:09:56,392 [INFO] ProjectBuilder:3425 - Time for Generating toolchain IDE Files: 2437mS.
+2020-12-19 19:09:56,393 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 1mS.
+2020-12-19 19:09:56,395 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
