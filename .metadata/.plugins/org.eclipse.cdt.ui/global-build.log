@@ -1,17 +1,58 @@
-19:18:52 **** Incremental Build of configuration Debug for project CAN_LPBK_F303ZE ****
+22:20:52 **** Incremental Build of configuration Debug for project Bootloader_App_F401RE ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F303xE -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "CAN_LPBK_F303ZE.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/CAN_LPBK_F303ZE/STM32F303ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_LPBK_F303ZE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: CAN_LPBK_F303ZE.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Bootloader_App_F401RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/Bootloader_App_F401RE/STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Bootloader_App_F401RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bootloader_App_F401RE.elf
  
-arm-none-eabi-objdump -h -S  CAN_LPBK_F303ZE.elf  > "CAN_LPBK_F303ZE.list"
-arm-none-eabi-objcopy  -O binary  CAN_LPBK_F303ZE.elf  "CAN_LPBK_F303ZE.bin"
-arm-none-eabi-size   CAN_LPBK_F303ZE.elf 
+arm-none-eabi-objdump -h -S  Bootloader_App_F401RE.elf  > "Bootloader_App_F401RE.list"
+arm-none-eabi-objcopy  -O binary  Bootloader_App_F401RE.elf  "Bootloader_App_F401RE.bin"
+arm-none-eabi-size   Bootloader_App_F401RE.elf 
    text	   data	    bss	    dec	    hex	filename
-  16028	    120	   1792	  17940	   4614	CAN_LPBK_F303ZE.elf
+  10412	    120	   1664	  12196	   2fa4	Bootloader_App_F401RE.elf
 Finished building: default.size.stdout
  
-Finished building: CAN_LPBK_F303ZE.bin
+Finished building: Bootloader_App_F401RE.bin
  
-Finished building: CAN_LPBK_F303ZE.list
+Finished building: Bootloader_App_F401RE.list
+ 
+22:20:56 **** Incremental Build of configuration Debug for project Bootloader_App_F401RE ****
+make -j7 all 
+arm-none-eabi-size   Bootloader_App_F401RE.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10412	    120	   1664	  12196	   2fa4	Bootloader_App_F401RE.elf
+Finished building: default.size.stdout
+ 
+22:21:08 **** Incremental Build of configuration Debug for project Bootloader_App_F401RE ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Bootloader_App_F401RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/Bootloader_App_F401RE/STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Bootloader_App_F401RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bootloader_App_F401RE.elf
+ 
+arm-none-eabi-objdump -h -S  Bootloader_App_F401RE.elf  > "Bootloader_App_F401RE.list"
+arm-none-eabi-objcopy  -O binary  Bootloader_App_F401RE.elf  "Bootloader_App_F401RE.bin"
+arm-none-eabi-size   Bootloader_App_F401RE.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10420	    120	   1664	  12204	   2fac	Bootloader_App_F401RE.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bootloader_App_F401RE.bin
+ 
+Finished building: Bootloader_App_F401RE.list
+ 
+22:21:59 **** Incremental Build of configuration Debug for project Bootloader_App_F401RE ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Bootloader_App_F401RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/Bootloader_App_F401RE/STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Bootloader_App_F401RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bootloader_App_F401RE.elf
+ 
+arm-none-eabi-objdump -h -S  Bootloader_App_F401RE.elf  > "Bootloader_App_F401RE.list"
+arm-none-eabi-objcopy  -O binary  Bootloader_App_F401RE.elf  "Bootloader_App_F401RE.bin"
+arm-none-eabi-size   Bootloader_App_F401RE.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10440	    120	   1664	  12224	   2fc0	Bootloader_App_F401RE.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bootloader_App_F401RE.bin
+ 
+Finished building: Bootloader_App_F401RE.list
  
