@@ -56,7 +56,6 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-uint32_t readWord(uint32_t address);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -93,26 +92,33 @@ int main(void) {
 	MX_GPIO_Init();
 	MX_USART2_UART_Init();
 	/* USER CODE BEGIN 2 */
+	GPIO_PinState button = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
 	printMsg("Starting Bootloader\n");
 	for (int i = 0; i < 10; i++) {
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 		HAL_Delay(50);
 	}
 	const JumpStruct *vector_p = (JumpStruct*) APP_START;
-	HAL_GPIO_DeInit(B1_GPIO_Port, B1_Pin);
-	HAL_GPIO_DeInit(LD2_GPIO_Port, LD2_Pin);
 
-	uint8_t emptyCellCount = 0;
-	for (uint8_t i = 0; i < 10; i++) {
-		if (readWord(APP_START + (i * 4)) == -1)
-			emptyCellCount++;
+	if (button == GPIO_PIN_RESET) {
+		goto jumpApp;
+	} else {
+		goto err;
 	}
 
-	if (emptyCellCount != 10) {
-		printMsg("Jumping\n");
+	jumpApp:        //check if user code exists at app_start address
+	if (((*(__IO uint32_t*) APP_START) & 0x2FFE0000) == 0x20000000) {
+		printMsg("Jumping to application\n");
+		HAL_GPIO_DeInit(B1_GPIO_Port, B1_Pin);
+		HAL_GPIO_DeInit(LD2_GPIO_Port, LD2_Pin);
 		HAL_UART_DeInit(&huart2);
 		asm("msr msp, %0; bx %1;" : : "r"(vector_p->stack_addr), "r"(vector_p->func_p));
+	} else {
+		printMsg("Failed to jump: user application not found\n");
 	}
+
+	err: //start condition unmet, go into panic
+	printMsg("Button Not held: entering panic state\n");
 
 	/* USER CODE END 2 */
 
@@ -124,7 +130,7 @@ int main(void) {
 
 		/* USER CODE BEGIN 3 */
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-		HAL_Delay(25);
+		HAL_Delay(40);
 	}
 	/* USER CODE END 3 */
 }
@@ -233,11 +239,6 @@ static void MX_GPIO_Init(void) {
 }
 
 /* USER CODE BEGIN 4 */
-uint32_t readWord(uint32_t address) {
-	uint32_t read_data;
-	read_data = *(uint32_t*) (address);
-	return read_data;
-}
 /* USER CODE END 4 */
 
 /**
