@@ -1,6 +1,6 @@
-23:14:24 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+13:20:02 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/shell.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shell.d" -MT"Core/Src/shell.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/shell.o"
 arm-none-eabi-gcc -o "LWIP_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LWIP_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: LWIP_F767ZI.elf
  
@@ -8,20 +8,23 @@ arm-none-eabi-objdump -h -S  LWIP_F767ZI.elf  > "LWIP_F767ZI.list"
 arm-none-eabi-objcopy  -O binary  LWIP_F767ZI.elf  "LWIP_F767ZI.bin"
 arm-none-eabi-size   LWIP_F767ZI.elf 
    text	   data	    bss	    dec	    hex	filename
- 117628	    140	  64620	 182388	  2c874	LWIP_F767ZI.elf
+ 124196	    144	  64624	 188964	  2e224	LWIP_F767ZI.elf
 Finished building: default.size.stdout
  
 Finished building: LWIP_F767ZI.bin
  
 Finished building: LWIP_F767ZI.list
  
-23:14:53 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+13:20:07 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:336:7: warning: unused variable 'text' [-Wunused-variable]
-  336 |  char text[100];
-      |       ^~~~
+arm-none-eabi-size   LWIP_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 124196	    144	  64624	 188964	  2e224	LWIP_F767ZI.elf
+Finished building: default.size.stdout
+ 
+13:22:00 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/shell.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shell.d" -MT"Core/Src/shell.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/shell.o"
 arm-none-eabi-gcc -o "LWIP_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LWIP_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: LWIP_F767ZI.elf
  
@@ -29,16 +32,16 @@ arm-none-eabi-objdump -h -S  LWIP_F767ZI.elf  > "LWIP_F767ZI.list"
 arm-none-eabi-objcopy  -O binary  LWIP_F767ZI.elf  "LWIP_F767ZI.bin"
 arm-none-eabi-size   LWIP_F767ZI.elf 
    text	   data	    bss	    dec	    hex	filename
- 117588	    140	  64620	 182348	  2c84c	LWIP_F767ZI.elf
+ 124268	    144	  64624	 189036	  2e26c	LWIP_F767ZI.elf
 Finished building: default.size.stdout
  
 Finished building: LWIP_F767ZI.bin
  
 Finished building: LWIP_F767ZI.list
  
-23:15:54 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+13:23:52 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/shell.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shell.d" -MT"Core/Src/shell.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/shell.o"
 arm-none-eabi-gcc -o "LWIP_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LWIP_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: LWIP_F767ZI.elf
  
@@ -46,19 +49,16 @@ arm-none-eabi-objdump -h -S  LWIP_F767ZI.elf  > "LWIP_F767ZI.list"
 arm-none-eabi-objcopy  -O binary  LWIP_F767ZI.elf  "LWIP_F767ZI.bin"
 arm-none-eabi-size   LWIP_F767ZI.elf 
    text	   data	    bss	    dec	    hex	filename
- 117588	    140	  64620	 182348	  2c84c	LWIP_F767ZI.elf
+ 124420	    144	  64624	 189188	  2e304	LWIP_F767ZI.elf
 Finished building: default.size.stdout
  
 Finished building: LWIP_F767ZI.bin
  
 Finished building: LWIP_F767ZI.list
  
-23:17:25 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+13:25:12 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c:214:13: warning: 'telnet_sendopt' defined but not used [-Wunused-function]
-  214 | static void telnet_sendopt(struct termstate *ts, int code, int option) {
-      |             ^~~~~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/shell.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shell.d" -MT"Core/Src/shell.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/shell.o"
 arm-none-eabi-gcc -o "LWIP_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LWIP_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: LWIP_F767ZI.elf
  
@@ -66,7 +66,130 @@ arm-none-eabi-objdump -h -S  LWIP_F767ZI.elf  > "LWIP_F767ZI.list"
 arm-none-eabi-objcopy  -O binary  LWIP_F767ZI.elf  "LWIP_F767ZI.bin"
 arm-none-eabi-size   LWIP_F767ZI.elf 
    text	   data	    bss	    dec	    hex	filename
- 117492	    140	  64620	 182252	  2c7ec	LWIP_F767ZI.elf
+ 124452	    144	  64624	 189220	  2e324	LWIP_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: LWIP_F767ZI.bin
+ 
+Finished building: LWIP_F767ZI.list
+ 
+13:25:16 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+make -j7 all 
+arm-none-eabi-size   LWIP_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 124452	    144	  64624	 189220	  2e324	LWIP_F767ZI.elf
+Finished building: default.size.stdout
+ 
+13:29:31 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/shell.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shell.d" -MT"Core/Src/shell.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/shell.o"
+arm-none-eabi-gcc -o "LWIP_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LWIP_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LWIP_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  LWIP_F767ZI.elf  > "LWIP_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  LWIP_F767ZI.elf  "LWIP_F767ZI.bin"
+arm-none-eabi-size   LWIP_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 124648	    144	  64624	 189416	  2e3e8	LWIP_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: LWIP_F767ZI.bin
+ 
+Finished building: LWIP_F767ZI.list
+ 
+13:30:18 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+make -j7 all 
+arm-none-eabi-size   LWIP_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 124648	    144	  64624	 189416	  2e3e8	LWIP_F767ZI.elf
+Finished building: default.size.stdout
+ 
+13:36:13 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/shell.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shell.d" -MT"Core/Src/shell.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/shell.o"
+arm-none-eabi-gcc -o "LWIP_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LWIP_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LWIP_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  LWIP_F767ZI.elf  > "LWIP_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  LWIP_F767ZI.elf  "LWIP_F767ZI.bin"
+arm-none-eabi-size   LWIP_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 124816	    144	  64624	 189584	  2e490	LWIP_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: LWIP_F767ZI.bin
+ 
+Finished building: LWIP_F767ZI.list
+ 
+13:36:52 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/shell.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shell.d" -MT"Core/Src/shell.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/shell.o"
+arm-none-eabi-gcc -o "LWIP_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LWIP_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LWIP_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  LWIP_F767ZI.elf  > "LWIP_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  LWIP_F767ZI.elf  "LWIP_F767ZI.bin"
+arm-none-eabi-size   LWIP_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 124812	    144	  64624	 189580	  2e48c	LWIP_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: LWIP_F767ZI.bin
+ 
+Finished building: LWIP_F767ZI.list
+ 
+13:37:05 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/shell.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shell.d" -MT"Core/Src/shell.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/shell.o"
+arm-none-eabi-gcc -o "LWIP_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LWIP_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LWIP_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  LWIP_F767ZI.elf  > "LWIP_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  LWIP_F767ZI.elf  "LWIP_F767ZI.bin"
+arm-none-eabi-size   LWIP_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 124812	    144	  64624	 189580	  2e48c	LWIP_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: LWIP_F767ZI.bin
+ 
+Finished building: LWIP_F767ZI.list
+ 
+13:37:09 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+make -j7 all 
+arm-none-eabi-size   LWIP_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 124812	    144	  64624	 189580	  2e48c	LWIP_F767ZI.elf
+Finished building: default.size.stdout
+ 
+13:38:46 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/shell.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shell.d" -MT"Core/Src/shell.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/shell.o"
+arm-none-eabi-gcc -o "LWIP_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LWIP_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LWIP_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  LWIP_F767ZI.elf  > "LWIP_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  LWIP_F767ZI.elf  "LWIP_F767ZI.bin"
+arm-none-eabi-size   LWIP_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 124816	    144	  64624	 189584	  2e490	LWIP_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: LWIP_F767ZI.bin
+ 
+Finished building: LWIP_F767ZI.list
+ 
+13:38:57 **** Incremental Build of configuration Debug for project LWIP_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/shell.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/shell.d" -MT"Core/Src/shell.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/shell.o"
+arm-none-eabi-gcc -o "LWIP_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LWIP_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LWIP_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  LWIP_F767ZI.elf  > "LWIP_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  LWIP_F767ZI.elf  "LWIP_F767ZI.bin"
+arm-none-eabi-size   LWIP_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 124832	    144	  64624	 189600	  2e4a0	LWIP_F767ZI.elf
 Finished building: default.size.stdout
  
 Finished building: LWIP_F767ZI.bin
