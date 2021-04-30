@@ -1,4 +1,4 @@
-main.c:75:5:main	48	dynamic
+main.c:75:5:main	40	dynamic
 main.c:143:6:SystemClock_Config	88	static
 main.c:183:13:MX_USART2_UART_Init	8	static
 main.c:216:13:MX_DMA_Init	16	static

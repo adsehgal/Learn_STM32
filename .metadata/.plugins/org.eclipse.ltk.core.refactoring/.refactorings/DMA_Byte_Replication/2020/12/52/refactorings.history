@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;DMA_Byte_Replication/Core/Src/test&apos; to &apos;test.c&apos;" description="Rename resource &apos;test&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/test" name="test.c" stamp="1608432149334" updateReferences="true"/>
-</session>

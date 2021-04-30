@@ -9,6 +9,7 @@ org.eclipse.cdt.ui.outline.groupmacros=true
 org.eclipse.cdt.ui.outline.groupmembers=true
 org.eclipse.cdt.ui.outline.groupnamespaces=true
 scalability.detect=false
+scalability.reconciler=false
 spelling_locale=en_GB
 spelling_locale_initialized=true
 spelling_user_dictionary_encoding=
