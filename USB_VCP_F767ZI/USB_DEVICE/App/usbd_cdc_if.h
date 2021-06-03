@@ -68,8 +68,8 @@
 /* USER CODE BEGIN EXPORTED_TYPES */
  typedef struct usbData {
  	uint8_t intFlag;
- 	uint8_t rxBuff[APP_RX_DATA_SIZE];
- 	uint8_t txBuff[APP_TX_DATA_SIZE];
+ 	uint8_t rxBuff[128];
+ 	uint8_t txBuff[128];
  	uint32_t rxLastIndex;
  	uint32_t rxLen;
  	uint32_t txLen;

@@ -120,39 +120,121 @@ int main(void) {
 		printf("\t[ERROR] COMMUNICATION WITH THE DEVICE FAILED\n\n");
 	}
 	if (manufacturerId == SPI_FS_EXP_MANU_ID) {
-		printf("\tManufacturer ID is expected: %02X\n", manufacturerId);
+		printf("\tManufacturer ID is as expected: 0x%02X\n", manufacturerId);
 	} else {
 		devCheck |= ~devCheck;
-		printf("\tManufacturer ID is NOT expected: %02X; Expected: %02X!!\n",
+		printf(
+				"\tManufacturer ID is NOT as expected: 0x%02X; Expected: 0x%02X!!\n",
 				manufacturerId, SPI_FS_EXP_MANU_ID);
 	}
 	if (memType == SPI_FS_EXP_MEM_TYPE) {
-		printf("\tManufacturer ID is expected: %02X\n", memType);
+		printf("\tManufacturer ID is as expected: 0x%02X\n", memType);
 	} else {
 		devCheck |= ~devCheck;
-		printf("\tManufacturer ID is NOT expected: %02X; Expected: %02X!!\n",
+		printf(
+				"\tManufacturer ID is NOT as expected: 0x%02X; Expected: 0x%02X!!\n",
 				memType, SPI_FS_EXP_MEM_TYPE);
 	}
 	if (memDensity == SPI_FS_EXP_MEM_DENSITY) {
-		printf("\tManufacturer ID is expected: %02X\n", memDensity);
+		printf("\tManufacturer ID is as expected: 0x%02X\n", memDensity);
 	} else {
 		devCheck |= ~devCheck;
-		printf("\tManufacturer ID is NOT expected: %02X; Expected: %02X!!\n",
+		printf(
+				"\tManufacturer ID is NOT as expected: 0x%02X; Expected: 0x%02X!!\n",
 				memDensity, SPI_FS_EXP_MEM_DENSITY);
 	}
 	if (!devCheck) {
 		printf("\tMX25V1606F is ready to be used!\n");
 	} else {
-		printf("\tFailed to read device ID of MX25V1606F\n");
+		printf("\tFailed to identify device ID of MX25V1606F\n");
 	}
+
+	HAL_Delay(100);
+
+	printf("\nReading Status Register:\n");
+	uint8_t statusReg = spifsReadStatus();
+	printf("\tStatus: 0x%02X\n\n", statusReg);
+
+	uint32_t length = 128;
+	uint8_t fsData[128] = { SPI_FS_CMD_DUMMY };
+	uint32_t address = 0x00;
+	printf("Reading first %ld bytes:\n\t", length);
+	spifsRead(address, fsData, length);
+	for (int i = 0; i < length; i++) {
+		printf("Addr[%03d]: 0x%02X", i, fsData[i]);
+		if (i % 8 != 0 || i == 0) {
+			printf(" | ");
+		} else if (i != 0 || i != 8) {
+			printf("\n\t");
+		}
+	}
+	printf("\n\n\n");
+
+	for (uint32_t i = 0; i < length; i++) {
+		fsData[i] = 0; //(uint8_t)i;	//creating data to write
+	}
+	HAL_Delay(100);
+
+	spifsWriteEnable(1);
+	while (((statusReg = spifsReadStatus()) & 0x02) == 0x00) {
+		printf("Waiting for status to show 0x02: 0x%02X...\n", statusReg);
+		spifsWriteEnable(1);
+		HAL_Delay(20);
+	}
+
+//	printf("Erasing chip...\n\n");
+//	spifsEraseChip();
+	spifsPageProgram(address, fsData, length);
+
+	spifsWriteEnable(0);
+	while (((statusReg = spifsReadStatus()) & 0x01)) {
+		printf("Waiting for status to show 0x00: 0x%02X...\n", statusReg);
+		spifsWriteEnable(0);
+		HAL_Delay(20);
+	}
+
+	spifsRead(address, fsData, length);
+	for (int i = 0; i < length; i++) {
+		printf("Addr[%03d]: 0x%02X", i, fsData[i]);
+		if (i % 8 != 0 || i == 0) {
+			printf(" | ");
+		} else if (i != 0 || i != 8) {
+			printf("\n");
+		}
+	}
+
+	spifsWriteEnable(1);
+	while (((statusReg = spifsReadStatus()) & 0x02) == 0x00) {
+//		printf("Waiting for status to show 0x02: 0x%02X...\n", statusReg);
+		spifsWriteEnable(1);
+		HAL_Delay(20);
+	}
+
+//	printf("Erasing chip...\n\n");
+	spifsEraseChip();
+//	spifsPageProgram(address, fsData, length);
+
+	spifsWriteEnable(0);
+	while (((statusReg = spifsReadStatus()) & 0x01)) {
+//		printf("Waiting for status to show 0x00: 0x%02X...\n", statusReg);
+		spifsWriteEnable(0);
+		HAL_Delay(20);
+	}
+
+	uint8_t test;
+	for (uint32_t i = 0; i < length; i++) {
+		W25qxx_ReadByte(&test, i);
+		printf("%d | ", test);
+		HAL_Delay(10);
+	}
+
 	while (1) {
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
 
 		HAL_GPIO_TogglePin(LDG_GPIO_Port, LDG_Pin);
-		while (1)
-			;
+		HAL_Delay(100);
 	}
 	/* USER CODE END 3 */
 }
@@ -231,13 +313,13 @@ static void MX_SPI1_Init(void) {
 	hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
 	hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
 	hspi1.Init.NSS = SPI_NSS_SOFT;
-	hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+	hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
 	hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
 	hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
 	hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
 	hspi1.Init.CRCPolynomial = 7;
 	hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-	hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+	hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
 	if (HAL_SPI_Init(&hspi1) != HAL_OK) {
 		Error_Handler();
 	}

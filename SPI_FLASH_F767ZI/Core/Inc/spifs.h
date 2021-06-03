@@ -76,4 +76,16 @@
 HAL_StatusTypeDef spifsGetID(uint8_t *manufacturerId, uint8_t *memType,
 		uint8_t *memDensity);
 
+uint8_t spifsReadStatus(void);
+
+void W25qxx_ReadByte(uint8_t *pBuffer, uint32_t Bytes_Address);
+
+void spifsRead(uint32_t byteAddr, uint8_t *data, uint32_t length);
+
+void spifsPageProgram(uint32_t byteAddr, uint8_t *data, uint32_t length);
+
+void spifsWriteEnable(uint8_t val);
+
+HAL_StatusTypeDef spifsEraseChip(void);
+
 #endif /* INC_SPIFS_H_ */
