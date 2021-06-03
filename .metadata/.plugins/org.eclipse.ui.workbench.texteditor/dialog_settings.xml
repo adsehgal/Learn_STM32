@@ -8,14 +8,14 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="readid"/>
+			<item value="readi"/>
 			<item value="dela"/>
 			<item value="delay"/>
 			<item value="de"/>
 			<item value="STM32F40_41xxx"/>
 			<item value="pma"/>
 			<item value="sizeof"/>
-			<item value="iss"/>
-			<item value="telnet_shell_thread"/>
 		</list>
 		<list key="replacehistory">
 			<item value="myDMA"/>
