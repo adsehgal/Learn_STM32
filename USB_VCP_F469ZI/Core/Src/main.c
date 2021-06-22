@@ -105,12 +105,17 @@ int main(void) {
 	}
 	HAL_Delay(1000);
 
-	sprintf((char*) usbStruct.txBuff,
-			"USB VCP Starting...\n	Compiled on: %s %s\n\n",
-			__DATE__, __TIME__);
+//	sprintf((char*) usbStruct.txBuff,
+//			"USB VCP Starting...\n	Compiled on: %s %s\n\n",
+//			__DATE__, __TIME__);
+	printf("USB VCP Starting...\n	Compiled on: %s %s\n\n",
+	__DATE__, __TIME__);
 
-	printf((char*) usbStruct.txBuff);
-	CDC_Transmit_FS(usbStruct.txBuff, sizeof(usbStruct.txBuff));
+//	printf((char*) usbStruct.txBuff);
+//	CDC_Transmit_FS(usbStruct.txBuff, sizeof(usbStruct.txBuff));
+
+	sprintf((char*) usbStruct.rxBuff, "help");
+	uiStringHandler();
 
 	usbStruct.rxLastIndex = 0;
 	/* USER CODE END 2 */
