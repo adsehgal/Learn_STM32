@@ -2741,3 +2741,8 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/adity
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-06-21 21:58:57.840
 !MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.core.resources 2 2 2021-06-21 22:04:04.126
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-06-21 22:04:04.126
+!MESSAGE The project description file (.project) for 'LWIP_F767ZI' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
