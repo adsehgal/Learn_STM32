@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="BINTER"/>
+		<item key="selection" value="link_arg"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="HID_CUSTOM_REPORT_DESC_SIZE"/>
-			<item value="bInterfaceSubClass"/>
-			<item value="DBGMCU-&gt;IDCODE"/>
-			<item value="devid"/>
-			<item value="readid"/>
-			<item value="readi"/>
+			<item value="putch"/>
+			<item value="printf"/>
+			<item value="link_arg"/>
+			<item value="LFS_TYPE_REG"/>
 			<item value="dela"/>
-			<item value="delay"/>
+			<item value="trace"/>
+			<item value="disble"/>
+			<item value="weak"/>
 		</list>
 		<list key="replacehistory">
 			<item value="myDMA"/>

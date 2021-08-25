@@ -91,6 +91,14 @@ int main(void) {
 	SystemClock_Config();
 
 	/* USER CODE BEGIN SysInit */
+	__HAL_RCC_GPIOB_CLK_ENABLE();
+	GPIO_InitTypeDef gpioInitStruct = {0};
+	gpioInitStruct.Pin = GPIO_PIN_3;
+	gpioInitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	gpioInitStruct.Pull = GPIO_NOPULL;
+	gpioInitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+	HAL_GPIO_Init(GPIOB, &gpioInitStruct);
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, GPIO_PIN_SET);
 
 	/* USER CODE END SysInit */
 
@@ -114,6 +122,9 @@ int main(void) {
 			printMsg(RXBuffer);
 			memset(RXBuffer, 0, sizeof(RXBuffer));
 		}
+
+		if(HAL_GetTick() % 500 == 0)
+			HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
 	}
 	/* USER CODE END 3 */
 }

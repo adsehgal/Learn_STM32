@@ -22,7 +22,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
+#include "stdio.h"
+#include "lfs.h"
+#include "uart.h"
+#include "lfs_interface.h"
+#include "flash.h"
 #include "spifs.h"
 /* USER CODE END Includes */
 
@@ -47,26 +51,38 @@
 
 /* Private variables ---------------------------------------------------------*/
 
+CRC_HandleTypeDef hcrc;
+
+RNG_HandleTypeDef hrng;
+
 SPI_HandleTypeDef hspi1;
+DMA_HandleTypeDef hdma_spi1_tx;
+DMA_HandleTypeDef hdma_spi1_rx;
 
 UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
-
+extern uint8_t uartRecvChar[1];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART3_UART_Init(void);
+static void MX_CRC_Init(void);
+static void MX_RNG_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+//extern lfs_t lfs;
+//extern lfs_file_t file;
+//extern struct lfs_config cfg;
+spifs_file_t file;
 /* USER CODE END 0 */
 
 /**
@@ -96,47 +112,53 @@ int main(void) {
 
 	/* Initialize all configured peripherals */
 	MX_GPIO_Init();
+	MX_DMA_Init();
 	MX_SPI1_Init();
 	MX_USART3_UART_Init();
+	MX_CRC_Init();
+	MX_RNG_Init();
 	/* USER CODE BEGIN 2 */
-	printf("Starting SPI Flash Test\n\n\n");
+
+	HAL_UART_Receive_IT(&huart3, uartRecvChar, 1);
+
+	printf("Starting\n");
+	HAL_GPIO_WritePin(SPI_CS_GPIO_Port, SPI_CS_Pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(LDG_GPIO_Port, LDG_Pin, GPIO_PIN_SET);
-	HAL_Delay(100);
+	HAL_Delay(1000);
 	HAL_GPIO_TogglePin(LDG_GPIO_Port, LDG_Pin);
-	uint32_t chipID = spifsReadID();
-	printf("ID: %lX\n\n", chipID);
+
+	uint8_t size = 128;
+	uint8_t write[128];
+	uint8_t read[128];
+//	memset(write, 0, size);
+//	memset(read, 5, size);
+
+	for (int i = 0; i < size; i++) {
+		write[i] = (uint8_t) HAL_RNG_GetRandomNumber(&hrng);
+		printf("%02X ", write[i]);
+	}
+
+	printf("Writed %X\n\n", write[3]);
+	flashWriteBytes(write, 0, size);
+
+	flashReadBytes(read, 0, size);
+	for (int i = 0; i < size; i++) {
+		printf("%02X ", read[i]);
+	}
+	printf("read %X\n\n", read[3]);
 
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 
-	int length = 255;
-	uint8_t recv[255] = { 0 };
-	uint8_t send[255] = { 0 };
-
-//	spifsEraseChip();
-
-	printf("Reading init\n");
-	for (int i = 0; i < length; i++) {
-		spifsReadByte(&recv[i], i);
-		printf("%X | ", recv[i]);
-		send[i] = i;	//init send array
-	}
-	printf("\n\nWriting...\n");
-	for (int i = 0; i < length; i++) {
-		spifsWriteByte(send[i], i);
-	}
-	printf("\nReading\n");
-	for (int i = 0; i < length; i++) {
-		spifsReadByte(&recv[i], i);
-		printf("%X | ", recv[i]);
-	}
-	printf("\n\n");
+//	readBoot();
 	while (1) {
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
+		HAL_GPIO_TogglePin(LDG_GPIO_Port, LDG_Pin);
+		HAL_Delay(300);
 	}
 	/* USER CODE END 3 */
 }
@@ -165,7 +187,7 @@ void SystemClock_Config(void) {
 	RCC_OscInitStruct.PLL.PLLM = 8;
 	RCC_OscInitStruct.PLL.PLLN = 216;
 	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-	RCC_OscInitStruct.PLL.PLLQ = 2;
+	RCC_OscInitStruct.PLL.PLLQ = 9;
 	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
 		Error_Handler();
 	}
@@ -186,11 +208,66 @@ void SystemClock_Config(void) {
 	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_7) != HAL_OK) {
 		Error_Handler();
 	}
-	PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART3;
+	PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART3
+			| RCC_PERIPHCLK_CLK48;
 	PeriphClkInitStruct.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;
+	PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48SOURCE_PLL;
 	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK) {
 		Error_Handler();
 	}
+}
+
+/**
+ * @brief CRC Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_CRC_Init(void) {
+
+	/* USER CODE BEGIN CRC_Init 0 */
+
+	/* USER CODE END CRC_Init 0 */
+
+	/* USER CODE BEGIN CRC_Init 1 */
+
+	/* USER CODE END CRC_Init 1 */
+	hcrc.Instance = CRC;
+	hcrc.Init.DefaultPolynomialUse = DEFAULT_POLYNOMIAL_ENABLE;
+	hcrc.Init.DefaultInitValueUse = DEFAULT_INIT_VALUE_ENABLE;
+	hcrc.Init.InputDataInversionMode = CRC_INPUTDATA_INVERSION_NONE;
+	hcrc.Init.OutputDataInversionMode = CRC_OUTPUTDATA_INVERSION_DISABLE;
+	hcrc.InputDataFormat = CRC_INPUTDATA_FORMAT_BYTES;
+	if (HAL_CRC_Init(&hcrc) != HAL_OK) {
+		Error_Handler();
+	}
+	/* USER CODE BEGIN CRC_Init 2 */
+
+	/* USER CODE END CRC_Init 2 */
+
+}
+
+/**
+ * @brief RNG Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_RNG_Init(void) {
+
+	/* USER CODE BEGIN RNG_Init 0 */
+
+	/* USER CODE END RNG_Init 0 */
+
+	/* USER CODE BEGIN RNG_Init 1 */
+
+	/* USER CODE END RNG_Init 1 */
+	hrng.Instance = RNG;
+	if (HAL_RNG_Init(&hrng) != HAL_OK) {
+		Error_Handler();
+	}
+	/* USER CODE BEGIN RNG_Init 2 */
+
+	/* USER CODE END RNG_Init 2 */
+
 }
 
 /**
@@ -212,10 +289,10 @@ static void MX_SPI1_Init(void) {
 	hspi1.Init.Mode = SPI_MODE_MASTER;
 	hspi1.Init.Direction = SPI_DIRECTION_2LINES;
 	hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-	hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
-	hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+	hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
+	hspi1.Init.CLKPhase = SPI_PHASE_2EDGE;
 	hspi1.Init.NSS = SPI_NSS_SOFT;
-	hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+	hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
 	hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
 	hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
 	hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -265,6 +342,24 @@ static void MX_USART3_UART_Init(void) {
 }
 
 /**
+ * Enable DMA controller clock
+ */
+static void MX_DMA_Init(void) {
+
+	/* DMA controller clock enable */
+	__HAL_RCC_DMA2_CLK_ENABLE();
+
+	/* DMA interrupt init */
+	/* DMA2_Stream0_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+	/* DMA2_Stream3_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
+
+}
+
+/**
  * @brief GPIO Initialization Function
  * @param None
  * @retval None
@@ -301,7 +396,9 @@ static void MX_GPIO_Init(void) {
 
 /* USER CODE BEGIN 4 */
 PUTCHAR_PROTOTYPE {	//retarget printf to uart3
-	return HAL_UART_Transmit(&huart3, (uint8_t*) &ch, 1, HAL_MAX_DELAY);
+	return HAL_UART_Transmit(&huart3, (uint8_t*) &ch, 1, 1000);
+//	return HAL_UART_Transmit_DMA(&huart3, (uint8_t*)&ch, 1);
+//	return HAL_UART_Transmit_IT(&huart3, (uint8_t*)&ch, 1);
 }
 /* USER CODE END 4 */
 
