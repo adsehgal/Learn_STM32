@@ -27,7 +27,6 @@
 #include "uart.h"
 #include "lfs_interface.h"
 #include "flash.h"
-#include "spifs.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -82,7 +81,7 @@ static void MX_RNG_Init(void);
 //extern lfs_t lfs;
 //extern lfs_file_t file;
 //extern struct lfs_config cfg;
-spifs_file_t file;
+//spifs_file_t file;
 /* USER CODE END 0 */
 
 /**
@@ -127,32 +126,34 @@ int main(void) {
 	HAL_Delay(1000);
 	HAL_GPIO_TogglePin(LDG_GPIO_Port, LDG_Pin);
 
-	uint8_t size = 128;
-	uint8_t write[128];
-	uint8_t read[128];
-//	memset(write, 0, size);
-//	memset(read, 5, size);
+//	flashEraseChip();
 
-	for (int i = 0; i < size; i++) {
-		write[i] = (uint8_t) HAL_RNG_GetRandomNumber(&hrng);
-		printf("%02X ", write[i]);
+	printf("ID: 0x%lX\n\n", flashReadId());
+
+	uint32_t size = 4096;
+	uint8_t read[size];
+	uint8_t write[size];
+
+	memset(read, 'A', size);	//set array to known values to see change
+	memset(write, 'A', size);
+
+	for(int i = 0; i < size; i++){
+		write[i] = HAL_RNG_GetRandomNumber(&hrng) % 256;
 	}
 
-	printf("Writed %X\n\n", write[3]);
 	flashWriteBytes(write, 0, size);
 
 	flashReadBytes(read, 0, size);
-	for (int i = 0; i < size; i++) {
-		printf("%02X ", read[i]);
+
+	printf("%04d: | ", 0);
+	for (uint32_t i = 1; i <= size; i++) {
+		printf("0x%02X | ", read[i - 1]);
+		if (i % 16 == 0) {
+			printf("\n%04ld: | ", i);
+		}
 	}
-	printf("read %X\n\n", read[3]);
+	printf("\n\n");
 
-	/* USER CODE END 2 */
-
-	/* Infinite loop */
-	/* USER CODE BEGIN WHILE */
-
-//	readBoot();
 	while (1) {
 		/* USER CODE END WHILE */
 

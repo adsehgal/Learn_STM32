@@ -320,27 +320,47 @@ void flashWriteByte(uint8_t buff, uint32_t addr) {
 }
 
 void flashWriteBytes(uint8_t *buff, uint32_t address, uint32_t size) {
-	flashWaitForWriteEnd(0);
+	/**
+	 * 	Page size = 256 bytes
+	 * 	Page count = 8192
+	 *
+	 * 	Sector size = 4096 bytes
+	 * 	Sector count = 512
+	 *
+	 * 	Block size = 32K bytes or 64K bytes
+	 * 	Block count = 32 for 64K blocks
+	 *
+	 * 	Flash only programs 256 bytes at a time - 1 page
+	 * 	so if size > 255, in a for loop, keep programming 256 bytes
+	 */
 
-	flashWriteEnable();
+	for (uint32_t i = 0; i < size / 256; i++) {
 
-	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_RESET);
+		flashWaitForWriteEnd(0);
 
-	uint8_t data[1] = { FLASH_CMD_PAGE_PROGRAM };
-	spiSendBytes(data, 1);
+		flashWriteEnable();
 
-	data[0] = (address & 0xFF0000) >> 16;
-	spiSendBytes(data, 1);
-	data[0] = (address & 0x00FF00) >> 8;
-	spiSendBytes(data, 1);
-	data[0] = (address & 0x0000FF) >> 0;
-	spiSendBytes(data, 1);
+		HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_RESET);
 
-	spiSendBytes(buff, size);
+		uint8_t data[1] = { FLASH_CMD_PAGE_PROGRAM };
+		spiSendBytes(data, 1);
 
-	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
+		data[0] = (address & 0xFF0000) >> 16;
+		spiSendBytes(data, 1);
+		data[0] = (address & 0x00FF00) >> 8;
+		spiSendBytes(data, 1);
+		data[0] = (address & 0x0000FF) >> 0;
+		spiSendBytes(data, 1);
 
-	flashWaitForWriteEnd(0);
+		spiSendBytes(buff, size - (i * 256));
+
+		HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
+
+		flashWaitForWriteEnd(0);
+
+		address += 256;
+		buff += 256;
+	}
 }
 
 void flashReadByte(uint8_t *buff, uint32_t addr) {
@@ -371,7 +391,7 @@ void flashReadByte(uint8_t *buff, uint32_t addr) {
 
 void flashReadBytes(uint8_t *buff, uint32_t addr, uint32_t size) {
 //	flashWaitForWriteEnd(0);
-
+	flashWaitForBusy();
 	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_RESET);
 
 	uint8_t data[1] = { FLASH_CMD_READ_FAST };
@@ -389,6 +409,8 @@ void flashReadBytes(uint8_t *buff, uint32_t addr, uint32_t size) {
 	spiRecvBytes(buff, size);
 
 	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
+
+	flashWaitForBusy();
 
 //	flashWaitForWriteEnd(0);
 }
