@@ -110,13 +110,14 @@ static void uartFuncNotImpl(char *name) {
 }
 
 static void uartPrintFileRead(char *name, char *contents, int size) {
-	printf("%s:\n\t| ", name);
+	printf("%s:\n\t ", name);
 	for (int i = 1; i <= size; i++) {
-		printf("%d", contents[0]);//[i - 1]);
-		if (!(i % size)) {
-			printf("\n\t");
-		}
+		printf("%c", contents[0]);//[i - 1]);
+//		if (!(i % size)) {
+//			printf("\n\t");
+//		}
 	}
+	printf("\n\n");
 }
 
 void uartUiDecode(void) {

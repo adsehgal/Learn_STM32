@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="packed"/>
 			<item value="putch"/>
 			<item value="printf"/>
 			<item value="link_arg"/>
@@ -15,7 +16,6 @@
 			<item value="dela"/>
 			<item value="trace"/>
 			<item value="disble"/>
-			<item value="weak"/>
 		</list>
 		<list key="replacehistory">
 			<item value="myDMA"/>

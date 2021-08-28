@@ -11,10 +11,21 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-
 /**
  * Library for MX25V1606F 16Mb NOR Flash
  * https://www.macronix.com/Lists/Datasheet/Attachments/7796/MX25V1606F,%202.5V,%2016Mb,%20v1.0.pdf
+ */
+
+/**
+ * @defgroup FLASH_ATTR
+ * @{
+ */
+#define FLASH_ATTR_PAGE_SIZE 	256
+#define FLASH_ATTR_SECTOR_SIZE 	4096
+#define FLASH_ATTR_SECTOR_COUNT	512
+#define FLASH_ATTR_BLOCK_SIZE 	65536
+/**	CLOSE FLASH_ATTR / attributes
+ * @}
  */
 
 /** @defgroup FLASH_CMD
@@ -26,11 +37,11 @@
 /** @defgroup FLASH_CMD / Array Access
  * @{
  */
-#define FLASH_CMD_READ 			0x03
+#define FLASH_CMD_READ 				0x03
 #define FLASH_CMD_READ_FAST 		0x0B
 #define FLASH_CMD_DREAD 			0x3B
-#define FLASH_CMD_PAGE_PROGRAM 	0x02
-#define FLASH_CMD_SECTOR_ERASE 	0x20
+#define FLASH_CMD_PAGE_PROGRAM 		0x02
+#define FLASH_CMD_SECTOR_ERASE 		0x20
 #define FLASH_CMD_BLOCK_ERASE_32K	0x52
 #define FLASH_CMD_BLOCK_ERASE_64K	0xD8
 #define FLASH_CMD_CHIP_ERASE 		0x60 // OR 0xC7
@@ -42,10 +53,10 @@
 /** @defgroup FLASH_CMD / Device Operation
  * @{
  */
-#define FLASH_CMD_WREN 		0x06
+#define FLASH_CMD_WREN 			0x06
 #define FLASH_CMD_WRDIS 		0x04
-#define FLASH_CMD_DEEP_PWR_DWN 		0xB9
-#define FLASH_CMD_FMEN 	0x41
+#define FLASH_CMD_DEEP_PWR_DWN 	0xB9
+#define FLASH_CMD_FMEN 			0x41
 /**	CLOSE FLASH_CMD / Device Operation
  * @}
  */
@@ -54,10 +65,10 @@
  * @{
  */
 #define FLASH_CMD_READ_ID 			0x9F
-#define FLASH_CMD_READ_EID 		0xAB	//NRND
+#define FLASH_CMD_READ_EID 			0xAB	//NRND
 #define FLASH_CMD_READ_EMANU_DEVID	0x90
 #define FLASH_CMD_READ_STATUS_REG 	0x05
-#define FLASH_CMD_WRITE_STATUS_REG 0x01
+#define FLASH_CMD_WRITE_STATUS_REG 	0x01
 /**	CLOSE FLASH_CMD / Register Access
  * @}
  */
@@ -69,7 +80,7 @@
 /** @defgroup FLASH_EXP //expected values
  * @{
  */
-#define FLASH_EXP_MANU_ID 		0xC2
+#define FLASH_EXP_MANU_ID 	0xC2
 #define FLASH_EXP_MEM_TYPE 	0x20
 #define FLASH_EXP_DEVID 	0x15
 /**	CLOSE FLASH_EXP
@@ -123,6 +134,8 @@ void flashWriteByte(uint8_t buff, uint32_t addr);
  */
 void flashWriteBytes(uint8_t *buff, uint32_t address, uint32_t size);
 
+void flashWriteSector(uint8_t *buff, uint8_t sectorAddr, uint8_t numSectors);
+
 /**
  * @desc: Reads a single byte from an address
  * @param: buff: buffer to contain the read byte
@@ -139,5 +152,7 @@ void flashReadByte(uint8_t *buff, uint32_t addr);
  * @param: void
  */
 void flashReadBytes(uint8_t *buff, uint32_t addr, uint32_t size);
+
+void flashReadSector(uint8_t *buff, uint32_t sector);
 
 #endif /* INC_FLASH_H_ */

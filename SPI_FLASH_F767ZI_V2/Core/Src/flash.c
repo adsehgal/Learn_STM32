@@ -334,32 +334,45 @@ void flashWriteBytes(uint8_t *buff, uint32_t address, uint32_t size) {
 	 * 	so if size > 255, in a for loop, keep programming 256 bytes
 	 */
 
-	for (uint32_t i = 0; i < size / 256; i++) {
+	if (size < FLASH_ATTR_PAGE_SIZE) {
+		size = FLASH_ATTR_PAGE_SIZE;
+	}
+	for (uint32_t i = 0; i < size / FLASH_ATTR_PAGE_SIZE; i++) {
+	flashWaitForWriteEnd(0);
 
-		flashWaitForWriteEnd(0);
+	flashWriteEnable();
 
-		flashWriteEnable();
+	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_RESET);
 
-		HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_RESET);
+	uint8_t data[1] = { FLASH_CMD_PAGE_PROGRAM };
+	spiSendBytes(data, 1);
 
-		uint8_t data[1] = { FLASH_CMD_PAGE_PROGRAM };
-		spiSendBytes(data, 1);
+	data[0] = (address & 0xFF0000) >> 16;
+	spiSendBytes(data, 1);
+	data[0] = (address & 0x00FF00) >> 8;
+	spiSendBytes(data, 1);
+	data[0] = (address & 0x0000FF) >> 0;
+	spiSendBytes(data, 1);
 
-		data[0] = (address & 0xFF0000) >> 16;
-		spiSendBytes(data, 1);
-		data[0] = (address & 0x00FF00) >> 8;
-		spiSendBytes(data, 1);
-		data[0] = (address & 0x0000FF) >> 0;
-		spiSendBytes(data, 1);
+	spiSendBytes(buff, size); // - (i * 256));
 
-		spiSendBytes(buff, size - (i * 256));
+	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
 
-		HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
+	flashWaitForWriteEnd(0);
 
-		flashWaitForWriteEnd(0);
+	address += FLASH_ATTR_PAGE_SIZE;
+	buff += FLASH_ATTR_PAGE_SIZE;
+	}
+}
 
-		address += 256;
-		buff += 256;
+void flashWriteSector(uint8_t *buff, uint8_t sectorAddr, uint8_t numSectors) {
+//	pages to write = numsectors*sectorsize/pagesize
+	uint32_t pagesToWrite = (numSectors * FLASH_ATTR_SECTOR_SIZE)
+			/ FLASH_ATTR_PAGE_SIZE;
+	for (int i = 0; i < pagesToWrite; i++) {
+		flashWriteBytes(buff, sectorAddr, 1);
+		buff += FLASH_ATTR_PAGE_SIZE;
+		sectorAddr += FLASH_ATTR_PAGE_SIZE;
 	}
 }
 
@@ -413,4 +426,25 @@ void flashReadBytes(uint8_t *buff, uint32_t addr, uint32_t size) {
 	flashWaitForBusy();
 
 //	flashWaitForWriteEnd(0);
+}
+
+void flashReadSector(uint8_t *buff, uint32_t sector) {
+	flashWaitForBusy();
+	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_RESET);
+
+	sector *= FLASH_ATTR_SECTOR_SIZE;
+	uint8_t data[1] = { FLASH_CMD_READ_FAST };
+	data[0] = (sector & 0xFF0000) >> 16;
+	spiSendBytes(data, 1);
+	data[0] = (sector & 0x00FF00) >> 8;
+	spiSendBytes(data, 1);
+	data[0] = (sector & 0x0000FF) >> 0;
+	spiSendBytes(data, 1);
+	data[0] = FLASH_CMD_DUMMY;
+	spiSendBytes(data, 1);
+
+	spiRecvBytes(buff, FLASH_ATTR_SECTOR_SIZE);
+
+	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
+	flashWaitForBusy();
 }

@@ -19,14 +19,12 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "fatfs.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
-#include "lfs.h"
 #include "uart.h"
-#include "lfs_interface.h"
-#include "flash.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -62,6 +60,13 @@ UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
 extern uint8_t uartRecvChar[1];
+
+FATFS fs; /* Work area (file system object) for logical drive */
+FIL fsrc; /* file objects */
+FRESULT res;
+UINT br;
+char path[512] = "0:";
+uint8_t textFileBuffer[] = "FATFS Testing\n";
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -78,10 +83,6 @@ static void MX_RNG_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-//extern lfs_t lfs;
-//extern lfs_file_t file;
-//extern struct lfs_config cfg;
-//spifs_file_t file;
 /* USER CODE END 0 */
 
 /**
@@ -116,44 +117,27 @@ int main(void) {
 	MX_USART3_UART_Init();
 	MX_CRC_Init();
 	MX_RNG_Init();
+	MX_FATFS_Init();
 	/* USER CODE BEGIN 2 */
 
-	HAL_UART_Receive_IT(&huart3, uartRecvChar, 1);
+	res = f_mount(&fs, 0, 1);
 
-	printf("Starting\n");
-	HAL_GPIO_WritePin(SPI_CS_GPIO_Port, SPI_CS_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(LDG_GPIO_Port, LDG_Pin, GPIO_PIN_SET);
-	HAL_Delay(1000);
-	HAL_GPIO_TogglePin(LDG_GPIO_Port, LDG_Pin);
+	f_open(&fsrc, "test.txt", (FA_CREATE_ALWAYS | FA_OPEN_ALWAYS | FA_CREATE_NEW));
 
-//	flashEraseChip();
+	unsigned int numBytesWritten = 0, numBytesRead = 0;
 
-	printf("ID: 0x%lX\n\n", flashReadId());
+	f_write(&fsrc, (char*) textFileBuffer, strlen((char*)textFileBuffer),
+			&numBytesWritten);
+	printf("Write: %d\n", numBytesWritten);
 
-	uint32_t size = 4096;
-	uint8_t read[size];
-	uint8_t write[size];
+	char read[128] = {0};
+	f_read(&fsrc, read, 128, &numBytesRead);
+	printf("Reading: %d: %s\n", numBytesRead, read);
 
-	memset(read, 'A', size);	//set array to known values to see change
-	memset(write, 'A', size);
+	/* USER CODE END 2 */
 
-	for(int i = 0; i < size; i++){
-		write[i] = HAL_RNG_GetRandomNumber(&hrng) % 256;
-	}
-
-	flashWriteBytes(write, 0, size);
-
-	flashReadBytes(read, 0, size);
-
-	printf("%04d: | ", 0);
-	for (uint32_t i = 1; i <= size; i++) {
-		printf("0x%02X | ", read[i - 1]);
-		if (i % 16 == 0) {
-			printf("\n%04ld: | ", i);
-		}
-	}
-	printf("\n\n");
-
+	/* Infinite loop */
+	/* USER CODE BEGIN WHILE */
 	while (1) {
 		/* USER CODE END WHILE */
 
