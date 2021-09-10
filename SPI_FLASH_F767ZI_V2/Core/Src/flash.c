@@ -209,7 +209,7 @@ static void flashWaitForBusy(void) {
 		spiRecvBytes(&status, 1);
 //		SYS_DELAY(1);
 //		HAL_Delay(1);
-	} while ((status & 0x02));
+	} while ((status & 0x01));
 
 	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
 }
@@ -337,42 +337,56 @@ void flashWriteBytes(uint8_t *buff, uint32_t address, uint32_t size) {
 	if (size < FLASH_ATTR_PAGE_SIZE) {
 		size = FLASH_ATTR_PAGE_SIZE;
 	}
+
 	for (uint32_t i = 0; i < size / FLASH_ATTR_PAGE_SIZE; i++) {
-	flashWaitForWriteEnd(0);
 
-	flashWriteEnable();
+		flashWaitForWriteEnd(0);
 
-	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_RESET);
+		flashWriteEnable();
 
-	uint8_t data[1] = { FLASH_CMD_PAGE_PROGRAM };
-	spiSendBytes(data, 1);
+		HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_RESET);
 
-	data[0] = (address & 0xFF0000) >> 16;
-	spiSendBytes(data, 1);
-	data[0] = (address & 0x00FF00) >> 8;
-	spiSendBytes(data, 1);
-	data[0] = (address & 0x0000FF) >> 0;
-	spiSendBytes(data, 1);
+		uint8_t data[1] = { FLASH_CMD_PAGE_PROGRAM };
+		spiSendBytes(data, 1);
 
-	spiSendBytes(buff, size); // - (i * 256));
+		data[0] = (address & 0xFF0000) >> 16;
+		spiSendBytes(data, 1);
+		data[0] = (address & 0x00FF00) >> 8;
+		spiSendBytes(data, 1);
+		data[0] = (address & 0x0000FF) >> 0;
+		spiSendBytes(data, 1);
 
-	HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
+		for (int j = 0; j < FLASH_ATTR_PAGE_SIZE; j++) {
+			spiSendBytes((uint8_t*) &buff[j + (FLASH_ATTR_PAGE_SIZE * i)], 1);
+		}
 
-	flashWaitForWriteEnd(0);
+//		spiSendBytes(buff, size - (i * FLASH_ATTR_PAGE_SIZE));
 
-	address += FLASH_ATTR_PAGE_SIZE;
-	buff += FLASH_ATTR_PAGE_SIZE;
+		HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
+
+		flashWaitForWriteEnd(0);
+		address += FLASH_ATTR_PAGE_SIZE;
+//		buff += FLASH_ATTR_PAGE_SIZE;
 	}
 }
 
 void flashWriteSector(uint8_t *buff, uint8_t sectorAddr, uint8_t numSectors) {
 //	pages to write = numsectors*sectorsize/pagesize
-	uint32_t pagesToWrite = (numSectors * FLASH_ATTR_SECTOR_SIZE)
-			/ FLASH_ATTR_PAGE_SIZE;
-	for (int i = 0; i < pagesToWrite; i++) {
+//	uint32_t pagesToWrite = (numSectors * FLASH_ATTR_SECTOR_SIZE)
+//			/ FLASH_ATTR_PAGE_SIZE;
+//	for (int i = 0; i < pagesToWrite; i++) {
+//		flashWriteBytes(buff, sectorAddr, 1);
+//		buff += FLASH_ATTR_PAGE_SIZE;
+//		sectorAddr += FLASH_ATTR_PAGE_SIZE;
+//		printf("Written page# %d\n", i);
+//	}
+
+	for (int i = 0;
+			i < numSectors * (FLASH_ATTR_SECTOR_SIZE / FLASH_ATTR_PAGE_SIZE);
+			i++) {
 		flashWriteBytes(buff, sectorAddr, 1);
-		buff += FLASH_ATTR_PAGE_SIZE;
 		sectorAddr += FLASH_ATTR_PAGE_SIZE;
+		buff += FLASH_ATTR_PAGE_SIZE;
 	}
 }
 

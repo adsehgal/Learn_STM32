@@ -10,9 +10,9 @@
 #include "lfs_interface.h"
 #include "lfs.h"
 
-lfs_t lfs;
-lfs_file_t file;
-struct lfs_config cfg;
+extern lfs_t lfs;
+extern lfs_file_t file;
+extern struct lfs_config cfg;
 lfs_dir_t dir;
 
 int lfsRead(const struct lfs_config *c, lfs_block_t block, lfs_off_t off,
@@ -56,56 +56,53 @@ void lfsConfig(struct lfs_config *c) {
 	c->sync = lfsSync;
 
 //	 block device configuration
-	c->read_size = 16;		//read 16 bytes at a time
-	c->prog_size = 16;		//write 16 bytes at a time
-	c->block_size = 4096;	//erase 4KB at a time
-	c->block_count = 512;	//512 erasable blocks
-	c->cache_size = 16;
-	c->lookahead_size = 16;
-	c->block_cycles = 500;
+	c->read_size = 256;	//
+	c->prog_size = 256;	//
+	c->block_size = 4096;	//
+	c->block_count = 512;	//
+	c->cache_size = 256;	//
+	c->lookahead_size = 16;	//
+	c->block_cycles = 500;	//
 
 //	block device limits
 //	c->name_max = 32;		//max 32byte long names
 
-	int err = lfs_mount(&lfs, c);
-//	lfs_format(&lfs, c);
-	if (err != LFS_ERR_OK) {
-		lfs_format(&lfs, c);
-		lfs_mount(&lfs, c);
+	// mount the filesystem
+	int err = lfs_mount(&lfs, &cfg);
+
+	// reformat if we can't mount the filesystem
+	// this should only happen on the first boot
+	if (err) {
+		lfs_format(&lfs, &cfg);
+		err = lfs_mount(&lfs, &cfg);
 	}
 
-//	read current count
-	char bootCount[8] = {0};
-	lfs_file_open(&lfs, &file, "bootCount.s", LFS_O_RDWR | LFS_O_CREAT);
-	lfs_file_read(&lfs, &file, bootCount, sizeof(bootCount));
+	if (err) {
+		printf("Format and mount failed!\n");
+		printf("Need a HW reset!\n\n");
+		while (1)
+			;
+	}
+
+	// read current count
+	uint32_t boot_count = 0;
+	lfs_file_open(&lfs, &file, "boot_count", LFS_O_RDWR | LFS_O_CREAT);
+	lfs_file_read(&lfs, &file, &boot_count, sizeof(boot_count));
 
 	// update boot count
-	uint16_t count = atoi(bootCount);
-	count++;
-	sprintf(bootCount, "%d", count);
+	boot_count += 1;
 	lfs_file_rewind(&lfs, &file);
-	lfs_file_write(&lfs, &file, bootCount, sizeof(bootCount));
-	printf("boot_count = %s\n", bootCount);
+	lfs_file_write(&lfs, &file, &boot_count, sizeof(boot_count));
 
-//	remember the storage is not updated until the file is closed successfully
+	// remember the storage is not updated until the file is closed successfully
 	lfs_file_close(&lfs, &file);
 
-	//	read current count
-//	char boot_count = 0;
-//	lfs_file_open(&lfs, &file, "boot_count", LFS_O_RDWR | LFS_O_CREAT);
-//	lfs_file_read(&lfs, &file, &boot_count, sizeof(boot_count));
-//
-//	// update boot count
-//	boot_count += 1;
-//	lfs_file_rewind(&lfs, &file);
-//	lfs_file_write(&lfs, &file, &boot_count, sizeof(boot_count));
-//	printf("boot_count = %d\n", boot_count);
-//
-//	//	remember the storage is not updated until the file is closed successfully
-//	lfs_file_close(&lfs, &file);
-
-//	release any resources we were using
+	// release any resources we were using
 //	lfs_unmount(&lfs);
+
+	// print the boot count
+	printf("boot_count: %ld\n", boot_count);
+
 }
 
 int lfsReadFile(char *name, char *buff) {
@@ -122,7 +119,7 @@ int lfsReadFile(char *name, char *buff) {
 	lfs_file_close(&lfs, &file);
 
 //	lfs_unmount(&lfs);
-	printf("Read: %d\n", fileContents[0]);
+	printf("Read [%d]: %s\n", size, fileContents);
 
 	memcpy(buff, fileContents, size);
 

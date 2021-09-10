@@ -49,7 +49,7 @@ extern "C"
 // code footprint
 
 // Logging functions
-#define LFS_YES_TRACE
+//#define LFS_YES_TRACE
 #define LFS_NO_ASSERT
 
 #ifndef LFS_TRACE

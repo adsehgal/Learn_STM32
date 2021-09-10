@@ -9,6 +9,10 @@
 #include "uart.h"
 #include "lfs_interface.h"
 
+extern struct lfs_config cfg;
+extern lfs_t lfs;
+extern lfs_file_t file;
+
 #define UART_RX_BUFF_SIZE 128
 
 const uartCmds cmds[] = {	//
@@ -112,7 +116,7 @@ static void uartFuncNotImpl(char *name) {
 static void uartPrintFileRead(char *name, char *contents, int size) {
 	printf("%s:\n\t ", name);
 	for (int i = 1; i <= size; i++) {
-		printf("%c", contents[0]);//[i - 1]);
+		printf("%c", contents[i - 1]);
 //		if (!(i % size)) {
 //			printf("\n\t");
 //		}
@@ -138,7 +142,17 @@ void uartUiDecode(void) {
 
 		token = strtok(NULL, delimiter);
 		char *contents = 0;
-		int size = lfsReadFile(token, contents);
+
+		lfs_file_open(&lfs, &file, token, LFS_O_RDWR | LFS_O_CREAT);
+		lfs_soff_t size = lfs_file_size(&lfs, &file);
+
+		lfs_file_read(&lfs, &file, contents, size);
+
+		lfs_file_close(&lfs, &file);
+
+		//	lfs_unmount(&lfs);
+		printf("Read [%d]: %s\n", size, contents);
+
 		uartPrintFileRead(token, contents, size);
 
 	} else if (!strcasecmp(token, CLI_RM)) {

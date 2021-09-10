@@ -9,7 +9,6 @@
 #define INC_UART_H_
 
 #include "main.h"
-#include "lfs.h"
 
 #define CMD_NAME_SIZE 32
 #define CMD_DESC_SIZE 128

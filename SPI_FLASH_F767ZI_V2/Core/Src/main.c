@@ -19,12 +19,17 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "fatfs.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <ctype.h>
+
 #include "stdio.h"
 #include "uart.h"
+#include "flash.h"
+
+#include "lfs_interface.h"
+#include "lfs.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,12 +66,6 @@ UART_HandleTypeDef huart3;
 /* USER CODE BEGIN PV */
 extern uint8_t uartRecvChar[1];
 
-FATFS fs; /* Work area (file system object) for logical drive */
-FIL fsrc; /* file objects */
-FRESULT res;
-UINT br;
-char path[512] = "0:";
-uint8_t textFileBuffer[] = "FATFS Testing\n";
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -83,6 +82,118 @@ static void MX_RNG_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+void printArrHex(uint8_t *arr, uint32_t size) {
+	for (uint32_t i = 1; i <= size; i++) {
+		printf("%02X ", arr[i - 1]);
+		if (i % FLASH_ATTR_PAGE_SIZE == 0) {
+			printf("\n");
+		}
+	}
+	printf("\n\n");
+}
+
+void printArrChar(uint8_t *arr, uint32_t size) {
+	for (uint32_t i = 0; i < size; i++) {
+		printf("%c", arr[i]);
+	}
+	printf("\n\n");
+}
+
+void testFlash(void) {
+	uint32_t id = flashReadId();
+	printf("ID = 0x%lX\n", id);
+
+	uint32_t size = FLASH_ATTR_SECTOR_SIZE;
+	uint8_t read[size];
+
+	//	flashReadSector(read, 0x00);
+	flashReadBytes(read, 0x00, size);
+
+	printArrHex(read, size);
+
+	uint8_t write[size >> 1];
+
+	for (uint32_t i = 0; i < size >> 1; i++) {
+		if (i < 256)
+			write[i] = HAL_RNG_GetRandomNumber(&hrng) % 256;
+		else if (i < 256 << 1) {
+			write[i] = 255;
+		} else {
+			write[i] = 1;
+		}
+	}
+
+	flashEraseSector(0x00);
+
+	flashReadBytes(read, 0x00, size);
+	printArrHex(read, size);
+
+	flashWriteBytes(write, 0x00, size >> 1);
+	//	flashWriteSector(write, 0x00, 1);
+
+	flashReadBytes(read, 0x00, size);
+
+	printArrHex(read, size);
+}
+
+lfs_t lfs;
+lfs_file_t file;
+
+struct lfs_config cfg;
+//= {
+//// block device operations
+//		.read = lfsRead,	//
+//		.prog = lfsProg,	//
+//		.erase = lfsErase,	//
+//		.sync = lfsSync,	//
+//
+//		// block device configuration
+//		.read_size = 256,		//
+//		.prog_size = 256,		//
+//		.block_size = 4096,		//
+//		.block_count = 512,		//
+//		.cache_size = 256,		//
+//		.lookahead_size = 16,	//
+//		.block_cycles = 500,	//
+//		};
+void lfsBoot(void) {
+	// mount the filesystem
+	int err = lfs_mount(&lfs, &cfg);
+
+	// reformat if we can't mount the filesystem
+	// this should only happen on the first boot
+	if (err) {
+		lfs_format(&lfs, &cfg);
+		err = lfs_mount(&lfs, &cfg);
+	}
+
+	if (err) {
+		printf("Format and mount failed!\n");
+		printf("Need a HW reset!\n\n");
+		while (1)
+			;
+	}
+
+	// read current count
+	uint32_t boot_count = 0;
+	lfs_file_open(&lfs, &file, "boot_count", LFS_O_RDWR | LFS_O_CREAT);
+	lfs_file_read(&lfs, &file, &boot_count, sizeof(boot_count));
+
+	// update boot count
+	boot_count += 1;
+	lfs_file_rewind(&lfs, &file);
+	lfs_file_write(&lfs, &file, &boot_count, sizeof(boot_count));
+
+	// remember the storage is not updated until the file is closed successfully
+	lfs_file_close(&lfs, &file);
+
+	// release any resources we were using
+	lfs_unmount(&lfs);
+
+	// print the boot count
+	printf("boot_count: %ld\n", boot_count);
+}
 /* USER CODE END 0 */
 
 /**
@@ -117,22 +228,55 @@ int main(void) {
 	MX_USART3_UART_Init();
 	MX_CRC_Init();
 	MX_RNG_Init();
-	MX_FATFS_Init();
 	/* USER CODE BEGIN 2 */
+	printf("Starting\n");
+	HAL_Delay(500);
+	HAL_UART_Receive_IT(&huart3, uartRecvChar, 1);
 
-	res = f_mount(&fs, 0, 1);
+//	testFlash();
 
-	f_open(&fsrc, "test.txt", (FA_CREATE_ALWAYS | FA_OPEN_ALWAYS | FA_CREATE_NEW));
+//	lfsBoot();
+	lfsConfig(&cfg);
 
-	unsigned int numBytesWritten = 0, numBytesRead = 0;
+	// mount the filesystem
+	int err = lfs_mount(&lfs, &cfg);
 
-	f_write(&fsrc, (char*) textFileBuffer, strlen((char*)textFileBuffer),
-			&numBytesWritten);
-	printf("Write: %d\n", numBytesWritten);
+	if (err) {
+		err = 0;
+		err = lfs_mount(&lfs, &cfg);
+	}
 
-	char read[128] = {0};
-	f_read(&fsrc, read, 128, &numBytesRead);
-	printf("Reading: %d: %s\n", numBytesRead, read);
+	if (err) {
+		printf("Second attempt at mounting failed!\n");
+		while (1)
+			;
+	}
+
+	const char fileName[] = "test.txt";
+	uint32_t fileSize = 0;
+	uint8_t *fileText = 0;
+	uint8_t fileWrite[] = "SHEEEEE";
+
+	lfs_file_open(&lfs, &file, fileName, LFS_O_RDWR | LFS_O_CREAT);
+
+	lfs_file_rewind(&lfs, &file);
+	fileSize = lfs_file_size(&lfs, &file);
+	lfs_file_read(&lfs, &file, (uint8_t*) fileText, fileSize);
+	printf("Read Before Edit = %s\n", fileText);
+
+	lfs_file_rewind(&lfs, &file);
+	lfs_file_write(&lfs, &file, (uint8_t*) fileWrite, sizeof(fileWrite));
+	lfs_file_close(&lfs, &file);
+
+	memset(fileText, 0, fileSize);
+	lfs_file_open(&lfs, &file, fileName, LFS_O_RDWR);
+	lfs_file_rewind(&lfs, &file);
+	lfs_file_read(&lfs, &file, (uint8_t*) fileText, fileSize);
+	lfs_file_close(&lfs, &file);
+
+	printf("Read After Edit = %s\n", fileText);
+
+	lfs_unmount(&lfs);
 
 	/* USER CODE END 2 */
 
