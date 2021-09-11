@@ -13,7 +13,9 @@
 extern lfs_t lfs;
 extern lfs_file_t file;
 extern struct lfs_config cfg;
+extern lfs_dir_t dir;
 lfs_dir_t dir;
+const char *rootDir = "/";
 
 int lfsRead(const struct lfs_config *c, lfs_block_t block, lfs_off_t off,
 		void *buffer, lfs_size_t size) {
@@ -64,9 +66,6 @@ void lfsConfig(struct lfs_config *c) {
 	c->lookahead_size = 16;	//
 	c->block_cycles = 500;	//
 
-//	block device limits
-//	c->name_max = 32;		//max 32byte long names
-
 	// mount the filesystem
 	int err = lfs_mount(&lfs, &cfg);
 
@@ -84,9 +83,16 @@ void lfsConfig(struct lfs_config *c) {
 			;
 	}
 
+	err = lfs_dir_open(&lfs, &dir, rootDir);
+	if (err) {
+		printf("Failed to open root directory\n");
+		while (1)
+			;
+	}
+
 	// read current count
 	uint32_t boot_count = 0;
-	lfs_file_open(&lfs, &file, "boot_count", LFS_O_RDWR | LFS_O_CREAT);
+	lfs_file_open(&lfs, &file, "bootCount.int", LFS_O_RDWR | LFS_O_CREAT);
 	lfs_file_read(&lfs, &file, &boot_count, sizeof(boot_count));
 
 	// update boot count
@@ -97,9 +103,6 @@ void lfsConfig(struct lfs_config *c) {
 	// remember the storage is not updated until the file is closed successfully
 	lfs_file_close(&lfs, &file);
 
-	// release any resources we were using
-//	lfs_unmount(&lfs);
-
 	// print the boot count
 	printf("boot_count: %ld\n", boot_count);
 
@@ -109,7 +112,11 @@ int lfsReadFile(char *name, char *buff) {
 //	lfsConfig(&cfg);
 //	lfs_dir_open(&lfs, &dir, LFS_ROOT_PATH);
 
-	lfs_file_open(&lfs, &file, name, LFS_O_RDWR | LFS_O_CREAT);
+	int err = lfs_file_open(&lfs, &file, name, LFS_O_RDWR);
+	if (err == LFS_ERR_NOENT) {
+		printf("Non-existent file name, try with a valid file\n");
+		return 0;
+	}
 	lfs_soff_t size = lfs_file_size(&lfs, &file);
 
 	char fileContents[size];
@@ -118,8 +125,7 @@ int lfsReadFile(char *name, char *buff) {
 
 	lfs_file_close(&lfs, &file);
 
-//	lfs_unmount(&lfs);
-	printf("Read [%d]: %s\n", size, fileContents);
+//	printf("Read [%ld]: %s\n", size, fileContents);
 
 	memcpy(buff, fileContents, size);
 
@@ -132,5 +138,54 @@ void lfsEraseDevice(void) {
 }
 
 int lfsLs(void) {
+	struct lfs_info info;
+	while (1) {
+		int res = lfs_dir_read(&lfs, &dir, &info);
+		if (res < 0) {
+			printf("Failed to read root\n");
+			while (1)
+				;
+		}
+
+		if (res == 0) {
+//			End of dir, go back to caller func
+			break;
+		}
+
+//		Print file type
+		switch (info.type) {
+		case LFS_TYPE_REG:
+			printf("File ");
+			break;
+		case LFS_TYPE_DIR:
+//			Dont list directories since everything will be in root
+//			printf("dir ");
+			break;
+		default:
+			printf("UNKWN ");
+			break;
+		}
+
+//		Print file size
+		static const char *prefixes[] = { "", "K", "M", "G" };
+		for (int i = sizeof(prefixes) / sizeof(prefixes[0]) - 1; i >= 0; i--) {
+			if (info.size >= (1 << 10 * i) - 1) {
+				if (info.type != LFS_TYPE_DIR) {
+					printf("%*lu%sB ", 4 - (i != 0), info.size >> 10 * i,
+							prefixes[i]);
+					break;
+				}
+			}
+		}
+
+//		Print file name
+		if (info.type != LFS_TYPE_DIR) {
+			printf("%s\n", info.name);
+		}
+	}
+
+//	Need to open dir again because if I run ls again, dir somehow fails.
+	lfs_dir_open(&lfs, &dir, rootDir);
+
 	return 0;
 }

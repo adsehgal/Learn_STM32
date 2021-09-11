@@ -12,7 +12,7 @@
 
 #define CMD_NAME_SIZE 32
 #define CMD_DESC_SIZE 128
-#define CMD_NUM_CMDS 7
+#define CMD_NUM_CMDS 8
 
 #define CLI_HELP	"HELP"
 #define CLI_TOUCH	"TOUCH"
@@ -21,6 +21,7 @@
 #define CLI_CAT		"CAT"
 #define CLI_RM		"RM"
 #define CLI_FORMAT	"FORMAT"
+#define CLI_HEXDUMP "HEXDUMP"
 
 typedef struct{
 	uint8_t cmdName[CMD_NAME_SIZE];

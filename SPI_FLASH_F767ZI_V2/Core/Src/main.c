@@ -139,61 +139,9 @@ void testFlash(void) {
 
 lfs_t lfs;
 lfs_file_t file;
-
 struct lfs_config cfg;
-//= {
-//// block device operations
-//		.read = lfsRead,	//
-//		.prog = lfsProg,	//
-//		.erase = lfsErase,	//
-//		.sync = lfsSync,	//
-//
-//		// block device configuration
-//		.read_size = 256,		//
-//		.prog_size = 256,		//
-//		.block_size = 4096,		//
-//		.block_count = 512,		//
-//		.cache_size = 256,		//
-//		.lookahead_size = 16,	//
-//		.block_cycles = 500,	//
-//		};
-void lfsBoot(void) {
-	// mount the filesystem
-	int err = lfs_mount(&lfs, &cfg);
+lfs_dir_t dir;
 
-	// reformat if we can't mount the filesystem
-	// this should only happen on the first boot
-	if (err) {
-		lfs_format(&lfs, &cfg);
-		err = lfs_mount(&lfs, &cfg);
-	}
-
-	if (err) {
-		printf("Format and mount failed!\n");
-		printf("Need a HW reset!\n\n");
-		while (1)
-			;
-	}
-
-	// read current count
-	uint32_t boot_count = 0;
-	lfs_file_open(&lfs, &file, "boot_count", LFS_O_RDWR | LFS_O_CREAT);
-	lfs_file_read(&lfs, &file, &boot_count, sizeof(boot_count));
-
-	// update boot count
-	boot_count += 1;
-	lfs_file_rewind(&lfs, &file);
-	lfs_file_write(&lfs, &file, &boot_count, sizeof(boot_count));
-
-	// remember the storage is not updated until the file is closed successfully
-	lfs_file_close(&lfs, &file);
-
-	// release any resources we were using
-	lfs_unmount(&lfs);
-
-	// print the boot count
-	printf("boot_count: %ld\n", boot_count);
-}
 /* USER CODE END 0 */
 
 /**
@@ -235,48 +183,15 @@ int main(void) {
 
 //	testFlash();
 
-//	lfsBoot();
 	lfsConfig(&cfg);
 
-	// mount the filesystem
-	int err = lfs_mount(&lfs, &cfg);
-
-	if (err) {
-		err = 0;
-		err = lfs_mount(&lfs, &cfg);
-	}
-
-	if (err) {
-		printf("Second attempt at mounting failed!\n");
-		while (1)
-			;
-	}
-
-	const char fileName[] = "test.txt";
-	uint32_t fileSize = 0;
-	uint8_t *fileText = 0;
-	uint8_t fileWrite[] = "SHEEEEE";
-
-	lfs_file_open(&lfs, &file, fileName, LFS_O_RDWR | LFS_O_CREAT);
+	lfs_file_open(&lfs, &file, "test.txt", LFS_O_CREAT);
+	char *data =
+			"This is a test file\nNow this is a new line in the text file\nAnd this is a third line in the test file, great!";
 
 	lfs_file_rewind(&lfs, &file);
-	fileSize = lfs_file_size(&lfs, &file);
-	lfs_file_read(&lfs, &file, (uint8_t*) fileText, fileSize);
-	printf("Read Before Edit = %s\n", fileText);
-
-	lfs_file_rewind(&lfs, &file);
-	lfs_file_write(&lfs, &file, (uint8_t*) fileWrite, sizeof(fileWrite));
+	lfs_file_write(&lfs, &file, (char*) data, strlen(data));
 	lfs_file_close(&lfs, &file);
-
-	memset(fileText, 0, fileSize);
-	lfs_file_open(&lfs, &file, fileName, LFS_O_RDWR);
-	lfs_file_rewind(&lfs, &file);
-	lfs_file_read(&lfs, &file, (uint8_t*) fileText, fileSize);
-	lfs_file_close(&lfs, &file);
-
-	printf("Read After Edit = %s\n", fileText);
-
-	lfs_unmount(&lfs);
 
 	/* USER CODE END 2 */
 
@@ -365,7 +280,7 @@ static void MX_CRC_Init(void) {
 	hcrc.Init.DefaultInitValueUse = DEFAULT_INIT_VALUE_ENABLE;
 	hcrc.Init.InputDataInversionMode = CRC_INPUTDATA_INVERSION_NONE;
 	hcrc.Init.OutputDataInversionMode = CRC_OUTPUTDATA_INVERSION_DISABLE;
-	hcrc.InputDataFormat = CRC_INPUTDATA_FORMAT_BYTES;
+	hcrc.InputDataFormat = CRC_INPUTDATA_FORMAT_WORDS;
 	if (HAL_CRC_Init(&hcrc) != HAL_OK) {
 		Error_Handler();
 	}
@@ -525,9 +440,10 @@ static void MX_GPIO_Init(void) {
 
 /* USER CODE BEGIN 4 */
 PUTCHAR_PROTOTYPE {	//retarget printf to uart3
-	return HAL_UART_Transmit(&huart3, (uint8_t*) &ch, 1, 1000);
-//	return HAL_UART_Transmit_DMA(&huart3, (uint8_t*)&ch, 1);
-//	return HAL_UART_Transmit_IT(&huart3, (uint8_t*)&ch, 1);
+	HAL_UART_Transmit(&huart3, (uint8_t*) &ch, 1, 1000);
+//	HAL_UART_Transmit_DMA(&huart3, (uint8_t*)&ch, 1);
+//	HAL_UART_Transmit_IT(&huart3, (uint8_t*)&ch, 1);
+	return ch;
 }
 /* USER CODE END 4 */
 

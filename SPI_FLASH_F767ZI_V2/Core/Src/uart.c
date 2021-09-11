@@ -6,12 +6,18 @@
  */
 
 #include <string.h>
+#include <ctype.h>
 #include "uart.h"
 #include "lfs_interface.h"
+
+extern UART_HandleTypeDef huart3;
+extern CRC_HandleTypeDef hcrc;
 
 extern struct lfs_config cfg;
 extern lfs_t lfs;
 extern lfs_file_t file;
+extern lfs_dir_t dir;
+extern const char *rootDir;
 
 #define UART_RX_BUFF_SIZE 128
 
@@ -51,7 +57,10 @@ const uartCmds cmds[] = {	//
 				.cmdName = CLI_FORMAT,									//
 						.cmdTakesname = 0,								//
 						.cmdDesc = "Erases the entire flash storage device",//
-				},					//
+				},//
+				{					//hexdump
+				.cmdName = CLI_HEXDUMP, .cmdTakesname = 1, .cmdDesc =
+						"Prints out the hexdump of the requested file", },	//
 
 		};
 
@@ -67,12 +76,24 @@ structUartRx uartRx;
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	if (uartRecvChar[0] == '\n') {
 		uartRx.rxFlag = 1;
-		uartUiDecode();
+
+		//only decode if actual text was sent
+		//otherwise ignore
+		if (uartRx.rxBuff[0] && uartRx.rxBuff[0] != '\n') {
+			uartUiDecode();
+		} else {
+			memset(uartRx.rxBuff, 0, sizeof(uartRx.rxBuff));
+			uartRx.rxFlag = 0;
+		}
 		memset(uartRx.rxBuff, 0, sizeof(uartRx.rxBuff));
 	} else if (uartRecvChar[0] == '\r') {
 //		do nothing
 	} else {
-		strncat((char*) uartRx.rxBuff, (char*) uartRecvChar, 1);
+
+		if (uartRecvChar[0] == 0x08) {	//backspace handle
+			uartRx.rxBuff[strlen((char*) uartRx.rxBuff) - 1] = '\0';
+		} else
+			strncat((char*) uartRx.rxBuff, (char*) uartRecvChar, 1);
 	}
 
 	uartRecvChar[0] = 0;
@@ -84,7 +105,7 @@ static void uartPrintHelp(void) {
 	int numCmds = CMD_NUM_CMDS;
 	int nameLen = strlen((char*) cmds[0].cmdName);
 
-//	find the number of max spaces to add to format the colum
+//	find the number of max spaces to add to format the column
 	for (int i = 1; i < numCmds; i++) {
 		int tempLen = strlen((char*) cmds[i].cmdName);
 		if (tempLen > nameLen) {
@@ -107,61 +128,133 @@ static void uartPrintHelp(void) {
 				cmds[i].cmdTakesname ? "[file_name]" : "", gap, ':');
 		printf("%s\n", cmds[i].cmdDesc);
 	}
+	printf("\n");
 }
 
-static void uartFuncNotImpl(char *name) {
-	printf("\"%s\" function not implemented yet\n", name);
-}
+//static void uartFuncNotImpl(char *name) {
+//	printf("\"%s\" function not implemented yet\n", name);
+//}
 
-static void uartPrintFileRead(char *name, char *contents, int size) {
-	printf("%s:\n\t ", name);
-	for (int i = 1; i <= size; i++) {
-		printf("%c", contents[i - 1]);
-//		if (!(i % size)) {
-//			printf("\n\t");
-//		}
+static void uartPrintFileRead(char *name, char *contents, int32_t size) {
+	if (!size) {
+		return;
 	}
+
+	printf("%s[%ld]:\n", name, size);
+	for (int32_t i = 1; i <= size; i++) {
+		printf("%c", contents[i - 1]);
+	}
+
 	printf("\n\n");
+}
+
+static void uartprintHexdump(char *name, uint8_t *contents, int32_t size) {
+	if (!size) {
+		return;
+	}
+	printf("%s[%ld]:\n", name, size);
+
+	for (int32_t i = 1; i <= size; i++) {
+
+		if (((i - 1) % 16) == 0) {
+			printf("\t0x%08lX    ", i - 1);
+		}
+		if (contents[i - 1] != 0)
+			printf("%02X%c", contents[i - 1], (i % 16 == 0) ? '\n' : ' ');
+	}
+
+	printf("\n\n");
+}
+
+static void uartPrintMissingDescriptor(char *func, char *descriptor) {
+	printf("[%s] Please provide a %s.\n\n", func, descriptor);
 }
 
 void uartUiDecode(void) {
 	char delimiter[4] = " ";
 	char *token = 0;
-
+	char *originalStr = 0;
+	memcpy((uint8_t*) originalStr, uartRx.rxBuff, sizeof(uartRx.rxBuff));
 	token = strtok((char*) uartRx.rxBuff, delimiter);
 
 	if (!strcasecmp(token, CLI_HELP)) {
+
 		uartPrintHelp();
+
 	} else if (!strcasecmp(token, CLI_TOUCH)) {
-		uartFuncNotImpl(token);
+
+		token = strtok(NULL, delimiter);
+		if (token == NULL) {
+			uartPrintMissingDescriptor(CLI_TOUCH, "file name");
+			return;
+		}
+		lfs_file_open(&lfs, &file, token, LFS_O_CREAT);
+
 	} else if (!strcasecmp(token, CLI_VI)) {
-		uartFuncNotImpl(token);
+
+		token = strtok(NULL, delimiter);
+		if (token == NULL) {
+			uartPrintMissingDescriptor(CLI_VI, "file name");
+			return;
+		}
+		lfs_file_open(&lfs, &file, token, LFS_O_CREAT);
+
 	} else if (!strcasecmp(token, CLI_LS)) {
+
 		lfsLs();
+
 	} else if (!strcasecmp(token, CLI_CAT)) {
 
 		token = strtok(NULL, delimiter);
+
+		if (token == NULL) {
+			uartPrintMissingDescriptor(CLI_CAT, "file name");
+			return;
+		}
+
 		char *contents = 0;
-
-		lfs_file_open(&lfs, &file, token, LFS_O_RDWR | LFS_O_CREAT);
-		lfs_soff_t size = lfs_file_size(&lfs, &file);
-
-		lfs_file_read(&lfs, &file, contents, size);
-
-		lfs_file_close(&lfs, &file);
-
-		//	lfs_unmount(&lfs);
-		printf("Read [%d]: %s\n", size, contents);
+		int32_t size = lfsReadFile(token, contents);
 
 		uartPrintFileRead(token, contents, size);
 
 	} else if (!strcasecmp(token, CLI_RM)) {
-		uartFuncNotImpl(token);
+		token = strtok(NULL, delimiter);
+		if (token == NULL) {
+			uartPrintMissingDescriptor(CLI_RM, "file name");
+			return;
+		}
+
+		printf("Removing %s...\n", token);
+		lfs_remove(&lfs, token);
+
 	} else if (!strcasecmp(token, CLI_FORMAT)) {
+
 		printf("Formatting Device...\n");
 		lfsEraseDevice();
 		printf("Format complete\n");
+
+	} else if (!strcasecmp(token, CLI_HEXDUMP)) {
+		token = strtok(NULL, delimiter);
+		if (token == NULL) {
+			uartPrintMissingDescriptor(CLI_HEXDUMP, "file name");
+			return;
+		}
+
+		lfs_file_open(&lfs, &file, token, LFS_O_RDONLY);
+		int32_t size = lfs_file_size(&lfs, &file);
+		uint8_t contents[size];
+		memset(contents, 0, size);
+		lfsReadFile(token, (char*) contents);
+
+		uartprintHexdump(token, contents, size);
+
+	} else if (!strcasecmp(token, "\n")) {
+
+		return;
+
 	} else {
-		printf("\"%s\" is an unkown command\n", token);
+
+		printf("\"%s\" is an unkown command\n", originalStr);//uartRx.rxBuff);
+
 	}
 }
