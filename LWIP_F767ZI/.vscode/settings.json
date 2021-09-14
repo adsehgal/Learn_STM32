@@ -1,6 +1,0 @@
-{
-    "stm32-for-vscode.openOCDPath": false,
-    "files.associations": {
-        "shell.h": "c"
-    }
-}
