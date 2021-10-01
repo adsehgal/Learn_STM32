@@ -188,7 +188,11 @@ void uartUiDecode(void) {
 			uartPrintMissingDescriptor(CLI_TOUCH, "file name");
 			return;
 		}
+//		lfs_dir_rewind(&lfs, &dir);
+		lfs_file_close(&lfs, &file);	//close any open files
 		lfs_file_open(&lfs, &file, token, LFS_O_CREAT);
+		lfs_file_rewind(&lfs, &file);
+		lfs_file_close(&lfs, &file);
 
 	} else if (!strcasecmp(token, CLI_VI)) {
 
@@ -198,6 +202,7 @@ void uartUiDecode(void) {
 			return;
 		}
 		lfs_file_open(&lfs, &file, token, LFS_O_CREAT);
+		lfs_file_close(&lfs, &file);
 
 	} else if (!strcasecmp(token, CLI_LS)) {
 
@@ -218,6 +223,7 @@ void uartUiDecode(void) {
 		uartPrintFileRead(token, contents, size);
 
 	} else if (!strcasecmp(token, CLI_RM)) {
+
 		token = strtok(NULL, delimiter);
 		if (token == NULL) {
 			uartPrintMissingDescriptor(CLI_RM, "file name");
@@ -226,6 +232,7 @@ void uartUiDecode(void) {
 
 		printf("Removing %s...\n", token);
 		lfs_remove(&lfs, token);
+		printf("Removing %s complete\n", token);
 
 	} else if (!strcasecmp(token, CLI_FORMAT)) {
 
@@ -242,6 +249,7 @@ void uartUiDecode(void) {
 
 		lfs_file_open(&lfs, &file, token, LFS_O_RDONLY);
 		int32_t size = lfs_file_size(&lfs, &file);
+		lfs_file_close(&lfs, &file);
 		uint8_t contents[size];
 		memset(contents, 0, size);
 		lfsReadFile(token, (char*) contents);

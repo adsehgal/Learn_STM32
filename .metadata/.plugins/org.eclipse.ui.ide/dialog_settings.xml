@@ -19,6 +19,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/Users/adityasehgal/Desktop/LWIP_F767ZI_OLD"/>
+			<item value="/Users/adityasehgal/Documents/GitHub/Learn_STM32/Learning_Bootloader"/>
 			<item value="/Users/adityasehgal/Desktop/test"/>
 			<item value="/Users/adityasehgal/Downloads/stm32_lwip-master/lwip_212"/>
 			<item value="/Users/adityasehgal/Documents/GitHub/Learn_STM32"/>

@@ -39,10 +39,13 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#ifdef __GNUC__	//retarget printf to uart3
+#define USE_IO_PUTCHAR 0
+#if USE_IO_PUTCHAR
+#ifdef __GNUC__//retarget printf to uart3
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
 #else
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
 #endif
 /* USER CODE END PD */
 
@@ -62,6 +65,7 @@ DMA_HandleTypeDef hdma_spi1_tx;
 DMA_HandleTypeDef hdma_spi1_rx;
 
 UART_HandleTypeDef huart3;
+DMA_HandleTypeDef hdma_usart3_tx;
 
 /* USER CODE BEGIN PV */
 extern uint8_t uartRecvChar[1];
@@ -182,6 +186,8 @@ int main(void) {
 	HAL_UART_Receive_IT(&huart3, uartRecvChar, 1);
 
 //	testFlash();
+
+//	flashEraseChip();
 
 	lfsConfig(&cfg);
 
@@ -392,8 +398,12 @@ static void MX_DMA_Init(void) {
 
 	/* DMA controller clock enable */
 	__HAL_RCC_DMA2_CLK_ENABLE();
+	__HAL_RCC_DMA1_CLK_ENABLE();
 
 	/* DMA interrupt init */
+	/* DMA1_Stream3_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(DMA1_Stream3_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(DMA1_Stream3_IRQn);
 	/* DMA2_Stream0_IRQn interrupt configuration */
 	HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
@@ -439,12 +449,21 @@ static void MX_GPIO_Init(void) {
 }
 
 /* USER CODE BEGIN 4 */
+#if USE_IO_PUTCHAR
 PUTCHAR_PROTOTYPE {	//retarget printf to uart3
-	HAL_UART_Transmit(&huart3, (uint8_t*) &ch, 1, 1000);
-//	HAL_UART_Transmit_DMA(&huart3, (uint8_t*)&ch, 1);
+//	HAL_UART_Transmit(&huart3, (uint8_t*) &ch, 1, 1000);
+	HAL_UART_Transmit_DMA(&huart3, (uint8_t*) &ch, 1);
 //	HAL_UART_Transmit_IT(&huart3, (uint8_t*)&ch, 1);
 	return ch;
 }
+#else
+int _write(int file, char *ptr, int len) {
+	HAL_UART_Transmit(&huart3, (uint8_t*) ptr, len, 1000);
+//	HAL_UART_Transmit_DMA(&huart3, (uint8_t*) ptr, len);
+//	HAL_UART_Transmit_IT(&huart3, (uint8_t*)ptr, len);
+	return len;
+}
+#endif
 /* USER CODE END 4 */
 
 /**

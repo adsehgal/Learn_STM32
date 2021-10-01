@@ -72,6 +72,7 @@ void lfsConfig(struct lfs_config *c) {
 	// reformat if we can't mount the filesystem
 	// this should only happen on the first boot
 	if (err) {
+		printf("Could not mount, formatting and mounting again\n");
 		lfs_format(&lfs, &cfg);
 		err = lfs_mount(&lfs, &cfg);
 	}
@@ -83,28 +84,42 @@ void lfsConfig(struct lfs_config *c) {
 			;
 	}
 
+	err = lfs_mkdir(&lfs, rootDir);
 	err = lfs_dir_open(&lfs, &dir, rootDir);
 	if (err) {
-		printf("Failed to open root directory\n");
-		while (1)
-			;
+		printf("Failed to open directory\n");
+		err = lfs_mkdir(&lfs, rootDir);
+		err = lfs_dir_open(&lfs, &dir, rootDir);
+		if (err) {
+			printf(
+					"Failed to create directory, formatting and mounting again\n");
+			lfs_format(&lfs, &cfg);
+			err = lfs_mount(&lfs, &cfg);
+			err = lfs_mkdir(&lfs, rootDir);
+			err = lfs_dir_open(&lfs, &dir, rootDir);
+			if (err) {
+				printf("Failed to open root directory\n");
+				while (1)
+					;
+			}
+		}
 	}
 
 	// read current count
-	uint32_t boot_count = 0;
-	lfs_file_open(&lfs, &file, "bootCount.int", LFS_O_RDWR | LFS_O_CREAT);
-	lfs_file_read(&lfs, &file, &boot_count, sizeof(boot_count));
+	uint32_t bootCount = 0;
+	lfs_file_open(&lfs, &file, "bootCount", LFS_O_RDWR | LFS_O_CREAT);
+	lfs_file_read(&lfs, &file, &bootCount, sizeof(bootCount));
 
 	// update boot count
-	boot_count += 1;
+	bootCount += 1;
 	lfs_file_rewind(&lfs, &file);
-	lfs_file_write(&lfs, &file, &boot_count, sizeof(boot_count));
+	lfs_file_write(&lfs, &file, &bootCount, sizeof(bootCount));
 
 	// remember the storage is not updated until the file is closed successfully
 	lfs_file_close(&lfs, &file);
 
 	// print the boot count
-	printf("boot_count: %ld\n", boot_count);
+	printf("Boot Count: %ld\n", bootCount);
 
 }
 
@@ -148,7 +163,7 @@ int lfsLs(void) {
 		}
 
 		if (res == 0) {
-//			End of dir, go back to caller func
+//			End of dir, break out of read loop
 			break;
 		}
 
@@ -183,9 +198,11 @@ int lfsLs(void) {
 			printf("%s\n", info.name);
 		}
 	}
+	printf("\n");
 
-//	Need to open dir again because if I run ls again, dir somehow fails.
-	lfs_dir_open(&lfs, &dir, rootDir);
+//	Rewind dir for future dir reads
+	lfs_dir_rewind(&lfs, &dir);
+
 
 	return 0;
 }

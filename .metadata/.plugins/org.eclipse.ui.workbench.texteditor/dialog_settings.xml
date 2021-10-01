@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Cmds"/>
+		<item key="selection" value="accept("/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="cmds"/>
-			<item value="crc"/>
-			<item value="LFS_TYPE_CRC"/>
-			<item value="-2"/>
-			<item value="remo"/>
+			<item value="ip_len"/>
+			<item value="accept("/>
+			<item value="listen("/>
+			<item value="send"/>
 			<item value="packed"/>
-			<item value="putch"/>
-			<item value="printf"/>
+			<item value="lwip_send"/>
+			<item value="temp"/>
+			<item value="LWIP_API_MSG_SEM"/>
 		</list>
 		<list key="replacehistory">
 			<item value="myDMA"/>
