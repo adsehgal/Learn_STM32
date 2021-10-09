@@ -328,10 +328,12 @@ void uartUiDecode(void) {
 			return;
 		}
 
-		char *contents = 0;
-		int32_t size = lfsReadFile(token, (uint8_t*) contents);
+		uint32_t size = lfsGetFileSize(token);
+		char contents[size];
+		memset(contents, 0, size);
+		int32_t err = lfsReadFile(token, (uint8_t*) contents);
 
-		if (size < 0) {
+		if (err < 0) {
 			printf("\n");
 			return;
 		}

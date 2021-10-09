@@ -3176,3 +3176,44 @@ Finished building: SPI_FLASH_F767ZI.bin
  
 Finished building: SPI_FLASH_F767ZI.list
  
+15:10:17 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/lfs_interface.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/lfs_interface.d" -MT"Core/Src/lfs_interface.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/lfs_interface.o"
+arm-none-eabi-gcc -o "SPI_FLASH_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/SPI_FLASH_F767ZI_V2/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_FLASH_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SPI_FLASH_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  SPI_FLASH_F767ZI.elf  > "SPI_FLASH_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  SPI_FLASH_F767ZI.elf  "SPI_FLASH_F767ZI.bin"
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  64992	    140	   2860	  67992	  10998	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: SPI_FLASH_F767ZI.bin
+ 
+Finished building: SPI_FLASH_F767ZI.list
+ 
+15:12:02 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/uart.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/uart.d" -MT"Core/Src/uart.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/uart.o"
+arm-none-eabi-gcc -o "SPI_FLASH_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/SPI_FLASH_F767ZI_V2/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_FLASH_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SPI_FLASH_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  SPI_FLASH_F767ZI.elf  > "SPI_FLASH_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  SPI_FLASH_F767ZI.elf  "SPI_FLASH_F767ZI.bin"
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  65088	    140	   2860	  68088	  109f8	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: SPI_FLASH_F767ZI.bin
+ 
+Finished building: SPI_FLASH_F767ZI.list
+ 
+15:12:06 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  65088	    140	   2860	  68088	  109f8	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
