@@ -48,9 +48,9 @@ int lfsSync(const struct lfs_config *c);
  * Wrapper for LFS
  */
 
-void readBoot(void);
-
 void lfsConfig(struct lfs_config *c);
+
+void lfsCreateFile(char *name);
 
 int lfsReadFile(char *name, char *buff);
 

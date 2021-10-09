@@ -21,46 +21,82 @@ extern const char *rootDir;
 
 #define UART_RX_BUFF_SIZE 128
 
+#define CMD_NUM_CMDS 9
+#define CLI_HELP	"HELP"
+#define CLI_TOUCH	"TOUCH"
+#define CLI_VI		"VI"
+#define CLI_LS		"LS"
+#define CLI_CAT		"CAT"
+#define CLI_RM		"RM"
+#define CLI_FORMAT	"FORMAT"
+#define CLI_HEXDUMP "HEXDUMP"
+#define CLI_MV		"MV"
 const uartCmds cmds[] = {	//
 		//
 				{ 					//help
 				.cmdName = CLI_HELP,									//
-						.cmdTakesname = 0,								//
+						.cmdTakesParam1 = 0,							//
+						.cmdTakesParam2 = 0,							//
+						.param2Num = 0,									//
 						.cmdDesc = "Lists all available functions",		//
 				},//
 				{ 					//touch - create new file
 				.cmdName = CLI_TOUCH,									//
-						.cmdTakesname = 1,								//
-						.cmdDesc = "Creates a new file",				//
+						.cmdTakesParam1 = 1,							//
+						.cmdTakesParam2 = 0,							//
+						.param2Num = 0,									//
+						.cmdDesc = "Creates a new empty file",			//
 				},//
 				{ 					//vi - open file to write
 				.cmdName = CLI_VI,										//
-						.cmdTakesname = 1,								//
-						.cmdDesc = "Opens the file to write",			//
+						.cmdTakesParam1 = 1,							//
+						.cmdTakesParam2 = 1,							//
+						.param2Num = 1,									//
+						.cmdDesc = "Write data to file",				//
 				},//
 				{ 					//ls - list files
 				.cmdName = CLI_LS,										//
-						.cmdTakesname = 0,								//
+						.cmdTakesParam1 = 0,							//
+						.cmdTakesParam2 = 0,							//
+						.param2Num = 0,									//
 						.cmdDesc = "lists all available files",			//
 				},//
 				{ 					//cat - read entire file
 				.cmdName = CLI_CAT,										//
-						.cmdTakesname = 1,								//
+						.cmdTakesParam1 = 1,							//
+						.cmdTakesParam2 = 0,							//
+						.param2Num = 0,									//
 						.cmdDesc = "Reads out the entire file at once",	//
 				},//
 				{ 					//rm - removes the file
 				.cmdName = CLI_RM,										//
-						.cmdTakesname = 1,								//
+						.cmdTakesParam1 = 1,							//
+						.cmdTakesParam2 = 0,							//
+						.param2Num = 0,									//
 						.cmdDesc = "Removes the file",					//
 				},//
 				{ 					//format
-				.cmdName = CLI_FORMAT,									//
-						.cmdTakesname = 0,								//
+				.cmdName = CLI_FORMAT,										//
+						.cmdTakesParam1 = 0,								//
+						.cmdTakesParam2 = 0,								//
+						.param2Num = 0,									//
 						.cmdDesc = "Erases the entire flash storage device",//
 				},//
 				{					//hexdump
-				.cmdName = CLI_HEXDUMP, .cmdTakesname = 1, .cmdDesc =
-						"Prints out the hexdump of the requested file", },	//
+						.cmdName = CLI_HEXDUMP, 							//
+						.cmdTakesParam1 = 1, 								//
+						.cmdTakesParam2 = 1,								//
+						.param2Num = 1,										//
+						.cmdDesc =
+								"Prints out the hexdump of the requested file, optional byte limit",//
+				},//
+				{ 					//format
+				.cmdName = CLI_MV,										//
+						.cmdTakesParam1 = 1,							//
+						.cmdTakesParam2 = 1,							//
+						.param2Num = 0,									//
+						.cmdDesc = "Renames file",						//
+				},
 
 		};
 
@@ -69,17 +105,20 @@ uint8_t uartRecvChar[1];
 typedef struct {
 	uint8_t rxFlag;
 	uint8_t rxBuff[UART_RX_BUFF_SIZE];
+	uint8_t rxLastCmd[UART_RX_BUFF_SIZE];
 } structUartRx;
 
-structUartRx uartRx;
+structUartRx uartRx = { .rxFlag = 0, };
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+
 	if (uartRecvChar[0] == '\n') {
 		uartRx.rxFlag = 1;
 
 		//only decode if actual text was sent
 		//otherwise ignore
 		if (uartRx.rxBuff[0] && uartRx.rxBuff[0] != '\n') {
+			memcpy(uartRx.rxLastCmd, uartRx.rxBuff, sizeof(uartRx.rxBuff));
 			uartUiDecode();
 		} else {
 			memset(uartRx.rxBuff, 0, sizeof(uartRx.rxBuff));
@@ -88,6 +127,17 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		memset(uartRx.rxBuff, 0, sizeof(uartRx.rxBuff));
 	} else if (uartRecvChar[0] == '\r') {
 //		do nothing
+	} else if (uartRecvChar[0] == 0x03) {	//end of text
+
+		HAL_UART_Abort(huart);
+		memset(uartRx.rxBuff, 0, sizeof(uartRx.rxBuff));
+		printf("\n");
+
+	} else if (uartRecvChar[0] == 0x1E) {	//previous command
+//		memset(uartRx.rxBuff, 0, sizeof(uartRx.rxBuff));
+		memcpy(uartRx.rxBuff, uartRx.rxLastCmd, sizeof(uartRx.rxLastCmd));
+		printf("\n%s",uartRx.rxBuff);
+
 	} else {
 
 		if (uartRecvChar[0] == 0x08) {	//backspace handle
@@ -118,22 +168,29 @@ static void uartPrintHelp(void) {
 //	find the number of spaces to add after considering the name being printed
 	for (int i = 0; i < numCmds; i++) {
 		int gap = nameLen - strlen((char*) cmds[i].cmdName);
+		gap++;
 
 //		Add an extra spaces if this command does not need a file_name
-		if (!cmds[i].cmdTakesname) {
+		if (!cmds[i].cmdTakesParam1) {
 			gap += strlen("[file_name]");
 		}
+		if (!cmds[i].cmdTakesParam2) {
+			gap += strlen("[num_bytes]");
+		}
 
-		printf("\t%s %s %*c ", cmds[i].cmdName,
-				cmds[i].cmdTakesname ? "[file_name]" : "", gap, ':');
+		if (cmds[i].param2Num == 1) {
+			printf("\t%s %s %s %*c ", cmds[i].cmdName,
+					cmds[i].cmdTakesParam1 ? "[file_name]" : "",
+					cmds[i].cmdTakesParam2 ? "[num_bytes]" : "", gap, ':');
+		} else {
+			printf("\t%s %s %s %*c ", cmds[i].cmdName,
+					cmds[i].cmdTakesParam1 ? "[file_name]" : "",
+					cmds[i].cmdTakesParam2 ? "[file_name]" : "", gap, ':');
+		}
 		printf("%s\n", cmds[i].cmdDesc);
 	}
 	printf("\n");
 }
-
-//static void uartFuncNotImpl(char *name) {
-//	printf("\"%s\" function not implemented yet\n", name);
-//}
 
 static void uartPrintFileRead(char *name, char *contents, int32_t size) {
 	if (!size) {
@@ -159,8 +216,7 @@ static void uartprintHexdump(char *name, uint8_t *contents, int32_t size) {
 		if (((i - 1) % 16) == 0) {
 			printf("\t0x%08lX    ", i - 1);
 		}
-		if (contents[i - 1] != 0)
-			printf("%02X%c", contents[i - 1], (i % 16 == 0) ? '\n' : ' ');
+		printf("%02X%c", contents[i - 1], (i % 16 == 0) ? '\n' : ' ');
 	}
 
 	printf("\n\n");
@@ -170,6 +226,22 @@ static void uartPrintMissingDescriptor(char *func, char *descriptor) {
 	printf("[%s] Please provide a %s.\n\n", func, descriptor);
 }
 
+static void uartRxFile(char *name, uint32_t size) {
+	// temporarily disable UART interrupts to receive full file
+	HAL_NVIC_DisableIRQ(USART3_IRQn);
+
+	uint8_t recv[size];
+
+	// unable to rx file in interrupt/dma mode, so using blocking function as of now
+	HAL_UART_Receive(&huart3, recv, size, HAL_MAX_DELAY);
+	printf("\nRecvd %lu bytes\n", size);
+	int err = lfs_file_write(&lfs, &file, (uint8_t*) recv, size);
+	printf("Wrote %d of %lu bytes \n\n", err, size);
+
+	//re-enable UART interrupts
+	HAL_NVIC_EnableIRQ(USART3_IRQn);
+}
+
 void uartUiDecode(void) {
 	char delimiter[4] = " ";
 	char *token = 0;
@@ -177,38 +249,68 @@ void uartUiDecode(void) {
 	memcpy((uint8_t*) originalStr, uartRx.rxBuff, sizeof(uartRx.rxBuff));
 	token = strtok((char*) uartRx.rxBuff, delimiter);
 
+	/**
+	 * HELP
+	 */
 	if (!strcasecmp(token, CLI_HELP)) {
 
 		uartPrintHelp();
 
-	} else if (!strcasecmp(token, CLI_TOUCH)) {
+	}
+	/**
+	 * TOUCH
+	 */
+	else if (!strcasecmp(token, CLI_TOUCH)) {
 
 		token = strtok(NULL, delimiter);
 		if (token == NULL) {
 			uartPrintMissingDescriptor(CLI_TOUCH, "file name");
 			return;
 		}
-//		lfs_dir_rewind(&lfs, &dir);
-		lfs_file_close(&lfs, &file);	//close any open files
-		lfs_file_open(&lfs, &file, token, LFS_O_CREAT);
-		lfs_file_rewind(&lfs, &file);
-		lfs_file_close(&lfs, &file);
 
-	} else if (!strcasecmp(token, CLI_VI)) {
+		lfsCreateFile(token);
+		printf("\n");
 
-		token = strtok(NULL, delimiter);
-		if (token == NULL) {
+	}
+	/**
+	 * VI
+	 */
+	else if (!strcasecmp(token, CLI_VI)) {
+
+		char *fileName = strtok(NULL, delimiter);
+
+		if (fileName == NULL) {
 			uartPrintMissingDescriptor(CLI_VI, "file name");
 			return;
 		}
-		lfs_file_open(&lfs, &file, token, LFS_O_CREAT);
+
+		char *size_s = strtok(NULL, delimiter);
+		uint32_t fileSize = (uint32_t) atol(size_s);
+		if (fileSize < 1) {
+			uartPrintMissingDescriptor(CLI_VI, "file size");
+			return;
+		}
+
+		lfs_file_close(&lfs, &file);
+		lfs_file_open(&lfs, &file, fileName,
+				LFS_O_CREAT | LFS_O_RDWR | LFS_O_APPEND);
+		uartRxFile(token, fileSize);
+		lfs_file_rewind(&lfs, &file);
 		lfs_file_close(&lfs, &file);
 
-	} else if (!strcasecmp(token, CLI_LS)) {
+	}
+	/**
+	 * LS
+	 */
+	else if (!strcasecmp(token, CLI_LS)) {
 
 		lfsLs();
 
-	} else if (!strcasecmp(token, CLI_CAT)) {
+	}
+	/**
+	 * CAT
+	 */
+	else if (!strcasecmp(token, CLI_CAT)) {
 
 		token = strtok(NULL, delimiter);
 
@@ -220,9 +322,18 @@ void uartUiDecode(void) {
 		char *contents = 0;
 		int32_t size = lfsReadFile(token, contents);
 
+		if (size < 0) {
+			printf("\n");
+			return;
+		}
+
 		uartPrintFileRead(token, contents, size);
 
-	} else if (!strcasecmp(token, CLI_RM)) {
+	}
+	/**
+	 * RM
+	 */
+	else if (!strcasecmp(token, CLI_RM)) {
 
 		token = strtok(NULL, delimiter);
 		if (token == NULL) {
@@ -232,37 +343,92 @@ void uartUiDecode(void) {
 
 		printf("Removing %s...\n", token);
 		lfs_remove(&lfs, token);
-		printf("Removing %s complete\n", token);
+		printf("Removing %s complete\n\n", token);
 
-	} else if (!strcasecmp(token, CLI_FORMAT)) {
+	}
+	/**
+	 * FORMAT
+	 */
+	else if (!strcasecmp(token, CLI_FORMAT)) {
 
 		printf("Formatting Device...\n");
 		lfsEraseDevice();
-		printf("Format complete\n");
+		printf("Format complete\n\n");
 
-	} else if (!strcasecmp(token, CLI_HEXDUMP)) {
+	}
+	/**
+	 * HEXDUMP
+	 */
+	else if (!strcasecmp(token, CLI_HEXDUMP)) {
 		token = strtok(NULL, delimiter);
 		if (token == NULL) {
 			uartPrintMissingDescriptor(CLI_HEXDUMP, "file name");
 			return;
 		}
 
-		lfs_file_open(&lfs, &file, token, LFS_O_RDONLY);
-		int32_t size = lfs_file_size(&lfs, &file);
+		char *fileName = 0;
+		strcpy(fileName, token);
+
+		int32_t fileSize = 0;
+		int32_t size = 0;
+		lfs_file_open(&lfs, &file, fileName, LFS_O_RDONLY);
+		fileSize = lfs_file_size(&lfs, &file);
 		lfs_file_close(&lfs, &file);
-		uint8_t contents[size];
-		memset(contents, 0, size);
-		lfsReadFile(token, (char*) contents);
 
-		uartprintHexdump(token, contents, size);
+		token = strtok(NULL, delimiter);
+		if (token == NULL) {
+			size = fileSize;
+		} else {
+			size = atoi(token);
+		}
 
-	} else if (!strcasecmp(token, "\n")) {
+		uint8_t contents[fileSize];
+		memset(contents, 0, fileSize);
+		int err = lfsReadFile(fileName, (char*) contents);
+
+		if (err < 1) {
+			printf("\n");
+			return;
+		}
+
+		uartprintHexdump(fileName, contents, size);
+
+	}
+	/**
+	 * VI
+	 */
+	else if (!strcasecmp(token, CLI_MV)) {
+
+		char *fileName1 = strtok(NULL, delimiter);
+		if (fileName1 == NULL) {
+			uartPrintMissingDescriptor(CLI_MV, "file name");
+			return;
+		}
+
+		char *fileName2 = strtok(NULL, delimiter);
+		if (fileName2 == NULL) {
+			uartPrintMissingDescriptor(CLI_MV, "file name");
+			return;
+		}
+
+		lfs_rename(&lfs, fileName1, fileName2);
+		printf("Moved %s to %s\n\n", fileName1, fileName2);
+
+	}
+	/**
+	 * EMPTY LINE
+	 */
+	else if (!strcasecmp(token, "\n")) {
 
 		return;
 
-	} else {
+	}
+	/**
+	 * INVALID
+	 */
+	else {
 
-		printf("\"%s\" is an unkown command\n", originalStr);//uartRx.rxBuff);
+		printf("\"%s\" is an unkown command\n", originalStr); //uartRx.rxBuff);
 
 	}
 }

@@ -10,25 +10,16 @@
 
 #include "main.h"
 
-#define CMD_NAME_SIZE 32
+#define CMD_NAME_SIZE 64
 #define CMD_DESC_SIZE 128
-#define CMD_NUM_CMDS 8
 
-#define CLI_HELP	"HELP"
-#define CLI_TOUCH	"TOUCH"
-#define CLI_VI		"VI"
-#define CLI_LS		"LS"
-#define CLI_CAT		"CAT"
-#define CLI_RM		"RM"
-#define CLI_FORMAT	"FORMAT"
-#define CLI_HEXDUMP "HEXDUMP"
-
-typedef struct{
+typedef struct {
 	uint8_t cmdName[CMD_NAME_SIZE];
-	uint8_t cmdTakesname;
+	uint8_t cmdTakesParam1;
+	uint8_t cmdTakesParam2;
+	uint8_t param2Num;	//0=name, 1=numbytes //only considered if param2 is needed
 	uint8_t cmdDesc[CMD_DESC_SIZE];
 } uartCmds;
-
 
 void uartUiDecode(void);
 

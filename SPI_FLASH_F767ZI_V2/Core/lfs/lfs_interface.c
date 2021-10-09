@@ -119,8 +119,15 @@ void lfsConfig(struct lfs_config *c) {
 	lfs_file_close(&lfs, &file);
 
 	// print the boot count
-	printf("Boot Count: %ld\n", bootCount);
+	printf("Boot Count: %ld\n\n", bootCount);
 
+}
+
+void lfsCreateFile(char *name) {
+	lfs_file_close(&lfs, &file);	//close any open files
+	lfs_file_open(&lfs, &file, name, LFS_O_CREAT);
+	lfs_file_rewind(&lfs, &file);
+	lfs_file_close(&lfs, &file);
 }
 
 int lfsReadFile(char *name, char *buff) {
@@ -130,7 +137,7 @@ int lfsReadFile(char *name, char *buff) {
 	int err = lfs_file_open(&lfs, &file, name, LFS_O_RDWR);
 	if (err == LFS_ERR_NOENT) {
 		printf("Non-existent file name, try with a valid file\n");
-		return 0;
+		return -1;
 	}
 	lfs_soff_t size = lfs_file_size(&lfs, &file);
 
@@ -202,7 +209,6 @@ int lfsLs(void) {
 
 //	Rewind dir for future dir reads
 	lfs_dir_rewind(&lfs, &dir);
-
 
 	return 0;
 }
