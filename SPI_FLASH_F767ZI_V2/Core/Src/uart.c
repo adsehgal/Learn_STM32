@@ -8,6 +8,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "uart.h"
+#include "cksum.h"
 #include "lfs_interface.h"
 
 extern UART_HandleTypeDef huart3;
@@ -21,7 +22,7 @@ extern const char *rootDir;
 
 #define UART_RX_BUFF_SIZE 128
 
-#define CMD_NUM_CMDS 9
+#define CMD_NUM_CMDS 10
 #define CLI_HELP	"HELP"
 #define CLI_TOUCH	"TOUCH"
 #define CLI_VI		"VI"
@@ -31,6 +32,7 @@ extern const char *rootDir;
 #define CLI_FORMAT	"FORMAT"
 #define CLI_HEXDUMP "HEXDUMP"
 #define CLI_MV		"MV"
+#define CLI_CKSUM	"CKSUM"
 const uartCmds cmds[] = {	//
 		//
 				{ 					//help
@@ -38,7 +40,7 @@ const uartCmds cmds[] = {	//
 						.cmdTakesParam1 = 0,							//
 						.cmdTakesParam2 = 0,							//
 						.param2Num = 0,									//
-						.cmdDesc = "Lists all available functions",		//
+						.cmdDesc = "Lists all available functions",	//
 				},//
 				{ 					//touch - create new file
 				.cmdName = CLI_TOUCH,									//
@@ -59,7 +61,7 @@ const uartCmds cmds[] = {	//
 						.cmdTakesParam1 = 0,							//
 						.cmdTakesParam2 = 0,							//
 						.param2Num = 0,									//
-						.cmdDesc = "lists all available files",			//
+						.cmdDesc = "lists all available files",		//
 				},//
 				{ 					//cat - read entire file
 				.cmdName = CLI_CAT,										//
@@ -76,19 +78,19 @@ const uartCmds cmds[] = {	//
 						.cmdDesc = "Removes the file",					//
 				},//
 				{ 					//format
-				.cmdName = CLI_FORMAT,										//
-						.cmdTakesParam1 = 0,								//
-						.cmdTakesParam2 = 0,								//
+				.cmdName = CLI_FORMAT,									//
+						.cmdTakesParam1 = 0,							//
+						.cmdTakesParam2 = 0,							//
 						.param2Num = 0,									//
 						.cmdDesc = "Erases the entire flash storage device",//
 				},//
 				{					//hexdump
-						.cmdName = CLI_HEXDUMP, 							//
-						.cmdTakesParam1 = 1, 								//
-						.cmdTakesParam2 = 1,								//
-						.param2Num = 1,										//
+						.cmdName = CLI_HEXDUMP, 						//
+						.cmdTakesParam1 = 1, 							//
+						.cmdTakesParam2 = 1,							//
+						.param2Num = 1,									//
 						.cmdDesc =
-								"Prints out the hexdump of the requested file, optional byte limit",//
+								"Prints out the hexdump of file, optional byte limit",	//
 				},//
 				{ 					//format
 				.cmdName = CLI_MV,										//
@@ -96,7 +98,14 @@ const uartCmds cmds[] = {	//
 						.cmdTakesParam2 = 1,							//
 						.param2Num = 0,									//
 						.cmdDesc = "Renames file",						//
-				},
+				},//
+				{ 					//help
+				.cmdName = CLI_CKSUM,									//
+						.cmdTakesParam1 = 1,							//
+						.cmdTakesParam2 = 0,							//
+						.param2Num = 0,									//
+						.cmdDesc = "Calculates CRC32 value of specified file",	//
+				},		//
 
 		};
 
@@ -136,7 +145,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	} else if (uartRecvChar[0] == 0x1E) {	//previous command
 //		memset(uartRx.rxBuff, 0, sizeof(uartRx.rxBuff));
 		memcpy(uartRx.rxBuff, uartRx.rxLastCmd, sizeof(uartRx.rxLastCmd));
-		printf("\n%s",uartRx.rxBuff);
+		printf("\n%s", uartRx.rxBuff);
 
 	} else {
 
@@ -320,7 +329,7 @@ void uartUiDecode(void) {
 		}
 
 		char *contents = 0;
-		int32_t size = lfsReadFile(token, contents);
+		int32_t size = lfsReadFile(token, (uint8_t*) contents);
 
 		if (size < 0) {
 			printf("\n");
@@ -371,9 +380,10 @@ void uartUiDecode(void) {
 
 		int32_t fileSize = 0;
 		int32_t size = 0;
-		lfs_file_open(&lfs, &file, fileName, LFS_O_RDONLY);
-		fileSize = lfs_file_size(&lfs, &file);
-		lfs_file_close(&lfs, &file);
+//		lfs_file_open(&lfs, &file, fileName, LFS_O_RDONLY);
+//		fileSize = lfs_file_size(&lfs, &file);
+//		lfs_file_close(&lfs, &file);
+		fileSize = lfsGetFileSize(fileName);
 
 		token = strtok(NULL, delimiter);
 		if (token == NULL) {
@@ -384,7 +394,7 @@ void uartUiDecode(void) {
 
 		uint8_t contents[fileSize];
 		memset(contents, 0, fileSize);
-		int err = lfsReadFile(fileName, (char*) contents);
+		int err = lfsReadFile(fileName, contents);
 
 		if (err < 1) {
 			printf("\n");
@@ -395,7 +405,7 @@ void uartUiDecode(void) {
 
 	}
 	/**
-	 * VI
+	 * MV
 	 */
 	else if (!strcasecmp(token, CLI_MV)) {
 
@@ -414,6 +424,28 @@ void uartUiDecode(void) {
 		lfs_rename(&lfs, fileName1, fileName2);
 		printf("Moved %s to %s\n\n", fileName1, fileName2);
 
+	}
+	/**
+	 * CKSUM
+	 */
+	else if (!strcasecmp(token, CLI_CKSUM)) {
+
+		char *fileName = strtok(NULL, delimiter);
+		if (fileName == NULL) {
+			uartPrintMissingDescriptor(CLI_CKSUM, "file name");
+			return;
+		}
+
+		uint32_t fileSize = lfsGetFileSize(fileName);
+		uint8_t data[fileSize];
+		memset(data, 0, fileSize);
+		int err = lfsReadFile(fileName, data);
+		if (err < 1) {
+			return;
+		}
+
+		uint32_t crc = cksumCalcCrc(data, fileSize);
+		printf("%lu %ld %s\n\n", crc, fileSize, fileName);
 	}
 	/**
 	 * EMPTY LINE

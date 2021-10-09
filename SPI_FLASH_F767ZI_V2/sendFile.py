@@ -51,7 +51,7 @@ def deviceWrite(device):  # thread to write to serial device
     # print(arr)
     # cwd = os.getcwd()
     # print("Current working directory: " + cwd)
-    filePath = "Debug/SPI_FLASH_F767ZI.bin"
+    filePath = "Debug/upgrade.bin"
     try:
         fileSize = os.path.getsize(filePath)
     except FileNotFoundError:
