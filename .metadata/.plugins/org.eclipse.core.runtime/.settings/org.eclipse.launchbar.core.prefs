@@ -25,7 +25,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Register_Access_F042K6\ Debug/a
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPIFS_FLASH_F401RE\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPI_FLASH_DMA_F401RE\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPI_FLASH_DMA_F401RE\ Debug/activeLaunchTarget=null\:---
-org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPI_FLASH_F767ZI\ Debug\ (1)/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPI_FLASH_F767ZI\ Debug\ (1)/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPI_FLASH_F767ZI\ Debug\ (1)/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPI_FLASH_F767ZI\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPI_FLASH_F767ZI\ Debug/activeLaunchTarget=null\:---

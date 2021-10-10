@@ -22,7 +22,7 @@ extern const char *rootDir;
 
 #define UART_RX_BUFF_SIZE 128
 
-#define CMD_NUM_CMDS 10
+#define CMD_NUM_CMDS 11
 #define CLI_HELP	"HELP"
 #define CLI_TOUCH	"TOUCH"
 #define CLI_VI		"VI"
@@ -33,6 +33,7 @@ extern const char *rootDir;
 #define CLI_HEXDUMP "HEXDUMP"
 #define CLI_MV		"MV"
 #define CLI_CKSUM	"CKSUM"
+#define CLI_CRC32 	"CRC32"
 const uartCmds cmds[] = {	//
 		//
 				{ 					//help
@@ -99,8 +100,15 @@ const uartCmds cmds[] = {	//
 						.param2Num = 0,									//
 						.cmdDesc = "Renames file",						//
 				},//
-				{ 					//help
+				{ 					//cksum
 				.cmdName = CLI_CKSUM,									//
+						.cmdTakesParam1 = 1,							//
+						.cmdTakesParam2 = 0,							//
+						.param2Num = 0,									//
+						.cmdDesc = "Calculates cksum value of specified file",	//
+				},//
+				{ 					//crc32
+				.cmdName = CLI_CRC32,									//
 						.cmdTakesParam1 = 1,							//
 						.cmdTakesParam2 = 0,							//
 						.param2Num = 0,									//
@@ -151,8 +159,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
 		if (uartRecvChar[0] == 0x08) {	//backspace handle
 			uartRx.rxBuff[strlen((char*) uartRx.rxBuff) - 1] = '\0';
-		} else
+		} else {
 			strncat((char*) uartRx.rxBuff, (char*) uartRecvChar, 1);
+		}
 	}
 
 	uartRecvChar[0] = 0;
@@ -443,11 +452,36 @@ void uartUiDecode(void) {
 		memset(data, 0, fileSize);
 		int err = lfsReadFile(fileName, data);
 		if (err < 1) {
+			printf("\n");
 			return;
 		}
 
-		uint32_t crc = cksumCalcCrc(data, fileSize);
+		uint32_t crc = cksumCalcCksum(data, fileSize);
 		printf("%lu %ld %s\n\n", crc, fileSize, fileName);
+
+	}
+	/**
+	 * CRC32
+	 */
+	else if (!strcasecmp(token, CLI_CRC32)) {
+
+		char *fileName = strtok(NULL, delimiter);
+		if (fileName == NULL) {
+			uartPrintMissingDescriptor(CLI_CRC32, "file name");
+			return;
+		}
+
+		uint32_t fileSize = lfsGetFileSize(fileName);
+		uint8_t data[fileSize];
+		memset(data, 0, fileSize);
+		int err = lfsReadFile(fileName, data);
+		if (err < 1) {
+			printf("\n");
+			return;
+		}
+
+		uint32_t crc = cksumCalcCrc32(data, fileSize);
+		printf("%lX\n\n", crc);
 	}
 	/**
 	 * EMPTY LINE

@@ -6,9 +6,12 @@
  */
 
 #include <stdint.h>
+#include "main.h"
 #include "cksum.h"
 
-static const uint32_t crc_table[] = { 0x00000000, 0x04c11db7, 0x09823b6e,
+extern CRC_HandleTypeDef hcrc;
+
+static const uint32_t cksumTable[] = { 0x00000000, 0x04c11db7, 0x09823b6e,
 		0x0d4326d9, 0x130476dc, 0x17c56b6b, 0x1a864db2, 0x1e475005, 0x2608edb8,
 		0x22c9f00f, 0x2f8ad6d6, 0x2b4bcb61, 0x350c9b64, 0x31cd86d3, 0x3c8ea00a,
 		0x384fbdbd, 0x4c11db70, 0x48d0c6c7, 0x4593e01e, 0x4152fda9, 0x5f15adac,
@@ -53,15 +56,19 @@ static const uint32_t crc_table[] = { 0x00000000, 0x04c11db7, 0x09823b6e,
 		0xab710d06, 0xa6322bdf, 0xa2f33668, 0xbcb4666d, 0xb8757bda, 0xb5365d03,
 		0xb1f740b4 };
 
-uint32_t cksumCalcCrc(uint8_t *data, uint32_t size) {
+uint32_t cksumCalcCksum(uint8_t *data, uint32_t size) {
 	uint32_t crc = 0;
 	for (unsigned int i = 0; i < size; i++) {
 
-		crc = (crc << 8) ^ crc_table[(crc >> 24) ^ ((uint32_t) data[i])];
+		crc = (crc << 8) ^ cksumTable[(crc >> 24) ^ ((uint32_t) data[i])];
 	}
 	while (size != 0) {
-		crc = (crc << 8) ^ crc_table[(crc >> 24) ^ (size & 0xff)];
+		crc = (crc << 8) ^ cksumTable[(crc >> 24) ^ (size & 0xff)];
 		size >>= 8;
 	}
 	return ~crc;
+}
+
+uint32_t cksumCalcCrc32(uint8_t *data, uint32_t size) {
+	return ~HAL_CRC_Calculate(&hcrc, (uint32_t*) data, size);
 }

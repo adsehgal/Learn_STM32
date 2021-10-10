@@ -3217,3 +3217,183 @@ arm-none-eabi-size   SPI_FLASH_F767ZI.elf
   65088	    140	   2860	  68088	  109f8	SPI_FLASH_F767ZI.elf
 Finished building: default.size.stdout
  
+15:49:08 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/cksum.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/cksum.d" -MT"Core/Src/cksum.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/cksum.o"
+arm-none-eabi-gcc "../Core/Src/uart.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/uart.d" -MT"Core/Src/uart.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/uart.o"
+../Core/Src/cksum.c: In function 'cksumCalcCrc32':
+../Core/Src/cksum.c:71:21: error: 'hcrc' undeclared (first use in this function)
+   71 |  HAL_CRC_Calculate(&hcrc, data, size);
+      |                     ^~~~
+../Core/Src/cksum.c:71:21: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/cksum.c:71:27: warning: passing argument 2 of 'HAL_CRC_Calculate' from incompatible pointer type [-Wincompatible-pointer-types]
+   71 |  HAL_CRC_Calculate(&hcrc, data, size);
+      |                           ^~~~
+      |                           |
+      |                           uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/stm32f7xx_hal_conf.h:302,
+                 from ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/cksum.c:9:
+../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_crc.h:311:62: note: expected 'uint32_t *' {aka 'long unsigned int *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  311 | uint32_t HAL_CRC_Calculate(CRC_HandleTypeDef *hcrc, uint32_t pBuffer[], uint32_t BufferLength);
+      |                                                     ~~~~~~~~~^~~~~~~~~
+../Core/Src/cksum.c:72:1: warning: control reaches end of non-void function [-Wreturn-type]
+   72 | }
+      | ^
+make: *** [Core/Src/subdir.mk:49: Core/Src/cksum.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+15:49:24 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/cksum.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/cksum.d" -MT"Core/Src/cksum.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/cksum.o"
+../Core/Src/cksum.c: In function 'cksumCalcCrc32':
+../Core/Src/cksum.c:73:27: warning: passing argument 2 of 'HAL_CRC_Calculate' from incompatible pointer type [-Wincompatible-pointer-types]
+   73 |  HAL_CRC_Calculate(&hcrc, data, size);
+      |                           ^~~~
+      |                           |
+      |                           uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/stm32f7xx_hal_conf.h:302,
+                 from ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/cksum.c:9:
+../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_crc.h:311:62: note: expected 'uint32_t *' {aka 'long unsigned int *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  311 | uint32_t HAL_CRC_Calculate(CRC_HandleTypeDef *hcrc, uint32_t pBuffer[], uint32_t BufferLength);
+      |                                                     ~~~~~~~~~^~~~~~~~~
+../Core/Src/cksum.c:74:1: warning: control reaches end of non-void function [-Wreturn-type]
+   74 | }
+      | ^
+arm-none-eabi-gcc -o "SPI_FLASH_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/SPI_FLASH_F767ZI_V2/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_FLASH_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SPI_FLASH_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  SPI_FLASH_F767ZI.elf  > "SPI_FLASH_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  SPI_FLASH_F767ZI.elf  "SPI_FLASH_F767ZI.bin"
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  65088	    140	   2860	  68088	  109f8	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: SPI_FLASH_F767ZI.bin
+ 
+Finished building: SPI_FLASH_F767ZI.list
+ 
+15:49:42 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/cksum.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/cksum.d" -MT"Core/Src/cksum.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/cksum.o"
+arm-none-eabi-gcc -o "SPI_FLASH_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/SPI_FLASH_F767ZI_V2/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_FLASH_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SPI_FLASH_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  SPI_FLASH_F767ZI.elf  > "SPI_FLASH_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  SPI_FLASH_F767ZI.elf  "SPI_FLASH_F767ZI.bin"
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  65088	    140	   2860	  68088	  109f8	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: SPI_FLASH_F767ZI.bin
+ 
+Finished building: SPI_FLASH_F767ZI.list
+ 
+15:50:14 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/uart.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/uart.d" -MT"Core/Src/uart.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/uart.o"
+arm-none-eabi-gcc -o "SPI_FLASH_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/SPI_FLASH_F767ZI_V2/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_FLASH_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SPI_FLASH_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  SPI_FLASH_F767ZI.elf  > "SPI_FLASH_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  SPI_FLASH_F767ZI.elf  "SPI_FLASH_F767ZI.bin"
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  65720	    140	   2860	  68720	  10c70	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: SPI_FLASH_F767ZI.bin
+ 
+Finished building: SPI_FLASH_F767ZI.list
+ 
+15:51:13 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/cksum.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/cksum.d" -MT"Core/Src/cksum.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/cksum.o"
+arm-none-eabi-gcc -o "SPI_FLASH_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/SPI_FLASH_F767ZI_V2/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_FLASH_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SPI_FLASH_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  SPI_FLASH_F767ZI.elf  > "SPI_FLASH_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  SPI_FLASH_F767ZI.elf  "SPI_FLASH_F767ZI.bin"
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  65720	    140	   2860	  68720	  10c70	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: SPI_FLASH_F767ZI.bin
+ 
+Finished building: SPI_FLASH_F767ZI.list
+ 
+15:51:17 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  65720	    140	   2860	  68720	  10c70	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
+15:54:12 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/uart.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/uart.d" -MT"Core/Src/uart.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/uart.o"
+../Core/Src/uart.c: In function 'uartUiDecode':
+../Core/Src/uart.c:480:3: error: 'crc' undeclared (first use in this function); did you mean 'hcrc'?
+  480 |   crc = cksumCalcCrc32(data, fileSize);
+      |   ^~~
+      |   hcrc
+../Core/Src/uart.c:480:3: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:69: Core/Src/uart.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+15:54:20 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/uart.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/uart.d" -MT"Core/Src/uart.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/uart.o"
+arm-none-eabi-gcc -o "SPI_FLASH_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/SPI_FLASH_F767ZI_V2/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_FLASH_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SPI_FLASH_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  SPI_FLASH_F767ZI.elf  > "SPI_FLASH_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  SPI_FLASH_F767ZI.elf  "SPI_FLASH_F767ZI.bin"
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  66080	    140	   2860	  69080	  10dd8	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: SPI_FLASH_F767ZI.bin
+ 
+Finished building: SPI_FLASH_F767ZI.list
+ 
+15:55:16 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/uart.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/uart.d" -MT"Core/Src/uart.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/uart.o"
+arm-none-eabi-gcc -o "SPI_FLASH_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/SPI_FLASH_F767ZI_V2/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_FLASH_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SPI_FLASH_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  SPI_FLASH_F767ZI.elf  > "SPI_FLASH_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  SPI_FLASH_F767ZI.elf  "SPI_FLASH_F767ZI.bin"
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  66092	    140	   2860	  69092	  10de4	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: SPI_FLASH_F767ZI.bin
+ 
+Finished building: SPI_FLASH_F767ZI.list
+ 
+16:03:13 **** Incremental Build of configuration Debug for project SPI_FLASH_F767ZI ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/uart.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Core/lfs -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/uart.d" -MT"Core/Src/uart.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/uart.o"
+arm-none-eabi-gcc -o "SPI_FLASH_F767ZI.elf" @"objects.list"   -mcpu=cortex-m7 -T"/Users/adityasehgal/Documents/GitHub/Learn_STM32/SPI_FLASH_F767ZI_V2/STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_FLASH_F767ZI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SPI_FLASH_F767ZI.elf
+ 
+arm-none-eabi-objdump -h -S  SPI_FLASH_F767ZI.elf  > "SPI_FLASH_F767ZI.list"
+arm-none-eabi-objcopy  -O binary  SPI_FLASH_F767ZI.elf  "SPI_FLASH_F767ZI.bin"
+arm-none-eabi-size   SPI_FLASH_F767ZI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  66092	    140	   2860	  69092	  10de4	SPI_FLASH_F767ZI.elf
+Finished building: default.size.stdout
+ 
+Finished building: SPI_FLASH_F767ZI.bin
+ 
+Finished building: SPI_FLASH_F767ZI.list
+ 
