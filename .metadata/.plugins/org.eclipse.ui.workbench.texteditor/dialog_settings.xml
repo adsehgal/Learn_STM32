@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="lfsReadFile"/>
+		<item key="selection" value="DELA"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value=",0,0,0"/>
+			<item value="dela"/>
+			<item value="printf ("/>
+			<item value="weak"/>
+			<item value="lfs_crc"/>
 			<item value="lfsReadFile"/>
 			<item value="-84"/>
 			<item value="atol"/>
-			<item value="append"/>
-			<item value="ip_len"/>
-			<item value="accept("/>
-			<item value="listen("/>
-			<item value="send"/>
 		</list>
 		<list key="replacehistory">
 			<item value="myDMA"/>

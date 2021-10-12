@@ -1,3 +1,4 @@
 {
-    "stm32-for-vscode.openOCDPath": false
+    "stm32-for-vscode.openOCDPath": "/Users/adityasehgal/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/openocd/0.11.0-1.1/.content/bin/openocd",
+    "cortex-debug.armToolchainPath": "/Users/adityasehgal/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/10.2.1-1.1.2/.content/bin"
 }

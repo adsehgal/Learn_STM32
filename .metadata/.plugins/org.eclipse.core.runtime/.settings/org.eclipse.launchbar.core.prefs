@@ -1,10 +1,11 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=macosx
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPI_FLASH_F767ZI Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPI_FLASH_F767ZI Debug (1)
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BSEARCH_FUNCTIONS_F767ZI Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:AUDIO_Standalone\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:AUDIO_Standalone\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BSEARCH_FUNCTIONS_F767ZI\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Bootloader_App_F401RE\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Bootloader_App_F401RE\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Bootloader_F401RE\ Debug/activeLaunchMode=run
@@ -20,6 +21,8 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LWIP_F767ZI_V2\ Debug/activeLau
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LWIP_F767ZI_V2\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LWIP_F767ZI_WO_RTOS\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LWIP_F767ZI_WO_RTOS\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:QSPI_Test_F469I\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:QSPI_Test_F469I\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:RTOS_Sync_G474RE\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Register_Access_F042K6\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SPIFS_FLASH_F401RE\ Debug/activeLaunchMode=run
