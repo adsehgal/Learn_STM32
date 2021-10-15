@@ -10,6 +10,40 @@
 
 #include "lfs.h"
 
+#define SPIFS_DBG 1
+
+#if SPIFS_DBG
+#define SPIFS_WARN_YES 1
+#define SPIFS_ERR_YES 1
+#else
+#define SPIFS_WARN_YES 0
+#define SPIFS_WARN_YES 0
+#endif
+
+#if SPIFS_DBG
+
+#if SPIFS_WARN_YES
+#define SPIFS_WARN_(fmt, ...) \
+    printf("%s:%d:warn: " fmt "%s\n", __FILE__, __LINE__, __VA_ARGS__)
+
+#define SPIFS_WARN(...) SPIFS_WARN_(__VA_ARGS__, "")
+
+#else
+#define SPIFS_WARN(...)
+#endif	// SPIFS_WARN
+
+#if SPIFS_ERR_YES
+#define SPIFS_ERR_(fmt, ...) \
+    printf("%s:%d:error: " fmt "%s\n", __FILE__, __LINE__, __VA_ARGS__)
+
+#define SPIFS_ERR(...) SPIFS_ERR_(__VA_ARGS__, "")
+
+#else
+#define SPIFS_ERR_(...)
+#endif	// SPIFS_ERR
+
+#endif	// SPIFS_DBG
+
 #define LFS_ROOT_PATH "root"
 #define LFS_LIST_FILES_PATH "files"
 
@@ -59,6 +93,16 @@ int lfsReadFile(char *name, uint8_t *buff);
 void lfsEraseDevice(void);
 
 int lfsLs(void);
+
+void lfsRemoveFile(char *name);
+
+void lfsRenameFile(char *old, char *new);
+
+void lfsOpenFileForWrite(char *name);
+
+int lfsWriteFile(uint8_t *pBuff, uint32_t size);
+
+void lfsCloseFileForWrite(void);
 
 /***********************************************************************
  ***********************************************************************

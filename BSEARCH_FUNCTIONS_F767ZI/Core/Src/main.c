@@ -30,6 +30,8 @@
 #include "rng.h"
 #include "spi.h"
 #include "usart.h"
+
+#include "lfs_interface.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,7 +62,10 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+lfs_t lfs;
+lfs_file_t file;
+struct lfs_config cfg;
+lfs_dir_t dir;
 /* USER CODE END 0 */
 
 /**
@@ -98,6 +103,16 @@ int main(void)
 
 	HAL_GPIO_WritePin(LDG_GPIO_Port, LDG_Pin, GPIO_PIN_SET);
 	printf("Built on %s at %s\n\n", __DATE__, __TIME__);
+
+	lfsConfig(&cfg);
+
+	lfs_file_open(&lfs, &file, "test.txt", LFS_O_CREAT);
+	char *data =
+			"This is a test file\nNow this is a new line in the text file\nAnd this is a third line in the test file, great!";
+
+	lfs_file_rewind(&lfs, &file);
+	lfs_file_write(&lfs, &file, (char*) data, strlen(data));
+	lfs_file_close(&lfs, &file);
 
 	HAL_UART_Receive_IT(HANDLE_UART3, &uartRx.rxChar, 1);
 

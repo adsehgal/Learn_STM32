@@ -14,7 +14,7 @@ extern lfs_t lfs;
 extern lfs_file_t file;
 extern struct lfs_config cfg;
 extern lfs_dir_t dir;
-lfs_dir_t dir;
+//lfs_dir_t dir;
 const char *rootDir = "/";
 
 int lfsRead(const struct lfs_config *c, lfs_block_t block, lfs_off_t off,
@@ -72,14 +72,14 @@ void lfsConfig(struct lfs_config *c) {
 	// reformat if we can't mount the filesystem
 	// this should only happen on the first boot
 	if (err) {
-		printf("Could not mount, formatting and mounting again\n");
+		SPIFS_WARN("Could not mount, formatting and mounting again\n");
 		lfs_format(&lfs, &cfg);
 		err = lfs_mount(&lfs, &cfg);
 	}
 
 	if (err) {
-		printf("Format and mount failed!\n");
-		printf("Need a HW reset!\n\n");
+		SPIFS_ERR("Format and mount failed!\n");
+		SPIFS_ERR("Need a HW reset!\n\n");
 		while (1)
 			;
 	}
@@ -87,18 +87,18 @@ void lfsConfig(struct lfs_config *c) {
 	err = lfs_mkdir(&lfs, rootDir);
 	err = lfs_dir_open(&lfs, &dir, rootDir);
 	if (err) {
-		printf("Failed to open directory\n");
+		SPIFS_WARN("Failed to open directory\n");
 		err = lfs_mkdir(&lfs, rootDir);
 		err = lfs_dir_open(&lfs, &dir, rootDir);
 		if (err) {
-			printf(
+			SPIFS_WARN(
 					"Failed to create directory, formatting and mounting again\n");
 			lfs_format(&lfs, &cfg);
 			err = lfs_mount(&lfs, &cfg);
 			err = lfs_mkdir(&lfs, rootDir);
 			err = lfs_dir_open(&lfs, &dir, rootDir);
 			if (err) {
-				printf("Failed to open root directory\n");
+				SPIFS_ERR("Failed to open root directory\n");
 				while (1)
 					;
 			}
@@ -152,8 +152,6 @@ int lfsReadFile(char *name, uint8_t *buff) {
 
 	lfs_file_close(&lfs, &file);
 
-//	printf("Read [%ld]: %s\n", size, fileContents);
-
 	memcpy(buff, fileContents, size);
 
 	return size;
@@ -169,7 +167,7 @@ int lfsLs(void) {
 	while (1) {
 		int res = lfs_dir_read(&lfs, &dir, &info);
 		if (res < 0) {
-			printf("Failed to read root\n");
+			SPIFS_ERR("Failed to read root\n");
 			while (1)
 				;
 		}
@@ -216,4 +214,27 @@ int lfsLs(void) {
 	lfs_dir_rewind(&lfs, &dir);
 
 	return 0;
+}
+
+void lfsRemoveFile(char *name) {
+	lfs_remove(&lfs, name);
+}
+
+void lfsRenameFile(char *old, char *new) {
+	lfs_rename(&lfs, old, new);
+}
+
+void lfsOpenFileForWrite(char *name) {
+	lfs_file_close(&lfs, &file);
+	lfs_file_open(&lfs, &file, name,
+			LFS_O_CREAT | LFS_O_RDWR | LFS_O_APPEND);
+}
+
+int lfsWriteFile(uint8_t *pBuff, uint32_t size){
+	return lfs_file_write(&lfs, &file, (uint8_t*) pBuff, size);
+}
+
+void lfsCloseFileForWrite(void) {
+	lfs_file_rewind(&lfs, &file);
+	lfs_file_close(&lfs, &file);
 }

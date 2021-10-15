@@ -94,10 +94,15 @@ extern RNG_HandleTypeDef hrng;
 #define HANDLE_RNG &hrng
 #define INSTANCE_RNG RNG
 
+#define USE_DELAY 0
+#if USE_DELAY
 #ifdef _CMSIS_OS_H
 #define SYS_DELAY(x) osDelay(x)
 #else
 #define SYS_DELAY(x) HAL_Delay(x)
+#endif
+#else
+#define SYS_DELAY(x)
 #endif
 
 /* USER CODE END Private defines */

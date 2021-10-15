@@ -1,6 +1,5 @@
-DeviceConfigurationTool..OffLineMode=true
 DeviceConfigurationTool..UpdaterCheckInterval=5
-DeviceConfigurationTool..UpdaterDataRefresh=dataRefreshDataAndDocs
+DeviceConfigurationTool..UpdaterDataRefresh=dataRefreshDataOnly
 DeviceConfigurationTool..UpdaterDataRefreshInterfval=3
 DeviceConfigurationTool.AskToDoCodeGenerationOnIocSave=false
 DeviceConfigurationTool.AskToDoSaveAllOnCodeGeneration=false
@@ -8,4 +7,6 @@ DeviceConfigurationTool.AskToSwitchToCPerspectiveOnCodeGeneration=false
 DeviceConfigurationTool.AskToSwitchToCdtPerspective=false
 DeviceConfigurationTool.AskToSwitchToCubeMxPerspective=false
 DeviceConfigurationTool.DoSaveAllOnCodeGeneration=true
+SystemWorkbench.userCDialectCompilerOption=com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.languagestandard.value.gnu17
+SystemWorkbench.userCppDialectForCPPProjectCompilerOption=com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.languagestandard.value.gnupp17
 eclipse.preferences.version=1
