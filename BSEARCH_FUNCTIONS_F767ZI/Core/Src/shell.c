@@ -142,6 +142,10 @@ static void shellPrintHexdump(char *name, uint8_t *contents, int32_t size) {
 
 uint8_t shellProcess(uartRxStruct input) {
 
+	if (input.rxWords[0][0] == '\n' || input.rxWords[0][0] == '\0') {
+		return 0;
+	}
+
 	int argc = 0;
 	char *argv[UART_RX_NUM_WORDS];
 	int ret = 1;
