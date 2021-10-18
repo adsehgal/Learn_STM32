@@ -7,18 +7,10 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="/Users/adityasehgal/Documents/GitHub/Learn_STM32"/>
+			<item value="/Users/adityasehgal/Documents/GitHub/Learn_STM32/LWIP_F767ZI"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
 		</list>
-	</section>
-	<section name="CleanDialogSettings">
-		<item key="BUILD_NOW" value="true"/>
-		<item key="BUILD_ALL" value="true"/>
-		<item key="TOGGLE_SELECTED" value="false"/>
-		<item key="DIALOG_WIDTH" value="544"/>
-		<item key="DIALOG_HEIGHT" value="435"/>
-		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
 	</section>
 </section>
