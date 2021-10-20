@@ -46,6 +46,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+//mutex to wrap around printf to make threadsafe
 static sys_mutex_t printfMutex;
 /* USER CODE END PV */
 
@@ -93,10 +94,10 @@ int main(void) {
 
 	MX_LWIP_Init();
 
+	telnetInit();
 	/* USER CODE END 2 */
 
 	/* Call init function for freertos objects (in freertos.c) */
-	telnetInit();
 	MX_FREERTOS_Init();
 	/* Start scheduler */
 	osKernelStart();

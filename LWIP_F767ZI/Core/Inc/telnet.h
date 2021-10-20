@@ -17,22 +17,22 @@
 #define TELSTATE_SE     5
 
 // Telnet special characters
-#define TELNET_SE    240   // End of subnegotiation parameters
-#define TELNET_NOP   241   // No operation
-#define TELNET_MARK  242   // Data mark
-#define TELNET_BRK   243   // Break
-#define TELNET_IP    244   // Interrupt process
-#define TELNET_AO    245   // Abort output
-#define TELNET_AYT   246   // Are you there
-#define TELNET_EC    247   // Erase character
-#define TELNET_EL    248   // Erase line
-#define TELNET_GA    249   // Go ahead
-#define TELNET_SB    250   // Start of subnegotiation parameters
-#define TELNET_WILL  251   // Will option code
-#define TELNET_WONT  252   // Won't option code
-#define TELNET_DO    253   // Do option code
-#define TELNET_DONT  254   // Don't option code
-#define TELNET_IAC   255   // Interpret as command
+#define TELSC_SE    240   // End of subnegotiation parameters
+#define TELSC_NOP   241   // No operation
+#define TELSC_MARK  242   // Data mark
+#define TELSC_BRK   243   // Break
+#define TELSC_IP    244   // Interrupt process
+#define TELSC_AO    245   // Abort output
+#define TELSC_AYT   246   // Are you there
+#define TELSC_EC    247   // Erase character
+#define TELSC_EL    248   // Erase line
+#define TELSC_GA    249   // Go ahead
+#define TELSC_SB    250   // Start of subnegotiation parameters
+#define TELSC_WILL  251   // Will option code
+#define TELSC_WONT  252   // Won't option code
+#define TELSC_DO    253   // Do option code
+#define TELSC_DONT  254   // Don't option code
+#define TELSC_IAC   255   // Interpret as command
 
 // Telnet options
 #define TELOPT_TRANSMIT_BINARY      0  // Binary Transmission (RFC856)
@@ -62,30 +62,52 @@
 
 #define TELNET_BUF_SIZE 512
 #define TELNET_SHELL_CMD_SIZE 64
+#define TELNET_OPT_BUF_SIZE 256
 
+/**
+ * contains terminal setup like type, cols, rows...
+ */
 typedef struct Terminal {
 	int type;
 	int cols;
-	int lines;
+	int rows;
 } terminal_t;
 
+/**
+ * contains buffer for data recvd/sent on the shell
+ */
 typedef struct Telnetbuf {
 	unsigned char data[TELNET_BUF_SIZE];
 	unsigned char *start;
 	unsigned char *end;
 } telnetbuf_t;
 
+/**
+ * contains IAC... options and commands recvd on the shell
+ */
+typedef struct Telnetopt {
+	int code;
+	unsigned char data[TELNET_OPT_BUF_SIZE];
+	int len;
+} telnetopt_t;
+
+/**
+ * contains terminal socket, state, options, terminal type and data buffers
+ */
 typedef struct Terminalstate {
 	int socket;
 	int state;
-	int code;
-	unsigned char optdata[256];
-	int optionLen;
-	terminal_t terminal;
+	telnetopt_t opt;
+	terminal_t term;
 	telnetbuf_t buffIn;
 	telnetbuf_t buffOut;
 } terminalstate_t;
 
+/**
+ * @brief: initialize the telnet thread
+ * @param: void
+ * @param: void
+ */
 void telnetInit(void);
 
 #endif /* INC_TELNET_H_ */
