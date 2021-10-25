@@ -3,6 +3,7 @@
 	<item key="LexicalSortingAction.sort" value="false"/>
 	<item key="LastUsedHeaderTemplate" value="Default C header template"/>
 	<item key="LastUsedSourceTemplate" value="Default C source template"/>
+	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="${workspace_loc:/${ProjName}/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS}"/>
 	<section name="completion_proposal_size">
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
@@ -30,5 +31,16 @@
 		<item key="y" value="143"/>
 		<item key="width" value="519"/>
 		<item key="height" value="596"/>
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item key="askReindex.detail" value="0"/>
+		<item key="askReindex" value="true"/>
+	</section>
+	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
+		<item key="DIALOG_X_ORIGIN" value="746"/>
+		<item key="DIALOG_Y_ORIGIN" value="292"/>
+		<item key="DIALOG_WIDTH" value="1113"/>
+		<item key="DIALOG_HEIGHT" value="452"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
 	</section>
 </section>

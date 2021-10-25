@@ -117,7 +117,7 @@ void MX_LWIP_Init(void)
 /* USER CODE END OS_THREAD_DEF_CREATE_CMSIS_RTOS_V1 */
 
 /* USER CODE BEGIN 3 */
-
+  ethernetif_notify_conn_changed(&gnetif);
 /* USER CODE END 3 */
 }
 

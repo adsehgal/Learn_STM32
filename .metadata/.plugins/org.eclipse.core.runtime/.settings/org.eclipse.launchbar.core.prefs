@@ -7,3 +7,6 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BSEARCH_FUNCTIONS_F767ZI\ Debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BSEARCH_FUNCTIONS_F767ZI\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LWIP_F767ZI\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LWIP_F767ZI\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Segger_EmbOs_F767ZI\ Debug/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:LWIP_F767ZI\ Debug/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:LWIP_F767ZI\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

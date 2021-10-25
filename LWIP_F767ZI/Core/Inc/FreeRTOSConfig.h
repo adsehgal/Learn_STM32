@@ -52,7 +52,7 @@
   #include <stdint.h>
   extern uint32_t SystemCoreClock;
 #endif
-#define configENABLE_FPU                         1
+#define configENABLE_FPU                         0
 #define configENABLE_MPU                         0
 
 #define configUSE_PREEMPTION                     1
@@ -70,7 +70,6 @@
 #define configUSE_MUTEXES                        1
 #define configQUEUE_REGISTRY_SIZE                8
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION  1
-#define configUSE_POSIX_ERRNO                    1
 /* USER CODE BEGIN MESSAGE_BUFFER_LENGTH_TYPE */
 /* Defaults to size_t for backward compatibility, but can be changed
    if lengths will always be less than the number of bytes in a size_t. */
@@ -81,8 +80,11 @@
 #define configUSE_CO_ROUTINES                    0
 #define configMAX_CO_ROUTINE_PRIORITIES          ( 2 )
 
-/* The following flag must be enabled only when using newlib */
-#define configUSE_NEWLIB_REENTRANT          1
+/* Software timer definitions. */
+#define configUSE_TIMERS                         1
+#define configTIMER_TASK_PRIORITY                ( 2 )
+#define configTIMER_QUEUE_LENGTH                 10
+#define configTIMER_TASK_STACK_DEPTH             256
 
 /* Set the following definitions to 1 to include the API function, or zero
 to exclude the API function. */

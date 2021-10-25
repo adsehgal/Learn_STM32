@@ -36,9 +36,9 @@ static void shellSendopt(int code, int option) {
  * @param: str - string to write
  * @param: size - length of string
  * @param: flush - 1=flush terminal, 0 otherwise
- * @return: int - number of bytes written
+ * @return: uint32_t - number of bytes written
  */
-static int shellWrite(char *str, uint32_t size, uint8_t flush) {
+static uint32_t shellWrite(char *str, uint32_t size, uint8_t flush) {
 	int numFd = 0;
 	int numSent = 0;
 	int len = 0;
@@ -246,6 +246,23 @@ static void shellProcessOpt(void) {
 	shell.buffIn.end = q;
 }
 
+/**
+ * @brief: erases the last input char
+ * @param: void
+ * @return: void
+ */
+static void shellEraseInputChar(void) {
+	shellPutc(0x08);
+	shellPutc(0x20);
+	shellPutc(0x08);
+}
+
+static void shellEraseInputChars(uint32_t num) {
+	for (int i = 0; i < num; i++) {
+		shellEraseInputChar();
+	}
+}
+
 void shellInit(int socket) {
 
 	int optLen = 0;
@@ -284,13 +301,17 @@ void shellPuts(char *str) {
 
 void shellPrintf(const char *fmt, ...) {
 	va_list arp;
-	char buffer[128];
+	char buffer[256];
 
 	va_start(arp, fmt);
 	vsnprintf(buffer, sizeof(buffer), fmt, arp);
 	va_end(arp);
 
 	shellPuts(buffer);
+}
+
+void shellPutInputString(void) {
+	shellPuts("> ");
 }
 
 uint32_t shellFlush(void) {
@@ -333,10 +354,10 @@ uint32_t shellFlush(void) {
 	return numSent < 0 ? numSent : len;
 }
 
-int32_t shellGetc(void) {
+uint8_t shellGetc(void) {
 	int err = 0;
 	int recvLen = 0;
-	int ch = 0;
+	uint8_t ch = 0;
 
 	fd_set fdsr;
 	struct timeval selectTimeout;
@@ -354,14 +375,15 @@ int32_t shellGetc(void) {
 
 		//error encountered
 		if (err < 0) {
-			return -1;
+//			return 0;
+			break;
 		}
 
 		timeOutAccum += osKernelSysTick();
 
 		//check for timeout
 		if (timeOutAccum - timeOutStart >= SHELL_TIMEOUT) {
-			return -1;
+			return 0;
 		}
 
 		if ((err > 0) && FD_ISSET(shell.socket, &fdsr)) {
@@ -398,36 +420,159 @@ int32_t shellGetc(void) {
 	return ch;
 }
 
-uint8_t shellGets(char *buff, uint32_t len, uint8_t echo) {
+uint8_t shellGets(char *buffRecv, uint32_t len, uint8_t echo) {
 	int ch = 0;
 	uint32_t numRecv = 0;
+
+	typedef enum ARROWS_ENUM {
+		arrowNone = 0x00,	//
+		arrowUp = 0x10,		//
+		arrowDw = 0x20,		//
+		arrowLt = 0x40,		//
+		arrowRt = 0x80,		//
+
+		arrowEsc = 0x1B,	//
+		arrowBrkt = 0x5B,	//
+		arrowA = 0x41,		//	up		( ^[A )
+		arrowB = 0x42,		//	dwn		( ^[B )
+		arrowC = 0x43,		//	right	( ^[C )
+		arrowD = 0x44,		//	left	( ^[D )
+	} arrows_t;
+	arrows_t arrowRecvd = arrowNone;
 
 	for (;;) {
 
 		ch = shellGetc();
 
 		//end of stream/error
-		if (ch < 0) {
-			return 0;
+		if (!ch) {
+			return 0xFF;
 		}
 
 		//end of cmd
 		else if (ch == '\r') {
+			//add command to list of prev commands
+			if (numRecv != 0 && buffRecv != NULL) {
+				if (shell.prev.pos >= TELNET_NUM_PREV_CMDS) {
+					shell.prev.pos = 0;
+				}
+				memcpy(shell.prev.cmds[shell.prev.pos], buffRecv, len);
+				shell.prev.pos++;
+				shell.prev.selected = 0;
+			}
 			break;
 		}
 
 		//process backspace and deletes
-		if (((ch == '\b') || (ch == 0x7F)) && numRecv) {
-			buff[--numRecv] = '\0';
+		else if (((ch == '\b') || (ch == 0x7F)) && numRecv) {
+			shellEraseInputChar();
+			buffRecv[--numRecv] = '\0';
 		}
 
 		//append char into string
-		if ((ch >= ' ') && (ch <= '~') && (numRecv < (len - 1))) {
-			buff[numRecv++] = ch;
+		else if ((ch >= ' ') && (ch <= '~') && (numRecv < (len - 1))) {
+			buffRecv[numRecv++] = ch;
 			if (echo) {
 				shellPutc(ch);
 			}
 		}
+
+		// process any arrows for cmd history
+		if (ch == arrowEsc) {	// esc recvd
+			arrowRecvd = 1;
+		}
+
+		if (arrowRecvd) {
+			// decode which char was recvd after escape
+			switch (ch) {
+			case arrowEsc:
+				break;
+			case arrowBrkt:
+				arrowRecvd++;
+				break;
+			case arrowA:
+				arrowRecvd = arrowUp;
+				break;
+			case arrowB:
+				arrowRecvd = arrowDw;
+				break;
+			case arrowC:
+				arrowRecvd = arrowRt;
+				break;
+			case arrowD:
+				arrowRecvd = arrowLt;
+				break;
+			default:
+				arrowRecvd = arrowNone;
+				break;
+			}
+		}
+
+		switch (arrowRecvd) {
+		case arrowUp:	// process older command selection
+			// erase entire input line
+			shellEraseInputChars(len);
+			numRecv = 0;
+			if (shell.prev.selected >= TELNET_NUM_PREV_CMDS) {
+				shell.prev.selected = 0;
+			}
+			// ignore any empty history
+			while (shell.prev.cmds[shell.prev.selected] == NULL) {
+				shell.prev.selected++;
+				if (shell.prev.selected >= TELNET_NUM_PREV_CMDS) {
+					shell.prev.selected = 0;
+					break;
+				}
+			}
+			// put selected previous command into main buffer
+			strcpy(buffRecv, shell.prev.cmds[shell.prev.selected]);
+			shell.prev.selected++;
+			// display older command
+			shellPutInputString();
+			shellPuts(buffRecv);
+			numRecv = strlen(buffRecv);
+			break;
+		case arrowDw:	// process newer command selection
+			// erase entire input line
+			shellEraseInputChars(len);
+			numRecv = 0;
+			if (shell.prev.selected < 0) {
+				shell.prev.selected = 0;
+			}
+			// ignore any empty buffers
+			while (shell.prev.cmds[shell.prev.selected] == NULL) {
+				shell.prev.selected--;
+				if (shell.prev.selected < 0) {
+					shell.prev.selected = 0;
+					break;
+				}
+			}
+			strcpy(buffRecv, shell.prev.cmds[shell.prev.selected]);
+			shell.prev.selected--;
+			// display newer command
+			shellPutInputString();
+			shellPuts(buffRecv);
+			numRecv = strlen(buffRecv);
+			break;
+		case arrowRt:
+			// should process adding chars in the middle of the buffer
+			break;
+		case arrowLt:
+			// should process adding chars in the middle of the buffer
+			break;
+		default:
+			// do nothing since invalid arrow or something else was recvd
+			arrowRecvd = 0;
+			break;
+		}
+
+		shellFlush();
+	}
+
+// Null terminate.
+	buffRecv[numRecv] = 0;
+	if (echo) {
+		shellPuts("\r\n");
 		shellFlush();
 	}
 
