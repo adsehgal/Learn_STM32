@@ -135,6 +135,7 @@ static uint8_t cmdExec(char *str) {
  * @return: void
  */
 static void telnetProcess(void) {
+	uint8_t err = 0;
 
 	shellFlush();
 
@@ -144,10 +145,42 @@ static void telnetProcess(void) {
 	shellFlush();
 
 	shellPutc('\n');
+//	shellPutInputString();
+	shellFlush();
+
+	shellPuts("Enter Username: ");
+	shellFlush();
+	err = shellGets(cmdbuf, TELNET_SHELL_CMD_SIZE, 1);
+	shellFlush();
+
+	if (!strcasecmp(cmdbuf, "user")) {
+		shellPuts("\tUsername OK. Proceed\n");
+	} else {
+		shellPuts("\tInvalid username, exiting...\n\n");
+		return;
+	}
+
+	err = shellGets(cmdbuf, TELNET_SHELL_CMD_SIZE, 1);//this is here because gets returns 2 '\n'
+
+	memset(cmdbuf, 0, strlen(cmdbuf));	//empty out recv str
+
+	shellPuts("Enter Password: ");
+	shellFlush();
+	err = shellGets(cmdbuf, TELNET_SHELL_CMD_SIZE, 0);
+
+	shellFlush();
+	if (!strcasecmp(cmdbuf, "password")) {
+		shellPuts("\n\tPassword OK. Proceed\n\n");
+	} else {
+		shellPuts("\n\tInvalid password, exiting...\n\n");
+		return;
+	}
+
 	shellPutInputString();
 	shellFlush();
 
-	uint8_t err = 0;
+	err = shellGets(cmdbuf, TELNET_SHELL_CMD_SIZE, 1);//this is here because gets returns 2 '\n'
+
 	while ((err = shellGets(cmdbuf, TELNET_SHELL_CMD_SIZE, 1))) {
 		if (!cmdExec(cmdbuf)) {
 			break;
