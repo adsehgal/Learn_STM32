@@ -179,7 +179,6 @@ static void shellProcessOpt(void) {
 
 	while (p < shell.buffIn.end) {
 		int c = *p++;
-
 		switch (shell.state) {
 
 		case TELSTATE_IAC:
@@ -277,6 +276,8 @@ void shellInit(int socket) {
 	shell.term.rows = 25;
 
 	shellSendopt(TELSC_WILL, TELOPT_ECHO);
+
+
 	shell.buffOut.start = shell.buffOut.data;
 }
 

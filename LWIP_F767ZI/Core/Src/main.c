@@ -111,7 +111,7 @@ int main(void) {
 
 	/* Initialize all configured peripherals */
 	/* USER CODE BEGIN 2 */
-
+	printf("Starting...\n\n");
 	telnetInit();
 
 	/* USER CODE END 2 */
